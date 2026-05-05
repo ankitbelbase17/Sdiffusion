@@ -48,6 +48,7 @@ srun torchrun \
     --max_steps 30000 \
     --batch_size 16 \
     --num_workers 16 \
+    --image_size 512 \
     --save_interval 1000 \
     --image_log_interval 250 \
     --gender all \
