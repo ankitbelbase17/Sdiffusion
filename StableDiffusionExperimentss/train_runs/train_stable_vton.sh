@@ -77,5 +77,5 @@ srun --nodes=1 --ntasks=1 --ntasks-per-node=1 bash -c '
     --rdzv_backend=c10d \
     --rdzv_endpoint='"${MASTER_ADDR}"':'"${MASTER_PORT}"' \
     --rdzv_id=${SLURM_JOB_ID} \
-    cross-architecture/StableVTON/train_stable_vton_local.py --curvton_data_path '"${DATA_DIR}"' --batch_size 8 --image_size 512 --num_workers 16 --max_steps 20000 --wandb_project Stable_diffusion --save_interval 1000 --image_log_interval 500 --output_dir '"${OUT_DIR}"' --no_resume --run_name Stable_diffusion_train_stable_vton
+    cross-architecture/StableVTON/train_stable_vton_local.py --curvton_data_path '"${DATA_DIR}"' --batch_size 8 --image_size 512 --num_workers 16 --max_steps 20000 --wandb_project Stable_diffusion --save_interval 1000 --image_log_interval 500 --output_dir '"${OUT_DIR}"' --run_name Stable_diffusion_train_stable_vton
 '

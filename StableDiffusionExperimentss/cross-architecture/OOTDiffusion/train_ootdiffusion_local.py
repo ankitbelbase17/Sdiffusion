@@ -17,7 +17,7 @@ from transformers import AutoProcessor, CLIPTextModel, CLIPTokenizer, CLIPVision
 
 from diffusers import AutoencoderKL, DDPMScheduler
 
-from common import add_common_args, cleanup_dist, setup_dist
+from common import add_common_args, cleanup_dist, latest_checkpoint, setup_dist
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 OOT_ROOT = os.path.abspath(os.path.join(THIS_DIR, "..", "..", "..", "OOTDiffusion"))
@@ -187,7 +187,22 @@ def train(args):
 
     save_interval = 1000
     image_log_interval = 250
+
+    ckpt_to_load = args.resume if args.resume else latest_checkpoint(run_dir)
     step = 0
+    if ckpt_to_load and os.path.exists(ckpt_to_load):
+        ckpt = torch.load(ckpt_to_load, map_location=device)
+        raw_g = unet_garm.module if hasattr(unet_garm, "module") else unet_garm
+        raw_v = unet_vton.module if hasattr(unet_vton, "module") else unet_vton
+        if "unet_garm_state_dict" in ckpt:
+            raw_g.load_state_dict(ckpt["unet_garm_state_dict"], strict=False)
+        if "unet_vton_state_dict" in ckpt:
+            raw_v.load_state_dict(ckpt["unet_vton_state_dict"], strict=False)
+        if "optimizer_state_dict" in ckpt:
+            optimizer.load_state_dict(ckpt["optimizer_state_dict"])
+        step = int(ckpt.get("step", 0))
+        if dist.is_main:
+            print(f"Resumed from checkpoint: {ckpt_to_load} (step={step})", flush=True)
     while step < args.max_steps:
         if sampler is not None:
             sampler.set_epoch(step)
@@ -312,6 +327,7 @@ if __name__ == "__main__":
     add_common_args(parser)
     parser.add_argument("--category", type=str, default="all", choices=["all", "dresses", "upper_body", "lower_body", "uncertain"])
     parser.add_argument("--num_inference_steps", type=int, default=30)
+    parser.add_argument("--resume", type=str, default=None, help="Optional explicit checkpoint path. If unset, latest checkpoint in run_dir is used.")
     args = parser.parse_args()
     args.run_name = args.run_name or "train_ootdiffusion"
     train(args)

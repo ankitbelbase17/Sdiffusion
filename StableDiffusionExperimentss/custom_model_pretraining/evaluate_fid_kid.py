@@ -47,6 +47,21 @@ def _resolve_diffusion_steps(args: argparse.Namespace, ckpt: dict | None) -> int
     raise ValueError("Could not resolve diffusion_steps. Set --diffusion_steps > 0 or use a checkpoint with diffusion.steps metadata.")
 
 
+def _apply_ckpt_cfg_to_args(args: argparse.Namespace, ckpt: dict | None) -> None:
+    if ckpt is None:
+        return
+    cfg = ckpt.get("cfg", {})
+    if not isinstance(cfg, dict):
+        return
+    args.image_size = int(cfg.get("image_size", args.image_size))
+    args.image_width = int(cfg.get("image_width", args.image_width if args.image_width > 0 else args.image_size * 2))
+    args.patch_size = int(cfg.get("patch_size", args.patch_size))
+    args.hidden_size = int(cfg.get("hidden_size", args.hidden_size))
+    args.depth = int(cfg.get("depth", args.depth))
+    args.num_heads = int(cfg.get("num_heads", args.num_heads))
+    args.mlp_ratio = float(cfg.get("mlp_ratio", args.mlp_ratio))
+
+
 def _to_01(x: torch.Tensor) -> torch.Tensor:
     if x.min() < -0.01 or x.max() > 1.01:
         x = (x + 1.0) * 0.5
@@ -142,22 +157,25 @@ def _build_predict_fn(args, model):
 def main(args: argparse.Namespace) -> None:
     device = torch.device(args.device if args.device else ("cuda" if torch.cuda.is_available() else "cpu"))
     weight_source = "init_xavier"
-    if args.approach == "datapred":
-        model = _build_datapred_model(args).to(device).eval()
-    else:
-        model = _build_meanflow_model(args).to(device).eval()
-    _log_and_validate_components(model, args.approach)
-
     ckpt = None
     if args.use_init_weights:
         print("Using initial custom DiT weights (no checkpoint load).")
     elif args.checkpoint:
         ckpt = torch.load(args.checkpoint, map_location=device)
-        model.load_state_dict(_clean_state_dict(ckpt["model"]), strict=False)
         weight_source = f"checkpoint={args.checkpoint}"
         print(f"Loaded checkpoint: {args.checkpoint}")
     else:
         print("Using init weights for evaluation.")
+
+    _apply_ckpt_cfg_to_args(args, ckpt)
+    if args.approach == "datapred":
+        model = _build_datapred_model(args, ckpt_cfg=(ckpt.get("cfg", {}) if ckpt is not None else None)).to(device).eval()
+    else:
+        model = _build_meanflow_model(args, ckpt_cfg=(ckpt.get("cfg", {}) if ckpt is not None else None)).to(device).eval()
+    _log_and_validate_components(model, args.approach)
+    if ckpt is not None:
+        model.load_state_dict(_clean_state_dict(ckpt["model"]), strict=False)
+
     print(f"Weights used: {weight_source}")
     args._resolved_diffusion_steps = _resolve_diffusion_steps(args, ckpt) if args.approach == "datapred" else args.diffusion_steps
 

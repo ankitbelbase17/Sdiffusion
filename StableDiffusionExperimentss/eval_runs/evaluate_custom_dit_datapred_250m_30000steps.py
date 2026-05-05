@@ -7,12 +7,22 @@ import sys
 
 RUN_NAME = 'Stable_diffusion_train_custom_dit_datapred_250m_30000steps'
 CKPT_DIR = Path('/iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_custom_dit_datapred_250m_30000steps/checkpoints')
-COMMAND = ['python', 'custom_model_pretraining/evaluate_fid_kid.py', '--approach', 'datapred', '--model_size', '250m', '--checkpoint', '__CKPT_PATH__', '--curvton_test_data_path', '/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate_test', '--triplet_test_data_path', '/iopsstor/scratch/cscs/dbartaula/human_gen/triplet_dataset_backup_1', '--street_tryon_data_path', '/iopsstor/scratch/cscs/dbartaula/human_gen/benchmark_datasets/street_tryon', '--image_size', '64', '--batch_size', '16', '--num_workers', '8', '--diffusion_steps', '30', '--eval_frac_curvton', '0.80', '--eval_frac_curvton_overall', '0.25', '--eval_frac_triplet', '0.25', '--eval_frac_street', '0.25', '--output_json', '/iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_custom_dit_datapred_250m_30000steps/eval_fid_kid.json']
+COMMAND = ['python', 'custom_model_pretraining/evaluate_fid_kid.py', '--approach', 'datapred', '--checkpoint', '__CKPT_PATH__', '--curvton_test_data_path', '/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate_test', '--triplet_test_data_path', '/iopsstor/scratch/cscs/dbartaula/human_gen/triplet_dataset_backup_1', '--street_tryon_data_path', '/iopsstor/scratch/cscs/dbartaula/human_gen/benchmark_datasets/street_tryon', '--image_size', '512', '--patch_size', '16', '--hidden_size', '1280', '--depth', '9', '--num_heads', '20', '--batch_size', '16', '--num_workers', '8', '--diffusion_steps', '30', '--eval_frac_curvton', '0.80', '--eval_frac_triplet', '0.25', '--eval_frac_street', '0.25', '--output_json', '/iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_custom_dit_datapred_250m_30000steps/eval_fid_kid.json']
 def _latest_ckpt(ckpt_dir: Path) -> Path:
+    candidates = list(ckpt_dir.glob("ckpt_step_*.pt"))
     final_ckpt = ckpt_dir / "ckpt_final.pt"
     if final_ckpt.exists():
-        return final_ckpt
-    raise FileNotFoundError(f"No final checkpoint found in {ckpt_dir} (expected ckpt_final.pt)")
+        candidates.append(final_ckpt)
+    if not candidates:
+        raise FileNotFoundError(f"No checkpoint found in {ckpt_dir}")
+
+    def _step_of(path: Path) -> int:
+        if path.name == "ckpt_final.pt":
+            return 10**12
+        m = re.search(r"ckpt_step_(\d+)\.pt$", path.name)
+        return int(m.group(1)) if m else -1
+
+    return max(candidates, key=_step_of)
 
 
 def _print_output_json_if_available(cmd_tokens):

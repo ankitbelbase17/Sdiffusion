@@ -4,6 +4,7 @@ from typing import Optional
 
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 
 def _modulate(x: torch.Tensor, shift: torch.Tensor, scale: torch.Tensor) -> torch.Tensor:
@@ -33,18 +34,68 @@ class TimestepEmbedder(nn.Module):
         return self.proj(emb)
 
 
+class SwiGLU(nn.Module):
+    def __init__(self, in_dim: int, hidden_dim: int) -> None:
+        super().__init__()
+        self.fc = nn.Linear(in_dim, 2 * hidden_dim)
+        self.proj = nn.Linear(hidden_dim, in_dim)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        a, b = self.fc(x).chunk(2, dim=-1)
+        return self.proj(F.silu(a) * b)
+
+
+class RopeSelfAttention(nn.Module):
+    def __init__(self, hidden_size: int, num_heads: int) -> None:
+        super().__init__()
+        if hidden_size % num_heads != 0:
+            raise ValueError(f"hidden_size={hidden_size} must be divisible by num_heads={num_heads}")
+        self.num_heads = num_heads
+        self.head_dim = hidden_size // num_heads
+        if self.head_dim % 2 != 0:
+            raise ValueError(f"head_dim={self.head_dim} must be even for RoPE")
+        self.scale = self.head_dim ** -0.5
+        self.qkv = nn.Linear(hidden_size, 3 * hidden_size)
+        self.out = nn.Linear(hidden_size, hidden_size)
+
+    def _rope_cache(self, seqlen: int, device: torch.device, dtype: torch.dtype) -> tuple[torch.Tensor, torch.Tensor]:
+        half = self.head_dim // 2
+        pos = torch.arange(seqlen, device=device, dtype=torch.float32).unsqueeze(1)
+        freq = torch.exp(-math.log(10000) * torch.arange(half, device=device, dtype=torch.float32) / max(half - 1, 1))
+        theta = pos * freq.unsqueeze(0)
+        cos = torch.cos(theta).to(dtype=dtype)
+        sin = torch.sin(theta).to(dtype=dtype)
+        return cos, sin
+
+    def _apply_rope(self, x: torch.Tensor, cos: torch.Tensor, sin: torch.Tensor) -> torch.Tensor:
+        x_even = x[..., 0::2]
+        x_odd = x[..., 1::2]
+        cos = cos.unsqueeze(0).unsqueeze(0)
+        sin = sin.unsqueeze(0).unsqueeze(0)
+        out_even = x_even * cos - x_odd * sin
+        out_odd = x_even * sin + x_odd * cos
+        return torch.stack((out_even, out_odd), dim=-1).flatten(-2)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        bsz, seqlen, _ = x.shape
+        qkv = self.qkv(x).view(bsz, seqlen, 3, self.num_heads, self.head_dim).permute(2, 0, 3, 1, 4)
+        q, k, v = qkv[0], qkv[1], qkv[2]
+        cos, sin = self._rope_cache(seqlen, x.device, x.dtype)
+        q = self._apply_rope(q, cos, sin)
+        k = self._apply_rope(k, cos, sin)
+        attn = torch.nn.functional.scaled_dot_product_attention(q, k, v, dropout_p=0.0, is_causal=False, scale=self.scale)
+        attn = attn.transpose(1, 2).contiguous().view(bsz, seqlen, self.num_heads * self.head_dim)
+        return self.out(attn)
+
+
 class DiTBlock(nn.Module):
     def __init__(self, hidden_size: int, num_heads: int, mlp_ratio: float = 4.0) -> None:
         super().__init__()
         self.norm1 = nn.LayerNorm(hidden_size, eps=1e-6)
-        self.attn = nn.MultiheadAttention(hidden_size, num_heads, batch_first=True)
+        self.attn = RopeSelfAttention(hidden_size, num_heads)
         self.norm2 = nn.LayerNorm(hidden_size, eps=1e-6)
         mlp_hidden = int(hidden_size * mlp_ratio)
-        self.mlp = nn.Sequential(
-            nn.Linear(hidden_size, mlp_hidden),
-            nn.GELU(approximate="tanh"),
-            nn.Linear(mlp_hidden, hidden_size),
-        )
+        self.mlp = SwiGLU(hidden_size, mlp_hidden)
         self.adaLN = nn.Sequential(
             nn.SiLU(),
             nn.Linear(hidden_size, 6 * hidden_size),
@@ -53,7 +104,7 @@ class DiTBlock(nn.Module):
     def forward(self, x: torch.Tensor, cond: torch.Tensor) -> torch.Tensor:
         shift1, scale1, gate1, shift2, scale2, gate2 = self.adaLN(cond).chunk(6, dim=1)
         a = _modulate(self.norm1(x), shift1, scale1)
-        a, _ = self.attn(a, a, a, need_weights=False)
+        a = self.attn(a)
         x = x + gate1.unsqueeze(1) * a
         m = self.mlp(_modulate(self.norm2(x), shift2, scale2))
         x = x + gate2.unsqueeze(1) * m
@@ -110,7 +161,6 @@ class MeanFlowDiT250M(nn.Module):
         self.patch_embed = nn.Conv2d(
             cfg.in_channels, cfg.hidden_size, kernel_size=cfg.patch_size, stride=cfg.patch_size
         )
-        self.pos_embed = nn.Parameter(torch.zeros(1, self.num_tokens, cfg.hidden_size))
         self.t_embed = TimestepEmbedder(cfg.hidden_size)
         self.r_embed = TimestepEmbedder(cfg.hidden_size)
         self.blocks = nn.ModuleList(
@@ -120,7 +170,6 @@ class MeanFlowDiT250M(nn.Module):
         self._init_weights()
 
     def _init_weights(self) -> None:
-        nn.init.normal_(self.pos_embed, std=0.02)
         nn.init.xavier_uniform_(self.patch_embed.weight)
         nn.init.zeros_(self.patch_embed.bias)
 
@@ -136,7 +185,6 @@ class MeanFlowDiT250M(nn.Module):
     def forward(self, z_t: torch.Tensor, t: torch.Tensor, r: torch.Tensor) -> torch.Tensor:
         x = self.patch_embed(z_t)
         x = x.flatten(2).transpose(1, 2)
-        x = x + self.pos_embed
         cond = self.t_embed(t) + self.r_embed(r)
         for block in self.blocks:
             x = block(x, cond)

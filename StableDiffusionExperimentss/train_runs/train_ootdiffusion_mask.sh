@@ -13,7 +13,7 @@ set -euo pipefail
 RUN_NNODES=1
 
 WORK_DIR="/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss"
-DATA_DIR="${DATA_DIR:-/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup/dataset_ultimate_stratified_category}"
+DATA_DIR="${DATA_DIR:-/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup/dataset_ultimate}"
 OUT_DIR="${OUT_DIR:-/iopsstor/scratch/cscs/dbartaula/experiments_assets}"
 
 cd "${WORK_DIR}"

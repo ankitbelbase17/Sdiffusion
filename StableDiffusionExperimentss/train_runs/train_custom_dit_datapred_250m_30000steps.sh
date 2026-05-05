@@ -49,6 +49,7 @@ srun torchrun \
     --batch_size 16 \
     --num_workers 16 \
     --image_size 512 \
+    --patch_size 16 \
     --save_interval 1000 \
     --image_log_interval 250 \
     --inference_steps 30 \

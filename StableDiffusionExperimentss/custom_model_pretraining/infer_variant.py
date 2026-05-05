@@ -11,35 +11,45 @@ from model import DiT250M, DiTConfig
 from utils import make_beta_schedule, sample_ddim_like
 
 
-def _build_datapred_model(args):
+def _cfg_or_default(ckpt_cfg: dict | None, key: str, default):
+    if ckpt_cfg is None:
+        return default
+    return ckpt_cfg.get(key, default)
+
+
+def _build_datapred_model(args, ckpt_cfg: dict | None = None):
     cfg = DiTConfig(
-        image_size=args.image_size,
-        image_height=args.image_size,
-        image_width=args.image_width if args.image_width > 0 else args.image_size * 2,
-        in_channels=3,
-        cond_in_channels=3,
-        out_channels=3,
-        patch_size=args.patch_size,
-        hidden_size=args.hidden_size,
-        depth=args.depth,
-        num_heads=args.num_heads,
-        mlp_ratio=args.mlp_ratio,
+        image_size=_cfg_or_default(ckpt_cfg, "image_size", args.image_size),
+        image_height=_cfg_or_default(ckpt_cfg, "image_height", args.image_size),
+        image_width=_cfg_or_default(
+            ckpt_cfg, "image_width", args.image_width if args.image_width > 0 else args.image_size * 2
+        ),
+        in_channels=_cfg_or_default(ckpt_cfg, "in_channels", 3),
+        cond_in_channels=_cfg_or_default(ckpt_cfg, "cond_in_channels", 3),
+        out_channels=_cfg_or_default(ckpt_cfg, "out_channels", 3),
+        patch_size=_cfg_or_default(ckpt_cfg, "patch_size", args.patch_size),
+        hidden_size=_cfg_or_default(ckpt_cfg, "hidden_size", args.hidden_size),
+        depth=_cfg_or_default(ckpt_cfg, "depth", args.depth),
+        num_heads=_cfg_or_default(ckpt_cfg, "num_heads", args.num_heads),
+        mlp_ratio=_cfg_or_default(ckpt_cfg, "mlp_ratio", args.mlp_ratio),
     )
     return DiT250M(cfg)
 
 
-def _build_meanflow_model(args):
+def _build_meanflow_model(args, ckpt_cfg: dict | None = None):
     cfg = MeanFlowDiTConfig(
-        image_size=args.image_size,
-        image_height=args.image_size,
-        image_width=args.image_width if args.image_width > 0 else args.image_size * 2,
-        in_channels=3,
-        out_channels=3,
-        patch_size=args.patch_size,
-        hidden_size=args.hidden_size,
-        depth=args.depth,
-        num_heads=args.num_heads,
-        mlp_ratio=args.mlp_ratio,
+        image_size=_cfg_or_default(ckpt_cfg, "image_size", args.image_size),
+        image_height=_cfg_or_default(ckpt_cfg, "image_height", args.image_size),
+        image_width=_cfg_or_default(
+            ckpt_cfg, "image_width", args.image_width if args.image_width > 0 else args.image_size * 2
+        ),
+        in_channels=_cfg_or_default(ckpt_cfg, "in_channels", 3),
+        out_channels=_cfg_or_default(ckpt_cfg, "out_channels", 3),
+        patch_size=_cfg_or_default(ckpt_cfg, "patch_size", args.patch_size),
+        hidden_size=_cfg_or_default(ckpt_cfg, "hidden_size", args.hidden_size),
+        depth=_cfg_or_default(ckpt_cfg, "depth", args.depth),
+        num_heads=_cfg_or_default(ckpt_cfg, "num_heads", args.num_heads),
+        mlp_ratio=_cfg_or_default(ckpt_cfg, "mlp_ratio", args.mlp_ratio),
     )
     return MeanFlowDiT250M(cfg)
 
@@ -58,14 +68,17 @@ def _resolve_diffusion_steps(args: argparse.Namespace, ckpt: dict | None) -> int
 def run_inference(args: argparse.Namespace) -> None:
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     os.makedirs(os.path.dirname(args.output), exist_ok=True)
+    ckpt = torch.load(args.checkpoint, map_location=device)
+    ckpt_cfg = ckpt.get("cfg", {})
 
     if args.approach == "datapred":
         if not args.person_path or not args.cloth_path:
             raise ValueError("Datapred inference requires both --person_path and --cloth_path.")
-        model = _build_datapred_model(args).to(device).eval()
-        ckpt = torch.load(args.checkpoint, map_location=device)
+        model = _build_datapred_model(args, ckpt_cfg=ckpt_cfg).to(device).eval()
         model.load_state_dict(ckpt["model"], strict=False)
         diffusion_steps = _resolve_diffusion_steps(args, ckpt)
+        h = model.cfg.image_height
+        w = model.cfg.image_width
 
         betas = make_beta_schedule(diffusion_steps).to(device)
         alphas = 1.0 - betas
@@ -75,8 +88,8 @@ def run_inference(args: argparse.Namespace) -> None:
         shape = (
             args.batch_size,
             3,
-            args.image_size,
-            args.image_width if args.image_width > 0 else args.image_size * 2,
+            h,
+            w,
         )
         sample_wide = sample_ddim_like(
             model=model,
@@ -86,16 +99,15 @@ def run_inference(args: argparse.Namespace) -> None:
             sqrt_1mab=sqrt_1mab,
             device=device,
             cond=torch.cat([
-                _load_rgb(args.person_path, args.image_size, args.image_size).unsqueeze(0).to(device),
-                _load_rgb(args.cloth_path, args.image_size, args.image_size).unsqueeze(0).to(device),
+                _load_rgb(args.person_path, h, model.cfg.image_size).unsqueeze(0).to(device),
+                _load_rgb(args.cloth_path, h, model.cfg.image_size).unsqueeze(0).to(device),
             ], dim=3).repeat(args.batch_size, 1, 1, 1),
         )
     else:
-        model = _build_meanflow_model(args).to(device).eval()
-        ckpt = torch.load(args.checkpoint, map_location=device)
+        model = _build_meanflow_model(args, ckpt_cfg=ckpt_cfg).to(device).eval()
         model.load_state_dict(ckpt["model"], strict=False)
-        h = args.image_size
-        w = args.image_width if args.image_width > 0 else args.image_size * 2
+        h = model.cfg.image_height
+        w = model.cfg.image_width
         z1 = torch.randn(args.batch_size, 3, h, w, device=device)
         r = torch.zeros((args.batch_size,), device=device)
         t = torch.ones((args.batch_size,), device=device)
@@ -103,7 +115,7 @@ def run_inference(args: argparse.Namespace) -> None:
         sample_wide = z1 - u
 
     # Keep CATVTON-style output semantics; save tryon half for visualization.
-    sample_tryon = sample_wide[:, :, :, : args.image_size]
+    sample_tryon = sample_wide[:, :, :, : model.cfg.image_size]
     sample_tryon = (sample_tryon.clamp(-1, 1) + 1) * 0.5
     save_image(sample_tryon, args.output, nrow=min(args.batch_size, 4))
     print(f"Saved samples to {args.output}")
@@ -115,9 +127,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--checkpoint", type=str, required=True)
     p.add_argument("--output", type=str, required=True)
     p.add_argument("--batch_size", type=int, default=4)
-    p.add_argument("--image_size", type=int, default=64)
+    p.add_argument("--image_size", type=int, default=512)
     p.add_argument("--image_width", type=int, default=-1)
-    p.add_argument("--patch_size", type=int, default=2)
+    p.add_argument("--patch_size", type=int, default=16)
     p.add_argument("--hidden_size", type=int, default=1280)
     p.add_argument("--depth", type=int, default=9)
     p.add_argument("--num_heads", type=int, default=20)
