@@ -1,0 +1,13 @@
+{"time":"2026-05-03T14:42:56.657047426+02:00","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmp434fmw08/port-131891.txt","pid":131891,"detached":false,"idle-timeout":600000000000,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false,"enable-dcgm-profiling":false}
+{"time":"2026-05-03T14:42:56.657629808+02:00","level":"INFO","msg":"server: accepting connections","addr":{"Name":"/tmp/wandb-131891-135528-2188889934/socket","Net":"unix"}}
+{"time":"2026-05-03T14:42:56.65767787+02:00","level":"INFO","msg":"server: will exit if parent process dies","ppid":131891}
+{"time":"2026-05-03T14:42:56.832070361+02:00","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"1(@)"}
+{"time":"2026-05-03T14:42:56.848632269+02:00","level":"INFO","msg":"handleInformInit: received","streamId":"cryw6a1i","id":"1(@)"}
+{"time":"2026-05-03T14:42:57.398467746+02:00","level":"INFO","msg":"handleInformInit: stream started","streamId":"cryw6a1i","id":"1(@)"}
+{"time":"2026-05-03T14:43:03.130390417+02:00","level":"INFO","msg":"connection: cancelling request","id":"1(@)","requestId":"ayivqbcjm4oi"}
+{"time":"2026-05-03T14:44:19.215474738+02:00","level":"INFO","msg":"handleInformTeardown: server teardown initiated","id":"1(@)"}
+{"time":"2026-05-03T14:44:19.215693131+02:00","level":"INFO","msg":"server is shutting down"}
+{"time":"2026-05-03T14:44:19.215716907+02:00","level":"INFO","msg":"connection: closing","id":"1(@)"}
+{"time":"2026-05-03T14:44:19.21585911+02:00","level":"INFO","msg":"server: listener closed","addr":{"Name":"/tmp/wandb-131891-135528-2188889934/socket","Net":"unix"}}
+{"time":"2026-05-03T14:44:19.215954275+02:00","level":"INFO","msg":"connection: closed successfully","id":"1(@)"}
+{"time":"2026-05-03T14:44:20.437311455+02:00","level":"INFO","msg":"server: parent process exited, terminating service process"}

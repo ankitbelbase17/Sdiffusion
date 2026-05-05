@@ -1,0 +1,120 @@
+/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/StableVTON/train_stable_vton_local.py:322: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=(dist_info.device.type == "cuda")):
+[step     10/28000] loss=0.076925 denoise=0.054807
+[step     20/28000] loss=0.086610 denoise=0.065291
+[step     30/28000] loss=0.110181 denoise=0.088795
+[step     40/28000] loss=0.358159 denoise=0.340658
+[step     50/28000] loss=0.086555 denoise=0.065074
+[step     60/28000] loss=0.047689 denoise=0.025355
+[step     70/28000] loss=0.101640 denoise=0.080466
+[step     80/28000] loss=0.096176 denoise=0.074416
+[step     90/28000] loss=0.067391 denoise=0.045171
+[step    100/28000] loss=0.185357 denoise=0.165065
+[step    110/28000] loss=0.093891 denoise=0.072167
+[step    120/28000] loss=0.132174 denoise=0.112348
+[step    130/28000] loss=0.070416 denoise=0.048540
+[step    140/28000] loss=0.204335 denoise=0.184409
+[step    150/28000] loss=0.053173 denoise=0.031210
+[step    160/28000] loss=0.084926 denoise=0.063155
+[step    170/28000] loss=0.135636 denoise=0.114846
+[step    180/28000] loss=0.148834 denoise=0.128194
+[step    190/28000] loss=0.245784 denoise=0.226667
+[step    200/28000] loss=0.120022 denoise=0.098934
+[step    210/28000] loss=0.088229 denoise=0.069201
+[step    220/28000] loss=0.178792 denoise=0.158720
+[step    230/28000] loss=0.088679 denoise=0.067145
+[step    240/28000] loss=0.205296 denoise=0.185065
+[step    250/28000] loss=0.147911 denoise=0.127185
+[step    260/28000] loss=0.035877 denoise=0.013719
+[step    270/28000] loss=0.123347 denoise=0.102214
+[step    280/28000] loss=0.167606 denoise=0.147288
+[step    290/28000] loss=0.243336 denoise=0.223706
+[step    300/28000] loss=0.101569 denoise=0.080484
+[step    310/28000] loss=0.113493 denoise=0.092359
+[step    320/28000] loss=0.062580 denoise=0.040862
+[step    330/28000] loss=0.228326 denoise=0.209047
+[step    340/28000] loss=0.110245 denoise=0.089679
+[step    350/28000] loss=0.221619 denoise=0.202231
+[step    360/28000] loss=0.141906 denoise=0.121106
+[step    370/28000] loss=0.087483 denoise=0.065886
+[step    380/28000] loss=0.098364 denoise=0.076942
+[step    390/28000] loss=0.099609 denoise=0.078099
+[step    400/28000] loss=0.258149 denoise=0.238916
+[step    410/28000] loss=0.085369 denoise=0.063655
+[step    420/28000] loss=0.049707 denoise=0.027821
+[step    430/28000] loss=0.080207 denoise=0.058538
+[step    440/28000] loss=0.218693 denoise=0.199589
+[step    450/28000] loss=0.315536 denoise=0.297258
+[step    460/28000] loss=0.046369 denoise=0.024344
+[step    470/28000] loss=0.225896 denoise=0.206275
+[step    480/28000] loss=0.090803 denoise=0.069334
+[step    490/28000] loss=0.035366 denoise=0.013337
+[step    500/28000] loss=0.173814 denoise=0.153321
+Traceback (most recent call last):
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/StableVTON/train_stable_vton_local.py", line 423, in <module>
+    train(args)
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/StableVTON/train_stable_vton_local.py", line 355, in train
+    pred_img = _sample_tryon(
+               ^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/StableVTON/train_stable_vton_local.py", line 292, in _sample_tryon
+    noise_pred = raw_model(latents, mask_lat, agnostic_lat, pose_lat, cloth_img, t_batch)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/StableVTON/train_stable_vton_local.py", line 207, in forward
+    clip_tokens = self._encode_garment_clip_tokens(cloth_img, noisy.dtype)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/StableVTON/train_stable_vton_local.py", line 189, in _encode_garment_clip_tokens
+    return self.garment_token_proj(self.clip_to_cross(embeds)).unsqueeze(1).to(dtype=dtype)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: mat1 and mat2 must have the same dtype, but got Half and Float
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/StableVTON/train_stable_vton_local.py", line 423, in <module>
+[rank0]:     train(args)
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/StableVTON/train_stable_vton_local.py", line 355, in train
+[rank0]:     pred_img = _sample_tryon(
+[rank0]:                ^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/StableVTON/train_stable_vton_local.py", line 292, in _sample_tryon
+[rank0]:     noise_pred = raw_model(latents, mask_lat, agnostic_lat, pose_lat, cloth_img, t_batch)
+[rank0]:                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/StableVTON/train_stable_vton_local.py", line 207, in forward
+[rank0]:     clip_tokens = self._encode_garment_clip_tokens(cloth_img, noisy.dtype)
+[rank0]:                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/StableVTON/train_stable_vton_local.py", line 189, in _encode_garment_clip_tokens
+[rank0]:     return self.garment_token_proj(self.clip_to_cross(embeds)).unsqueeze(1).to(dtype=dtype)
+[rank0]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 125, in forward
+[rank0]:     return F.linear(input, self.weight, self.bias)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: RuntimeError: mat1 and mat2 must have the same dtype, but got Half and Float

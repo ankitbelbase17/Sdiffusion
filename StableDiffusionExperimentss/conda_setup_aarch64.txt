@@ -1,0 +1,187 @@
+================================================================================
+  CONDA ENVIRONMENT SETUP — aarch64 (ARM64) — Clariden / Grace-Hopper
+================================================================================
+
+TARGET SYSTEM
+  Architecture : aarch64 (ARM64)
+  GPU          : NVIDIA H100 / GH200 (Grace Hopper)
+  CUDA toolkit : 12.1 (adjust if your Clariden module differs — check with
+                 `nvidia-smi` or `nvcc --version`)
+  Python       : 3.10
+
+NOTE: requirements.txt is missing `wandb` which is actively imported by
+      train.py, train_DiT.py, train_tryongan.py, train_stable_diffusion.py,
+      and utils.py.  It is included below.
+
+================================================================================
+STEP 1 — Load system modules (Clariden / CSCS HPC)
+================================================================================
+
+On Clariden you typically need to load a CUDA-aware module before creating
+the environment.  Run these first:
+
+  module purge
+  module load cray-python          # or: module load Python/3.10.x
+  module load cudatoolkit/12.1     # match your cluster's available version
+
+Check available modules:
+  module avail cuda
+  module avail python
+
+================================================================================
+STEP 2 — Create the conda environment
+================================================================================
+
+  conda create -n tryon_env python=3.10 -y
+  conda activate tryon_env
+
+================================================================================
+STEP 3 — Install PyTorch (aarch64 + CUDA 12.1)
+================================================================================
+
+Official PyTorch wheels now ship aarch64 Linux builds.
+Use the PyTorch index URL that matches your CUDA version.
+
+  # CUDA 12.1
+  pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+
+  # ── If that fails (wheel not found for aarch64), fall back to conda-forge: ──
+  # conda install -c conda-forge pytorch torchvision pytorch-cuda=12.1 -y
+
+  # ── Verify GPU is visible ──
+  python -c "import torch; print('CUDA available:', torch.cuda.is_available()); print('Device:', torch.cuda.get_device_name(0))"
+
+================================================================================
+STEP 4 — Install all remaining dependencies
+================================================================================
+
+Run the following block as a single pip command:
+
+  pip install \
+    "diffusers>=0.21.0" \
+    "transformers>=4.30.0" \
+    "accelerate>=0.20.0" \
+    "Pillow>=9.5.0" \
+    "numpy>=1.24.0" \
+    "tqdm>=4.65.0" \
+    "lpips>=0.1.4" \
+    "torchmetrics[image]>=1.3.0" \
+    "python-dotenv>=1.0.0" \
+    "boto3>=1.26.0" \
+    "wandb>=0.16.0" \
+    "weave>=0.50.0"
+
+  # mediapipe — installs last because aarch64 support arrived in >=0.10.3
+  pip install "mediapipe>=0.10.3"
+
+  # ── If mediapipe fails on aarch64 (no pre-built wheel): ──
+  #   Option A — build from source:
+  #     sudo apt-get install -y cmake libopencv-dev
+  #     pip install mediapipe --no-binary mediapipe
+  #
+  #   Option B — skip and install a stub / ignore if not used by your path:
+  #     pip install mediapipe --pre   (nightly pre-release, often has aarch64)
+
+================================================================================
+STEP 5 — (Optional) Save the environment as a reproducible YAML
+================================================================================
+
+  conda env export > tryon_env_aarch64.yml
+
+  # To recreate later on the same architecture:
+  conda env create -f tryon_env_aarch64.yml
+
+================================================================================
+STEP 6 — Verify ALL dependencies are installed correctly
+================================================================================
+
+Run the verification script below (copy-paste into terminal):
+
+  python - <<'EOF'
+import importlib, sys
+
+packages = {
+    # (import_name         , display_name           , required_version_hint)
+    "torch"               : ("torch",                ">=2.0.0"),
+    "torchvision"         : ("torchvision",          ">=0.15.0"),
+    "numpy"               : ("numpy",                ">=1.24.0"),
+    "diffusers"           : ("diffusers",            ">=0.21.0"),
+    "transformers"        : ("transformers",         ">=4.30.0"),
+    "accelerate"          : ("accelerate",           ">=0.20.0"),
+    "PIL"                 : ("Pillow",               ">=9.5.0"),
+    "tqdm"                : ("tqdm",                 ">=4.65.0"),
+    "mediapipe"           : ("mediapipe",            ">=0.10.0"),
+    "weave"               : ("weave",                ">=0.50.0"),
+    "lpips"               : ("lpips",                ">=0.1.4"),
+    "torchmetrics"        : ("torchmetrics",         ">=1.3.0"),
+    "dotenv"              : ("python-dotenv",        ">=1.0.0"),
+    "boto3"               : ("boto3",                ">=1.26.0"),
+    "wandb"               : ("wandb",                ">=0.16.0"),
+}
+
+all_ok = True
+print(f"{'Package':<20} {'Version':<15} {'Status'}")
+print("-" * 50)
+for import_name, (display, hint) in packages.items():
+    try:
+        mod = importlib.import_module(import_name)
+        version = getattr(mod, "__version__", "unknown")
+        print(f"{display:<20} {version:<15} OK  (required {hint})")
+    except ImportError as e:
+        print(f"{display:<20} {'MISSING':<15} FAIL — {e}")
+        all_ok = False
+
+print("-" * 50)
+# Extra: CUDA check
+import torch
+cuda_ok = torch.cuda.is_available()
+device   = torch.cuda.get_device_name(0) if cuda_ok else "N/A"
+print(f"{'CUDA available':<20} {str(cuda_ok):<15} {'OK — ' + device if cuda_ok else 'FAIL — no GPU detected'}")
+print("-" * 50)
+print("All checks passed!" if all_ok and cuda_ok else "Some checks FAILED — see above.")
+EOF
+
+================================================================================
+QUICK REFERENCE — full install in one paste (after Step 1 & 2)
+================================================================================
+
+  pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121 && \
+  pip install \
+    "diffusers>=0.21.0" \
+    "transformers>=4.30.0" \
+    "accelerate>=0.20.0" \
+    "Pillow>=9.5.0" \
+    "numpy>=1.24.0" \
+    "tqdm>=4.65.0" \
+    "lpips>=0.1.4" \
+    "torchmetrics[image]>=1.3.0" \
+    "python-dotenv>=1.0.0" \
+    "boto3>=1.26.0" \
+    "wandb>=0.16.0" \
+    "weave>=0.50.0" \
+    "mediapipe>=0.10.3"
+
+================================================================================
+NOTES ON MISSING / DIFFERENT PACKAGES
+================================================================================
+
+1. wandb
+   - NOT listed in requirements.txt but imported in 5 source files.
+   - Must be installed; authenticate with: wandb login
+
+2. mediapipe
+   - aarch64 support was added in v0.10.3; older versions will fail.
+   - If build fails, check https://github.com/google/mediapipe for aarch64 build docs.
+
+3. botocore
+   - Installed automatically as a dependency of boto3; no separate install needed.
+
+4. torchmetrics[image]
+   - The [image] extra installs torch-fidelity needed for FID/IS metrics.
+   - May pull in additional deps (piq, kornia); these are fine on aarch64.
+
+5. Clariden module conflicts
+   - If the system already provides PyTorch via a module (e.g. module load PyTorch),
+     skip Step 3 and start from Step 4 to avoid version conflicts.
+
+================================================================================

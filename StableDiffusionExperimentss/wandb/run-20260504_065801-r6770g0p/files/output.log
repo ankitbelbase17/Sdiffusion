@@ -1,0 +1,60 @@
+Traceback (most recent call last):
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 467, in <module>
+    train(args)
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 390, in train
+    pred = model(noisy, person_lat, cloth_lat, timesteps)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 179, in forward
+    self.outfitting_unet(cloth_lat, timesteps, text)
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1639, in forward
+    inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1528, in _pre_forward
+    if torch.is_grad_enabled() and self.reducer._rebuild_buckets():
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one. This error indicates that your module has parameters that were not used in producing loss. Since `find_unused_parameters=True` is enabled, this likely  means that not all `forward` outputs participate in computing loss. You can fix this by making sure all `forward` function outputs participate in calculating loss.
+If you already have done the above, then the distributed data parallel module wasn't able to locate the output tensors in the return value of your module's `forward` function. Please include the loss function and the structure of the return value of `forward` of your module when reporting this issue (e.g. list, dict, iterable).
+Parameters which did not receive grad for rank 0: conv_out.bias, conv_out.weight, conv_norm_out.bias, conv_norm_out.weight, up_blocks.3.attentions.2.proj_out.bias, up_blocks.3.attentions.2.proj_out.weight, up_blocks.3.attentions.2.transformer_blocks.0.ff.net.2.bias, up_blocks.3.attentions.2.transformer_blocks.0.ff.net.2.weight, up_blocks.3.attentions.2.transformer_blocks.0.ff.net.0.proj.bias, up_blocks.3.attentions.2.transformer_blocks.0.ff.net.0.proj.weight, up_blocks.3.attentions.2.transformer_blocks.0.norm3.bias, up_blocks.3.attentions.2.transformer_blocks.0.norm3.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_out.0.bias, up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_out.0.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_v.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_k.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_q.weight, up_blocks.3.attentions.2.transformer_blocks.0.norm2.bias, up_blocks.3.attentions.2.transformer_blocks.0.norm2.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_out.0.bias, up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_out.0.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_v.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_k.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_q.weight
+Parameter indices which did not receive grad for rank 0: 580 581 582 583 584 585 586 587 588 589 590 591 592 593 594 595 596 597 598 599 682 683 684 685
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 467, in <module>
+[rank0]:     train(args)
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 390, in train
+[rank0]:     pred = model(noisy, person_lat, cloth_lat, timesteps)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 179, in forward
+[rank0]:     self.outfitting_unet(cloth_lat, timesteps, text)
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1639, in forward
+[rank0]:     inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+[rank0]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1528, in _pre_forward
+[rank0]:     if torch.is_grad_enabled() and self.reducer._rebuild_buckets():
+[rank0]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one. This error indicates that your module has parameters that were not used in producing loss. Since `find_unused_parameters=True` is enabled, this likely  means that not all `forward` outputs participate in computing loss. You can fix this by making sure all `forward` function outputs participate in calculating loss.
+[rank0]: If you already have done the above, then the distributed data parallel module wasn't able to locate the output tensors in the return value of your module's `forward` function. Please include the loss function and the structure of the return value of `forward` of your module when reporting this issue (e.g. list, dict, iterable).
+[rank0]: Parameters which did not receive grad for rank 0: conv_out.bias, conv_out.weight, conv_norm_out.bias, conv_norm_out.weight, up_blocks.3.attentions.2.proj_out.bias, up_blocks.3.attentions.2.proj_out.weight, up_blocks.3.attentions.2.transformer_blocks.0.ff.net.2.bias, up_blocks.3.attentions.2.transformer_blocks.0.ff.net.2.weight, up_blocks.3.attentions.2.transformer_blocks.0.ff.net.0.proj.bias, up_blocks.3.attentions.2.transformer_blocks.0.ff.net.0.proj.weight, up_blocks.3.attentions.2.transformer_blocks.0.norm3.bias, up_blocks.3.attentions.2.transformer_blocks.0.norm3.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_out.0.bias, up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_out.0.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_v.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_k.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_q.weight, up_blocks.3.attentions.2.transformer_blocks.0.norm2.bias, up_blocks.3.attentions.2.transformer_blocks.0.norm2.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_out.0.bias, up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_out.0.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_v.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_k.weight, up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_q.weight
+[rank0]: Parameter indices which did not receive grad for rank 0: 580 581 582 583 584 585 586 587 588 589 590 591 592 593 594 595 596 597 598 599 682 683 684 685

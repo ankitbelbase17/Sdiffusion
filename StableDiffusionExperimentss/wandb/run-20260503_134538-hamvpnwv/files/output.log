@@ -1,0 +1,56 @@
+Traceback (most recent call last):
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 382, in <module>
+    train(args)
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 305, in train
+    pred = model(noisy, person_lat, cloth_lat, timesteps)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 101, in forward
+    return self.denoising_unet(fused_noisy, timesteps, text).sample
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1639, in forward
+    inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1528, in _pre_forward
+    if torch.is_grad_enabled() and self.reducer._rebuild_buckets():
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Detected mismatch between collectives on ranks. Rank 0 is running collective: CollectiveFingerPrint(SequenceNumber=32, OpType=BROADCAST, TensorShape=[687], TensorDtypes=Int, TensorDeviceTypes=TensorOptions(dtype=float (default), device=cuda, layout=Strided (default), requires_grad=false (default), pinned_memory=false (default), memory_format=(nullopt))), but Rank 6 is running collective: CollectiveFingerPrint(SequenceNumber=32, OpType=ALLREDUCE, TensorShape=[524804], TensorDtypes=Float, TensorDeviceTypes=TensorOptions(dtype=float (default), device=cuda, layout=Strided (default), requires_grad=false (default), pinned_memory=false (default), memory_format=(nullopt))).Collectives differ in the following aspects:   Op type: BROADCASTvs ALLREDUCE  Tensor Tensor shapes: 687vs 524804  Tensor Tensor dtypes: Intvs Float
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 382, in <module>
+[rank0]:     train(args)
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 305, in train
+[rank0]:     pred = model(noisy, person_lat, cloth_lat, timesteps)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 101, in forward
+[rank0]:     return self.denoising_unet(fused_noisy, timesteps, text).sample
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1639, in forward
+[rank0]:     inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+[rank0]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1528, in _pre_forward
+[rank0]:     if torch.is_grad_enabled() and self.reducer._rebuild_buckets():
+[rank0]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: RuntimeError: Detected mismatch between collectives on ranks. Rank 0 is running collective: CollectiveFingerPrint(SequenceNumber=32, OpType=BROADCAST, TensorShape=[687], TensorDtypes=Int, TensorDeviceTypes=TensorOptions(dtype=float (default), device=cuda, layout=Strided (default), requires_grad=false (default), pinned_memory=false (default), memory_format=(nullopt))), but Rank 6 is running collective: CollectiveFingerPrint(SequenceNumber=32, OpType=ALLREDUCE, TensorShape=[524804], TensorDtypes=Float, TensorDeviceTypes=TensorOptions(dtype=float (default), device=cuda, layout=Strided (default), requires_grad=false (default), pinned_memory=false (default), memory_format=(nullopt))).Collectives differ in the following aspects:   Op type: BROADCASTvs ALLREDUCE  Tensor Tensor shapes: 687vs 524804  Tensor Tensor dtypes: Intvs Float

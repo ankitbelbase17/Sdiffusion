@@ -1,0 +1,8 @@
+{"time":"2026-05-04T07:32:07.975132336+02:00","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmpm3hyws_c/port-140388.txt","pid":140388,"detached":false,"idle-timeout":600000000000,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false,"enable-dcgm-profiling":false}
+{"time":"2026-05-04T07:32:07.976106518+02:00","level":"INFO","msg":"server: will exit if parent process dies","ppid":140388}
+{"time":"2026-05-04T07:32:07.976054391+02:00","level":"INFO","msg":"server: accepting connections","addr":{"Name":"/tmp/wandb-140388-144000-529399528/socket","Net":"unix"}}
+{"time":"2026-05-04T07:32:08.141737715+02:00","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"1(@)"}
+{"time":"2026-05-04T07:32:08.158986396+02:00","level":"INFO","msg":"handleInformInit: received","streamId":"dvndsb97","id":"1(@)"}
+{"time":"2026-05-04T07:32:08.570452139+02:00","level":"INFO","msg":"handleInformInit: stream started","streamId":"dvndsb97","id":"1(@)"}
+{"time":"2026-05-04T07:32:14.120409289+02:00","level":"INFO","msg":"connection: cancelling request","id":"1(@)","requestId":"13hzbl87wrk7"}
+{"time":"2026-05-04T16:17:02.95503646+02:00","level":"INFO","msg":"connection: cancelling request","id":"1(@)","requestId":"54kkqwerrdmr"}

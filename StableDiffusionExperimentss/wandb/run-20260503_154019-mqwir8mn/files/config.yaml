@@ -1,0 +1,204 @@
+_wandb:
+    value:
+        cli_version: 0.26.1
+        e:
+            00dwsznmhgosd1tuwrtto95jj2wnwfvb:
+                args:
+                    - --curvton_data_path
+                    - /iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate
+                    - --batch_size
+                    - "4"
+                    - --image_size
+                    - "0"
+                    - --num_workers
+                    - "16"
+                    - --max_steps
+                    - "28000"
+                    - --wandb_project
+                    - Stable_diffusion
+                    - --save_interval
+                    - "1000"
+                    - --image_log_interval
+                    - "500"
+                    - --output_dir
+                    - /iopsstor/scratch/cscs/dbartaula/experiments_assets
+                    - --no_resume
+                    - --run_name
+                    - Stable_diffusion_train_stable_vton
+                codePath: cross-architecture/StableVTON/train_stable_vton_local.py
+                codePathLocal: cross-architecture/StableVTON/train_stable_vton_local.py
+                cpu_count: 288
+                cpu_count_logical: 288
+                cudaVersion: "13.1"
+                disk:
+                    /:
+                        total: "255795462144"
+                        used: "5693767680"
+                email: 078bct.anandi@gmail.com
+                executable: /iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/bin/python3.11
+                git:
+                    commit: 49b07805e986240f9e8529f21ce222595df261fa
+                    remote: https://github.com/DipanBartaula/StableDiffusionExperimentss.git
+                gpu: NVIDIA GH200 120GB
+                gpu_count: 4
+                gpu_nvidia:
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "102625181696"
+                      name: NVIDIA GH200 120GB
+                      uuid: GPU-38361e72-4bf8-adfe-c0e7-9f3a85f6eb90
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "102625181696"
+                      name: NVIDIA GH200 120GB
+                      uuid: GPU-659c9615-2be8-9992-8ae8-1f78a91d514f
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "102625181696"
+                      name: NVIDIA GH200 120GB
+                      uuid: GPU-a146ed54-bf5f-ec16-2eaf-a4ff4ba29d37
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "102625181696"
+                      name: NVIDIA GH200 120GB
+                      uuid: GPU-ebc4dd65-0165-89da-cd10-47b2856a0f32
+                host: nid007237
+                memory:
+                    total: "919612817408"
+                os: Linux-6.4.0-150600.23.47_15.0.10-cray_shasta_c_64k-aarch64-with-glibc2.38
+                program: /iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/StableVTON/train_stable_vton_local.py
+                python: CPython 3.11.15
+                root: /iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss
+                slurm:
+                    cluster_name: clariden
+                    conf: /var/spool/slurmd/conf-cache/slurm.conf
+                    cpu_bind: quiet,mask_cpu:0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                    cpu_bind_list: 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                    cpu_bind_type: 'mask_cpu:'
+                    cpu_bind_verbose: quiet
+                    cpus_on_node: "288"
+                    distribution: cyclic
+                    gpus_on_node: "4"
+                    gtids: "0"
+                    job_account: a168
+                    job_cpus_per_node: "288"
+                    job_end_time: "1777851549"
+                    job_gid: "1008"
+                    job_gpus: 0,1,2,3
+                    job_id: "2019300"
+                    job_name: stable_vton
+                    job_nodelist: nid007237
+                    job_num_nodes: "1"
+                    job_partition: normal
+                    job_qos: normal
+                    job_start_time: "1777815549"
+                    job_uid: "1370"
+                    job_user: dbartaula
+                    jobid: "2019300"
+                    launch_node_ipaddr: 172.28.41.12
+                    localid: "0"
+                    mem_per_node: "460800"
+                    nnodes: "1"
+                    nodeid: "0"
+                    nodelist: nid007237
+                    nprocs: "1"
+                    ntasks: "1"
+                    ntasks_per_node: "1"
+                    prio_process: "0"
+                    procid: "0"
+                    script_context: prolog_task
+                    srun_comm_host: 172.28.41.12
+                    srun_comm_port: "45893"
+                    step_gpus: 0,1,2,3
+                    step_id: "0"
+                    step_launcher_port: "45893"
+                    step_nodelist: nid007237
+                    step_num_nodes: "1"
+                    step_num_tasks: "1"
+                    step_resv_ports: 23896-23897
+                    step_tasks_per_node: "1"
+                    stepid: "0"
+                    submit_dir: /iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/train_runs
+                    submit_host: clariden-ln003
+                    task_pid: "105714"
+                    tasks_per_node: "1"
+                    time_format: relative
+                    topology_addr: global.group33.nid007237
+                    topology_addr_pattern: switch.switch.node
+                    umask: "0022"
+                startedAt: "2026-05-03T13:40:19.588704Z"
+                writerId: 00dwsznmhgosd1tuwrtto95jj2wnwfvb
+        m: []
+        python_version: 3.11.15
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 53
+                - 71
+                - 83
+                - 98
+            "2":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 53
+                - 71
+                - 83
+                - 98
+            "3":
+                - 13
+                - 16
+                - 61
+            "4": 3.11.15
+            "5": 0.26.1
+            "6": 5.5.4
+            "12": 0.26.1
+            "13": linux-aarch64
+batch_size:
+    value: 4
+curvton_data_path:
+    value: /iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate
+difficulty:
+    value: all
+disable_wandb:
+    value: false
+gender:
+    value: all
+image_log_interval:
+    value: 500
+image_size:
+    value: 0
+lambda_atv:
+    value: 0.01
+log_interval:
+    value: 10
+lr:
+    value: 1e-05
+max_steps:
+    value: 28000
+model_name:
+    value: runwayml/stable-diffusion-v1-5
+no_resume:
+    value: true
+num_inference_steps:
+    value: 30
+num_workers:
+    value: 16
+output_dir:
+    value: /iopsstor/scratch/cscs/dbartaula/experiments_assets
+resume:
+    value: null
+run_name:
+    value: Stable_diffusion_train_stable_vton
+save_interval:
+    value: 1000
+use_atv_loss:
+    value: true
+wandb_project:
+    value: Stable_diffusion

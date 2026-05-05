@@ -1,0 +1,9 @@
+/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_mask_local.py:276: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=(dist_info.device.type == "cuda")):
+[step     10/28000] loss=0.394588
+[step     20/28000] loss=0.072552
+[step     30/28000] loss=0.180933
+[step     40/28000] loss=0.067587
+[step     50/28000] loss=0.082824
+[step     60/28000] loss=0.175320
+[step     70/28000] loss=0.106772

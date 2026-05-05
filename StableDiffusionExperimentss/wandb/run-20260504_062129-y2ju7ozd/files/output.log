@@ -1,0 +1,192 @@
+Traceback (most recent call last):
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 461, in <module>
+    train(args)
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 384, in train
+    pred = model(noisy, person_lat, cloth_lat, timesteps)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 173, in forward
+    self.outfitting_unet(cloth_lat, timesteps, text)
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1643, in forward
+    else self._run_ddp_forward(*inputs, **kwargs)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1459, in _run_ddp_forward
+    return self.module(*inputs, **kwargs)  # type: ignore[index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/utils/peft_utils.py", line 315, in wrapper
+    result = forward_fn(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/models/unets/unet_2d_condition.py", line 1145, in forward
+    sample, res_samples = downsample_block(
+                          ^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/models/unets/unet_2d_blocks.py", line 1260, in forward
+    hidden_states = attn(
+                    ^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/models/transformers/transformer_2d.py", line 416, in forward
+    hidden_states = self._gradient_checkpointing_func(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/models/modeling_utils.py", line 303, in _gradient_checkpointing_func
+    return torch.utils.checkpoint.checkpoint(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/_compile.py", line 32, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 632, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/utils/checkpoint.py", line 496, in checkpoint
+    ret = function(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/models/attention.py", line 1005, in forward
+    attn_output = self.attn1(
+                  ^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/models/attention_processor.py", line 607, in forward
+    return self.processor(
+           ^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 81, in __call__
+    return self._forward(attn, hidden_states, encoder_hidden_states, attention_mask, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 113, in _forward
+    attention_probs = attn.get_attention_scores(query, key, attention_mask)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/models/attention_processor.py", line 699, in get_attention_scores
+    attention_probs = attention_scores.softmax(dim=-1)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 GiB. GPU 0 has a total capacity of 95.00 GiB of which 31.02 GiB is free. Including non-PyTorch memory, this process has 63.97 GiB memory in use. Of the allocated memory 30.16 GiB is allocated by PyTorch, and 31.92 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 461, in <module>
+[rank0]:     train(args)
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 384, in train
+[rank0]:     pred = model(noisy, person_lat, cloth_lat, timesteps)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 173, in forward
+[rank0]:     self.outfitting_unet(cloth_lat, timesteps, text)
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1643, in forward
+[rank0]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank0]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1459, in _run_ddp_forward
+[rank0]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/utils/peft_utils.py", line 315, in wrapper
+[rank0]:     result = forward_fn(self, *args, **kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/models/unets/unet_2d_condition.py", line 1145, in forward
+[rank0]:     sample, res_samples = downsample_block(
+[rank0]:                           ^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/models/unets/unet_2d_blocks.py", line 1260, in forward
+[rank0]:     hidden_states = attn(
+[rank0]:                     ^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/models/transformers/transformer_2d.py", line 416, in forward
+[rank0]:     hidden_states = self._gradient_checkpointing_func(
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/models/modeling_utils.py", line 303, in _gradient_checkpointing_func
+[rank0]:     return torch.utils.checkpoint.checkpoint(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/_compile.py", line 32, in inner
+[rank0]:     return disable_fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 632, in _fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/utils/checkpoint.py", line 496, in checkpoint
+[rank0]:     ret = function(*args, **kwargs)
+[rank0]:           ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/models/attention.py", line 1005, in forward
+[rank0]:     attn_output = self.attn1(
+[rank0]:                   ^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/models/attention_processor.py", line 607, in forward
+[rank0]:     return self.processor(
+[rank0]:            ^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 81, in __call__
+[rank0]:     return self._forward(attn, hidden_states, encoder_hidden_states, attention_mask, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_local.py", line 113, in _forward
+[rank0]:     attention_probs = attn.get_attention_scores(query, key, attention_mask)
+[rank0]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/lib/python3.11/site-packages/diffusers/models/attention_processor.py", line 699, in get_attention_scores
+[rank0]:     attention_probs = attention_scores.softmax(dim=-1)
+[rank0]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 GiB. GPU 0 has a total capacity of 95.00 GiB of which 31.02 GiB is free. Including non-PyTorch memory, this process has 63.97 GiB memory in use. Of the allocated memory 30.16 GiB is allocated by PyTorch, and 31.92 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

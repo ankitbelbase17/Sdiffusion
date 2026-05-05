@@ -1,0 +1,2187 @@
+MASTER_ADDR=nid007203  MASTER_PORT=29701  SLURM_NNODES=2  RUN_NNODES=1
+Data source: CurvTon from /iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate (difficulty=all, gender=all)
+Loading runwayml/stable-diffusion-v1-5...
+Data source: CurvTon from /iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate (difficulty=all, gender=all)
+Data source: CurvTon from /iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate (difficulty=all, gender=all)Loading runwayml/stable-diffusion-v1-5...
+
+Loading runwayml/stable-diffusion-v1-5...
+[WARN] W&B init failed, disabling logging: entity_name must be non-empty
+Device: cuda:0  |  rank=0/4
+[INFO] image_size<=0: no resize mode enabled (uses native dataset resolution).
+✓ cudnn.benchmark=True, TF32 enabled
+Data source: CurvTon from /iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate (difficulty=all, gender=all)
+Loading runwayml/stable-diffusion-v1-5...
+✓ Model loaded (8-ch UNet: 4 noise + 4 cond, channel-concat; cond = VAE(cat([person, cloth], width)))✓ Model loaded (8-ch UNet: 4 noise + 4 cond, channel-concat; cond = VAE(cat([person, cloth], width)))✓ Model loaded (8-ch UNet: 4 noise + 4 cond, channel-concat; cond = VAE(cat([person, cloth], width)))✓ Model loaded (8-ch UNet: 4 noise + 4 cond, channel-concat; cond = VAE(cat([person, cloth], width)))
+
+
+
+
+============================================================
+TRAINABLE PARAMETERS (full_unet)
+============================================================
+
+UNet Statistics:
+  Total parameters:     859,532,484
+  Trainable parameters: 859,532,484
+  Frozen parameters:    0
+  Trainable ratio:      100.00%
+
+Trainable layers breakdown:
+
+============================================================
+TRAINABLE PARAMETERS (full_unet)
+============================================================
+    up_blocks.0.resnets: 147,494,400
+    up_blocks.1.resnets: 139,301,120
+    up_blocks.1.attentions: 104,282,880
+    down_blocks.2.attentions: 69,521,920
+    down_blocks.3.resnets: 62,277,120
+    down_blocks.2.resnets: 55,723,520
+    up_blocks.2.resnets: 40,160,640
+    mid_block.attentions.0: 34,760,960
+    mid_block.resnets.0: 31,138,560
+    mid_block.resnets.1: 31,138,560
+    up_blocks.2.attentions: 27,565,440
+    down_blocks.1.attentions: 18,376,960
+    down_blocks.1.resnets: 14,754,560
+    down_blocks.2.downsamplers: 14,746,880
+    up_blocks.0.upsamplers: 14,746,880
+    up_blocks.1.upsamplers: 14,746,880
+    up_blocks.3.resnets: 11,171,840
+    up_blocks.3.attentions: 7,638,720
+    down_blocks.0.attentions: 5,092,480
+    down_blocks.0.resnets: 4,510,080
+    ... and 13 more layers
+============================================================
+
+
+============================================================
+TRAINABLE PARAMETERS (full_unet)
+============================================================
+
+🏷  WandB run name: Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres
+
+============================================================
+TRAINABLE PARAMETERS (full_unet)
+============================================================
+
+UNet Statistics:
+  Total parameters:     859,532,484
+  Trainable parameters: 859,532,484
+  Frozen parameters:    0
+  Trainable ratio:      100.00%
+
+Trainable layers breakdown:
+
+UNet Statistics:
+  Total parameters:     859,532,484
+  Trainable parameters: 859,532,484
+  Frozen parameters:    0
+  Trainable ratio:      100.00%
+
+Trainable layers breakdown:
+    up_blocks.0.resnets: 147,494,400
+    up_blocks.1.resnets: 139,301,120
+UNet Statistics:
+    up_blocks.1.attentions: 104,282,880
+
+    down_blocks.2.attentions: 69,521,920
+  Total parameters:     859,532,484    down_blocks.3.resnets: 62,277,120
+
+  Trainable parameters: 859,532,484    down_blocks.2.resnets: 55,723,520
+
+  Frozen parameters:    0    up_blocks.2.resnets: 40,160,640
+
+    mid_block.attentions.0: 34,760,960
+  Trainable ratio:      100.00%    mid_block.resnets.0: 31,138,560
+
+
+Trainable layers breakdown:
+    mid_block.resnets.1: 31,138,560
+    up_blocks.2.attentions: 27,565,440
+    down_blocks.1.attentions: 18,376,960
+    down_blocks.1.resnets: 14,754,560
+    down_blocks.2.downsamplers: 14,746,880
+    up_blocks.0.upsamplers: 14,746,880
+    up_blocks.1.upsamplers: 14,746,880
+    up_blocks.3.resnets: 11,171,840
+    up_blocks.3.attentions: 7,638,720
+    down_blocks.0.attentions: 5,092,480
+    down_blocks.0.resnets: 4,510,080
+    ... and 13 more layers
+============================================================
+
+    up_blocks.0.resnets: 147,494,400
+    up_blocks.1.resnets: 139,301,120
+    up_blocks.1.attentions: 104,282,880
+    down_blocks.2.attentions: 69,521,920
+    down_blocks.3.resnets: 62,277,120
+    down_blocks.2.resnets: 55,723,520
+    up_blocks.2.resnets: 40,160,640
+    mid_block.attentions.0: 34,760,960
+    mid_block.resnets.0: 31,138,560
+    mid_block.resnets.1: 31,138,560
+    up_blocks.2.attentions: 27,565,440
+    down_blocks.1.attentions: 18,376,960
+    down_blocks.1.resnets: 14,754,560
+    down_blocks.2.downsamplers: 14,746,880
+    up_blocks.0.upsamplers: 14,746,880
+    up_blocks.1.upsamplers: 14,746,880
+    up_blocks.3.resnets: 11,171,840
+    up_blocks.3.attentions: 7,638,720
+    down_blocks.0.attentions: 5,092,480
+    down_blocks.0.resnets: 4,510,080
+    ... and 13 more layers
+============================================================
+
+
+⚙  Compiling UNet with torch.compile (backend='eager') ...
+    up_blocks.0.resnets: 147,494,400
+    up_blocks.1.resnets: 139,301,120
+    up_blocks.1.attentions: 104,282,880
+    down_blocks.2.attentions: 69,521,920
+    down_blocks.3.resnets: 62,277,120
+    down_blocks.2.resnets: 55,723,520
+    up_blocks.2.resnets: 40,160,640
+    mid_block.attentions.0: 34,760,960
+    mid_block.resnets.0: 31,138,560
+    mid_block.resnets.1: 31,138,560
+    up_blocks.2.attentions: 27,565,440
+    down_blocks.1.attentions: 18,376,960
+    down_blocks.1.resnets: 14,754,560
+    down_blocks.2.downsamplers: 14,746,880
+    up_blocks.0.upsamplers: 14,746,880
+    up_blocks.1.upsamplers: 14,746,880
+    up_blocks.3.resnets: 11,171,840
+    up_blocks.3.attentions: 7,638,720
+    down_blocks.0.attentions: 5,092,480
+    down_blocks.0.resnets: 4,510,080
+    ... and 13 more layers
+============================================================
+
+   ✓ torch.compile applied to UNet (eager backend, no Triton required).
+nid007203:183302:183302 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to hsn0
+nid007203:183302:183302 [0] NCCL INFO Bootstrap : Using hsn0:172.28.40.148<0>
+nid007203:183302:183302 [0] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+nid007203:183302:183302 [0] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+nid007203:183302:183302 [0] NCCL INFO NET/Plugin: Using internal network plugin.
+nid007203:183302:183302 [0] NCCL INFO cudaDriverVersion 13010
+NCCL version 2.21.5+cuda12.4
+nid007203:183304:183304 [2] NCCL INFO cudaDriverVersion 13010
+nid007203:183304:183304 [2] NCCL INFO NCCL_SOCKET_IFNAME set by environment to hsn0
+nid007203:183304:183304 [2] NCCL INFO Bootstrap : Using hsn0:172.28.40.148<0>
+nid007203:183304:183304 [2] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+nid007203:183304:183304 [2] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+nid007203:183304:183304 [2] NCCL INFO NET/Plugin: Using internal network plugin.
+nid007203:183303:183303 [1] NCCL INFO cudaDriverVersion 13010
+nid007203:183305:183305 [3] NCCL INFO cudaDriverVersion 13010
+nid007203:183303:183303 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to hsn0
+nid007203:183305:183305 [3] NCCL INFO NCCL_SOCKET_IFNAME set by environment to hsn0
+nid007203:183303:183303 [1] NCCL INFO Bootstrap : Using hsn0:172.28.40.148<0>
+nid007203:183305:183305 [3] NCCL INFO Bootstrap : Using hsn0:172.28.40.148<0>
+nid007203:183303:183303 [1] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+nid007203:183305:183305 [3] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+nid007203:183303:183303 [1] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+nid007203:183305:183305 [3] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+nid007203:183303:183303 [1] NCCL INFO NET/Plugin: Using internal network plugin.
+nid007203:183305:183305 [3] NCCL INFO NET/Plugin: Using internal network plugin.
+nid007203:183302:183584 [0] NCCL INFO Failed to open libibverbs.so[.1]
+nid007203:183305:183588 [3] NCCL INFO Failed to open libibverbs.so[.1]
+nid007203:183302:183584 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to hsn0
+nid007203:183305:183588 [3] NCCL INFO NCCL_SOCKET_IFNAME set by environment to hsn0
+nid007203:183304:183586 [2] NCCL INFO Failed to open libibverbs.so[.1]
+nid007203:183304:183586 [2] NCCL INFO NCCL_SOCKET_IFNAME set by environment to hsn0
+nid007203:183304:183586 [2] NCCL INFO NET/Socket : Using [0]hsn0:172.28.40.148<0>
+nid007203:183302:183584 [0] NCCL INFO NET/Socket : Using [0]hsn0:172.28.40.148<0>
+nid007203:183305:183588 [3] NCCL INFO NET/Socket : Using [0]hsn0:172.28.40.148<0>
+nid007203:183304:183586 [2] NCCL INFO Using non-device net plugin version 0
+nid007203:183304:183586 [2] NCCL INFO Using network Socket
+nid007203:183305:183588 [3] NCCL INFO Using non-device net plugin version 0
+nid007203:183305:183588 [3] NCCL INFO Using network Socket
+nid007203:183302:183584 [0] NCCL INFO Using non-device net plugin version 0
+nid007203:183302:183584 [0] NCCL INFO Using network Socket
+nid007203:183303:183587 [1] NCCL INFO Failed to open libibverbs.so[.1]
+nid007203:183303:183587 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to hsn0
+nid007203:183303:183587 [1] NCCL INFO NET/Socket : Using [0]hsn0:172.28.40.148<0>
+nid007203:183303:183587 [1] NCCL INFO Using non-device net plugin version 0
+nid007203:183303:183587 [1] NCCL INFO Using network Socket
+nid007203:183302:183584 [0] NCCL INFO ncclCommInitRank comm 0xaaab128aa620 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 901000 commId 0x619b498cf4f3a5dc - Init START
+nid007203:183304:183586 [2] NCCL INFO ncclCommInitRank comm 0xaaacae0aae00 rank 2 nranks 4 cudaDev 2 nvmlDev 2 busId 2901000 commId 0x619b498cf4f3a5dc - Init START
+nid007203:183305:183588 [3] NCCL INFO ncclCommInitRank comm 0xaaab923f1d20 rank 3 nranks 4 cudaDev 3 nvmlDev 3 busId 3901000 commId 0x619b498cf4f3a5dc - Init START
+nid007203:183303:183587 [1] NCCL INFO ncclCommInitRank comm 0xaaace8c2b7e0 rank 1 nranks 4 cudaDev 1 nvmlDev 1 busId 1901000 commId 0x619b498cf4f3a5dc - Init START
+nid007203:183304:183586 [2] NCCL INFO Setting affinity for GPU 2 to ffffff,ffffffff,ffff0000,00000000,00000000,00000000,00000000
+nid007203:183304:183586 [2] NCCL INFO NVLS multicast support is not available on dev 2
+nid007203:183302:183584 [0] NCCL INFO Setting affinity for GPU 0 to ff,ffffffff,ffffffff
+nid007203:183302:183584 [0] NCCL INFO NVLS multicast support is not available on dev 0
+nid007203:183305:183588 [3] NCCL INFO Setting affinity for GPU 3 to ffffffff,ffffffff,ff000000,00000000,00000000,00000000,00000000,00000000,00000000
+nid007203:183305:183588 [3] NCCL INFO NVLS multicast support is not available on dev 3
+nid007203:183303:183587 [1] NCCL INFO Setting affinity for GPU 1 to ffff,ffffffff,ffffff00,00000000,00000000
+nid007203:183303:183587 [1] NCCL INFO NVLS multicast support is not available on dev 1
+nid007203:183302:183584 [0] NCCL INFO comm 0xaaab128aa620 rank 0 nRanks 4 nNodes 1 localRanks 4 localRank 0 MNNVL 0
+nid007203:183303:183587 [1] NCCL INFO comm 0xaaace8c2b7e0 rank 1 nRanks 4 nNodes 1 localRanks 4 localRank 1 MNNVL 0
+nid007203:183305:183588 [3] NCCL INFO comm 0xaaab923f1d20 rank 3 nRanks 4 nNodes 1 localRanks 4 localRank 3 MNNVL 0
+nid007203:183304:183586 [2] NCCL INFO comm 0xaaacae0aae00 rank 2 nRanks 4 nNodes 1 localRanks 4 localRank 2 MNNVL 0
+nid007203:183302:183584 [0] NCCL INFO Channel 00/24 :    0   1   2   3
+nid007203:183302:183584 [0] NCCL INFO Channel 01/24 :    0   1   3   2
+nid007203:183302:183584 [0] NCCL INFO Channel 02/24 :    0   2   3   1
+nid007203:183302:183584 [0] NCCL INFO Channel 03/24 :    0   2   1   3
+nid007203:183302:183584 [0] NCCL INFO Channel 04/24 :    0   3   1   2
+nid007203:183302:183584 [0] NCCL INFO Channel 05/24 :    0   3   2   1
+nid007203:183302:183584 [0] NCCL INFO Channel 06/24 :    0   1   2   3
+nid007203:183302:183584 [0] NCCL INFO Channel 07/24 :    0   1   3   2
+nid007203:183304:183586 [2] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/-1/-1->2->1 [2] 3/-1/-1->2->1 [3] 3/-1/-1->2->1 [4] 1/-1/-1->2->0 [5] 1/-1/-1->2->0 [6] 1/-1/-1->2->0 [7] 1/-1/-1->2->0 [8] -1/-1/-1->2->3 [9] -1/-1/-1->2->3 [10] -1/-1/-1->2->3 [11] -1/-1/-1->2->3 [12] 3/-1/-1->2->1 [13] 3/-1/-1->2->1 [14] 3/-1/-1->2->1 [15] 3/-1/-1->2->1 [16] 1/-1/-1->2->0 [17] 1/-1/-1->2->0 [18] 1/-1/-1->2->0 [19] 1/-1/-1->2->0 [20] -1/-1/-1->2->3 [21] -1/-1/-1->2->3 [22] -1/-1/-1->2->3 [23] -1/-1/-1->2->3
+nid007203:183303:183587 [1] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/-1/-1->1->0 [2] 2/-1/-1->1->0 [3] 2/-1/-1->1->0 [4] 3/-1/-1->1->2 [5] 3/-1/-1->1->2 [6] 3/-1/-1->1->2 [7] 3/-1/-1->1->2 [8] 0/-1/-1->1->-1 [9] 0/-1/-1->1->-1 [10] 0/-1/-1->1->-1 [11] 0/-1/-1->1->-1 [12] 2/-1/-1->1->0 [13] 2/-1/-1->1->0 [14] 2/-1/-1->1->0 [15] 2/-1/-1->1->0 [16] 3/-1/-1->1->2 [17] 3/-1/-1->1->2 [18] 3/-1/-1->1->2 [19] 3/-1/-1->1->2 [20] 0/-1/-1->1->-1 [21] 0/-1/-1->1->-1 [22] 0/-1/-1->1->-1 [23] 0/-1/-1->1->-1
+nid007203:183302:183584 [0] NCCL INFO Channel 08/24 :    0   2   3   1
+nid007203:183304:183586 [2] NCCL INFO P2P Chunksize set to 524288
+nid007203:183305:183588 [3] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] -1/-1/-1->3->2 [2] -1/-1/-1->3->2 [3] -1/-1/-1->3->2 [4] -1/-1/-1->3->1 [5] -1/-1/-1->3->1 [6] -1/-1/-1->3->1 [7] -1/-1/-1->3->1 [8] 2/-1/-1->3->0 [9] 2/-1/-1->3->0 [10] 2/-1/-1->3->0 [11] 2/-1/-1->3->0 [12] -1/-1/-1->3->2 [13] -1/-1/-1->3->2 [14] -1/-1/-1->3->2 [15] -1/-1/-1->3->2 [16] -1/-1/-1->3->1 [17] -1/-1/-1->3->1 [18] -1/-1/-1->3->1 [19] -1/-1/-1->3->1 [20] 2/-1/-1->3->0 [21] 2/-1/-1->3->0 [22] 2/-1/-1->3->0 [23] 2/-1/-1->3->0
+nid007203:183302:183584 [0] NCCL INFO Channel 09/24 :    0   2   1   3
+nid007203:183305:183588 [3] NCCL INFO P2P Chunksize set to 524288
+nid007203:183303:183587 [1] NCCL INFO P2P Chunksize set to 524288
+nid007203:183302:183584 [0] NCCL INFO Channel 10/24 :    0   3   1   2
+nid007203:183302:183584 [0] NCCL INFO Channel 11/24 :    0   3   2   1
+nid007203:183302:183584 [0] NCCL INFO Channel 12/24 :    0   1   2   3
+nid007203:183302:183584 [0] NCCL INFO Channel 13/24 :    0   1   3   2
+nid007203:183302:183584 [0] NCCL INFO Channel 14/24 :    0   2   3   1
+nid007203:183302:183584 [0] NCCL INFO Channel 15/24 :    0   2   1   3
+nid007203:183302:183584 [0] NCCL INFO Channel 16/24 :    0   3   1   2
+nid007203:183302:183584 [0] NCCL INFO Channel 17/24 :    0   3   2   1
+nid007203:183302:183584 [0] NCCL INFO Channel 18/24 :    0   1   2   3
+nid007203:183302:183584 [0] NCCL INFO Channel 19/24 :    0   1   3   2
+nid007203:183302:183584 [0] NCCL INFO Channel 20/24 :    0   2   3   1
+nid007203:183302:183584 [0] NCCL INFO Channel 21/24 :    0   2   1   3
+nid007203:183302:183584 [0] NCCL INFO Channel 22/24 :    0   3   1   2
+nid007203:183302:183584 [0] NCCL INFO Channel 23/24 :    0   3   2   1
+nid007203:183302:183584 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1 [2] 1/-1/-1->0->-1 [3] 1/-1/-1->0->-1 [4] 2/-1/-1->0->-1 [5] 2/-1/-1->0->-1 [6] 2/-1/-1->0->-1 [7] 2/-1/-1->0->-1 [8] 3/-1/-1->0->1 [9] 3/-1/-1->0->1 [10] 3/-1/-1->0->1 [11] 3/-1/-1->0->1 [12] 1/-1/-1->0->-1 [13] 1/-1/-1->0->-1 [14] 1/-1/-1->0->-1 [15] 1/-1/-1->0->-1 [16] 2/-1/-1->0->-1 [17] 2/-1/-1->0->-1 [18] 2/-1/-1->0->-1 [19] 2/-1/-1->0->-1 [20] 3/-1/-1->0->1 [21] 3/-1/-1->0->1 [22] 3/-1/-1->0->1 [23] 3/-1/-1->0->1
+nid007203:183302:183584 [0] NCCL INFO P2P Chunksize set to 524288
+nid007203:183305:183588 [3] NCCL INFO Channel 00/0 : 3[3] -> 0[0] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 03/0 : 3[3] -> 0[0] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 06/0 : 3[3] -> 0[0] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 09/0 : 3[3] -> 0[0] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 12/0 : 3[3] -> 0[0] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 00/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 15/0 : 3[3] -> 0[0] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 04/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 18/0 : 3[3] -> 0[0] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 21/0 : 3[3] -> 0[0] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 06/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 10/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 12/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 16/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 18/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 22/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 00/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 02/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 06/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 08/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 12/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 14/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 18/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 20/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 06/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 07/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 12/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 13/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 18/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 19/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 01/0 : 2[2] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 04/0 : 2[2] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 07/0 : 2[2] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 10/0 : 2[2] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 13/0 : 2[2] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 16/0 : 2[2] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 19/0 : 2[2] -> 0[0] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 02/0 : 3[3] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 01/0 : 1[1] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 22/0 : 2[2] -> 0[0] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 04/0 : 3[3] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 03/0 : 1[1] -> 3[3] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 02/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 07/0 : 1[1] -> 3[3] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 03/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 08/0 : 3[3] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 09/0 : 1[1] -> 3[3] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 08/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 10/0 : 3[3] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 13/0 : 1[1] -> 3[3] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 09/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 15/0 : 1[1] -> 3[3] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 14/0 : 3[3] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 14/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 16/0 : 3[3] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 19/0 : 1[1] -> 3[3] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 15/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 21/0 : 1[1] -> 3[3] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 20/0 : 3[3] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 20/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 22/0 : 3[3] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 21/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 03/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 05/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 09/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 01/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 04/0 : 0[0] -> 3[3] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 02/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 11/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 05/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 05/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 05/0 : 0[0] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 15/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 08/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 10/0 : 0[0] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 17/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 07/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 11/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 21/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 11/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 11/0 : 0[0] -> 3[3] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 14/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 23/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 16/0 : 0[0] -> 3[3] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 17/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 13/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 17/0 : 0[0] -> 3[3] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 20/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 17/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 23/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 22/0 : 0[0] -> 3[3] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 19/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 23/0 : 0[0] -> 3[3] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 23/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Connected all rings
+nid007203:183302:183584 [0] NCCL INFO Connected all rings
+nid007203:183305:183588 [3] NCCL INFO Connected all rings
+nid007203:183303:183587 [1] NCCL INFO Connected all rings
+nid007203:183302:183584 [0] NCCL INFO Channel 02/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 03/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 08/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 09/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 08/0 : 3[3] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 01/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 10/0 : 3[3] -> 0[0] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 10/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 03/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 09/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 11/0 : 3[3] -> 0[0] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 11/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 20/0 : 3[3] -> 0[0] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 14/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 01/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 10/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 11/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 22/0 : 3[3] -> 0[0] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 02/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 15/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 23/0 : 3[3] -> 0[0] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 03/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 20/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 13/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 21/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 15/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 05/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 22/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 21/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 07/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 22/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 23/0 : 0[0] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 13/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 23/0 : 2[2] -> 3[3] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 14/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 15/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 17/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 19/0 : 1[1] -> 2[2] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 04/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 05/0 : 3[3] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 05/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 06/0 : 3[3] -> 1[1] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 07/0 : 3[3] -> 1[1] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 06/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 04/0 : 1[1] -> 3[3] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 07/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 17/0 : 3[3] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 05/0 : 1[1] -> 3[3] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 16/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 18/0 : 3[3] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 06/0 : 1[1] -> 3[3] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 17/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 19/0 : 3[3] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 16/0 : 1[1] -> 3[3] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 18/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 05/0 : 2[2] -> 0[0] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 17/0 : 1[1] -> 3[3] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 19/0 : 0[0] -> 2[2] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 06/0 : 2[2] -> 0[0] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 18/0 : 1[1] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 17/0 : 2[2] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 18/0 : 2[2] -> 0[0] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 00/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 02/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 03/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 08/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 09/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 10/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 12/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 00/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 08/0 : 0[0] -> 3[3] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 14/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 09/0 : 0[0] -> 3[3] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 15/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 01/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 00/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 20/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 03/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 01/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 21/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 09/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 20/0 : 0[0] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 02/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 10/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183305:183588 [3] NCCL INFO Channel 22/0 : 3[3] -> 2[2] via P2P/CUMEM
+nid007203:183302:183584 [0] NCCL INFO Channel 21/0 : 0[0] -> 3[3] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 04/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 06/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 12/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 07/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 13/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 15/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 12/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 21/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 13/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Channel 22/0 : 1[1] -> 0[0] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 14/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 16/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 18/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183304:183586 [2] NCCL INFO Channel 19/0 : 2[2] -> 1[1] via P2P/CUMEM
+nid007203:183303:183587 [1] NCCL INFO Connected all trees
+nid007203:183302:183584 [0] NCCL INFO Connected all trees
+nid007203:183305:183588 [3] NCCL INFO Connected all trees
+nid007203:183305:183588 [3] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+nid007203:183303:183587 [1] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+nid007203:183305:183588 [3] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 16 p2p channels per peer
+nid007203:183303:183587 [1] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 16 p2p channels per peer
+nid007203:183302:183584 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+nid007203:183302:183584 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 16 p2p channels per peer
+nid007203:183304:183586 [2] NCCL INFO Connected all trees
+nid007203:183304:183586 [2] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+nid007203:183304:183586 [2] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 16 p2p channels per peer
+nid007203:183304:183586 [2] NCCL INFO TUNER/Plugin: Plugin load returned 11 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so
+nid007203:183304:183586 [2] NCCL INFO TUNER/Plugin: Using internal tuner plugin.
+nid007203:183304:183586 [2] NCCL INFO ncclCommInitRank comm 0xaaacae0aae00 rank 2 nranks 4 cudaDev 2 nvmlDev 2 busId 2901000 commId 0x619b498cf4f3a5dc - Init COMPLETE
+nid007203:183302:183584 [0] NCCL INFO TUNER/Plugin: Plugin load returned 11 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so
+nid007203:183302:183584 [0] NCCL INFO TUNER/Plugin: Using internal tuner plugin.
+nid007203:183302:183584 [0] NCCL INFO ncclCommInitRank comm 0xaaab128aa620 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 901000 commId 0x619b498cf4f3a5dc - Init COMPLETE
+nid007203:183305:183588 [3] NCCL INFO TUNER/Plugin: Plugin load returned 11 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so
+nid007203:183305:183588 [3] NCCL INFO TUNER/Plugin: Using internal tuner plugin.
+nid007203:183305:183588 [3] NCCL INFO ncclCommInitRank comm 0xaaab923f1d20 rank 3 nranks 4 cudaDev 3 nvmlDev 3 busId 3901000 commId 0x619b498cf4f3a5dc - Init COMPLETE
+nid007203:183303:183587 [1] NCCL INFO TUNER/Plugin: Plugin load returned 11 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so
+nid007203:183303:183587 [1] NCCL INFO TUNER/Plugin: Using internal tuner plugin.
+nid007203:183303:183587 [1] NCCL INFO ncclCommInitRank comm 0xaaace8c2b7e0 rank 1 nranks 4 cudaDev 1 nvmlDev 1 busId 1901000 commId 0x619b498cf4f3a5dc - Init COMPLETE
+✓ DDP: 4 GPUs, total batch=16[CurvTon-easy/female] Scanning local files …
+
+[CurvTon-easy/female] Scanning local files …[CurvTon-easy/female] Scanning local files …
+
+[CurvTon-easy/female] Scanning local files …
+[CurvTon-easy/female] 36641 valid triplets
+[CurvTon-easy/female] 36641 valid triplets
+[CurvTon-easy/male] Scanning local files …
+[CurvTon-easy/male] Scanning local files …
+[CurvTon-easy/female] 36641 valid triplets
+[CurvTon-easy/female] 36641 valid triplets
+[CurvTon-easy/male] Scanning local files …
+[CurvTon-easy/male] Scanning local files …
+[CurvTon-easy/male] 34514 valid triplets
+[CombinedCurvTon] Total triplets: 71155
+✓ CurvTon [easy] DataLoader: 4447 batches/epoch
+[CurvTon-medium/female] Scanning local files …
+[CurvTon-easy/male] 34514 valid triplets
+[CurvTon-easy/male] 34514 valid triplets
+[CurvTon-easy/male] 34514 valid triplets
+[CombinedCurvTon] Total triplets: 71155
+[CurvTon-medium/female] Scanning local files …
+[CombinedCurvTon] Total triplets: 71155
+[CurvTon-medium/female] Scanning local files …
+[CombinedCurvTon] Total triplets: 71155
+[CurvTon-medium/female] Scanning local files …
+[CurvTon-medium/female] 41874 valid triplets
+[CurvTon-medium/male] Scanning local files …
+[CurvTon-medium/female] 41874 valid triplets
+[CurvTon-medium/male] Scanning local files …
+[CurvTon-medium/female] 41874 valid triplets
+[CurvTon-medium/male] Scanning local files …
+[CurvTon-medium/female] 41874 valid triplets
+[CurvTon-medium/male] Scanning local files …
+[CurvTon-medium/male] 33719 valid triplets
+[CombinedCurvTon] Total triplets: 75593
+✓ CurvTon [medium] DataLoader: 4724 batches/epoch
+[CurvTon-hard/female] Scanning local files …
+[CurvTon-medium/male] 33719 valid triplets
+[CurvTon-medium/male] 33719 valid triplets
+[CombinedCurvTon] Total triplets: 75593
+[CurvTon-hard/female] Scanning local files …
+[CombinedCurvTon] Total triplets: 75593
+[CurvTon-hard/female] Scanning local files …
+[CurvTon-medium/male] 33719 valid triplets
+[CombinedCurvTon] Total triplets: 75593
+[CurvTon-hard/female] Scanning local files …
+[CurvTon-hard/female] 37168 valid triplets
+[CurvTon-hard/male] Scanning local files …
+[CurvTon-hard/female] 37168 valid triplets
+[CurvTon-hard/female] 37168 valid triplets
+[CurvTon-hard/female] 37168 valid triplets
+[CurvTon-hard/male] Scanning local files …
+[CurvTon-hard/male] Scanning local files …
+[CurvTon-hard/male] Scanning local files …
+[CurvTon-hard/male] 32713 valid triplets
+[CurvTon-hard/male] 32713 valid triplets
+[CombinedCurvTon] Total triplets: 69881
+[CurvTon-hard/male] 32713 valid triplets
+✓ CurvTon [hard] DataLoader: 4367 batches/epoch
+[CurvTon-easy/female] Scanning local files …
+[CombinedCurvTon] Total triplets: 69881
+[CurvTon-easy/female] Scanning local files …
+[CombinedCurvTon] Total triplets: 69881
+[CurvTon-easy/female] Scanning local files …
+[CurvTon-hard/male] 32713 valid triplets
+[CombinedCurvTon] Total triplets: 69881
+[CurvTon-easy/female] Scanning local files …
+[CurvTon-easy/female] 36641 valid triplets
+[CurvTon-easy/male] Scanning local files …
+[CurvTon-easy/female] 36641 valid triplets
+[CurvTon-easy/male] Scanning local files …
+[CurvTon-easy/female] 36641 valid triplets
+[CurvTon-easy/male] Scanning local files …
+[CurvTon-easy/female] 36641 valid triplets
+[CurvTon-easy/male] Scanning local files …
+[CurvTon-easy/male] 34514 valid triplets
+[CurvTon-medium/female] Scanning local files …
+[CurvTon-easy/male] 34514 valid triplets
+[CurvTon-medium/female] Scanning local files …
+[CurvTon-easy/male] 34514 valid triplets
+[CurvTon-easy/male] 34514 valid triplets
+[CurvTon-medium/female] Scanning local files …
+[CurvTon-medium/female] Scanning local files …
+[CurvTon-medium/female] 41874 valid triplets
+[CurvTon-medium/male] Scanning local files …
+[CurvTon-medium/female] 41874 valid triplets
+[CurvTon-medium/female] 41874 valid triplets
+[CurvTon-medium/male] Scanning local files …
+[CurvTon-medium/male] Scanning local files …
+[CurvTon-medium/female] 41874 valid triplets
+[CurvTon-medium/male] Scanning local files …
+[CurvTon-medium/male] 33719 valid triplets
+[CurvTon-hard/female] Scanning local files …
+[CurvTon-medium/male] 33719 valid triplets
+[CurvTon-hard/female] Scanning local files …
+[CurvTon-medium/male] 33719 valid triplets
+[CurvTon-medium/male] 33719 valid triplets
+[CurvTon-hard/female] Scanning local files …
+[CurvTon-hard/female] Scanning local files …
+[CurvTon-hard/female] 37168 valid triplets
+[CurvTon-hard/male] Scanning local files …
+[CurvTon-hard/female] 37168 valid triplets
+[CurvTon-hard/female] 37168 valid triplets
+[CurvTon-hard/female] 37168 valid triplets
+[CurvTon-hard/male] Scanning local files …
+[CurvTon-hard/male] Scanning local files …
+[CurvTon-hard/male] Scanning local files …
+[CurvTon-hard/male] 32713 valid triplets
+[CombinedCurvTon] Total triplets: 216629
+✓ DataLoader (CurvTon-all-all-none): 13539 batches/epoch per GPU
+✓ Checkpoint dir: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints
+
+[Eval] --skip_eval set; all evaluation disabled during training.
+
+── Dataloader sanity check ─────────────────────────────────
+[CurvTon-hard/male] 32713 valid triplets
+[CombinedCurvTon] Total triplets: 216629
+[CurvTon-hard/male] 32713 valid triplets
+[CurvTon-hard/male] 32713 valid triplets
+[CombinedCurvTon] Total triplets: 216629
+[CombinedCurvTon] Total triplets: 216629
+  ✓ train                           shapes={'ground_truth': (4, 3, 1024, 1024), 'cloth': (4, 3, 1024, 1024), 'mask': (4, 1, 1024, 1024), 'person': (4, 3, 1024, 1024)}
+  ✓ diff/easy                       shapes={'ground_truth': (4, 3, 1024, 1024), 'cloth': (4, 3, 1024, 1024), 'mask': (4, 1, 1024, 1024), 'person': (4, 3, 1024, 1024)}
+  ✓ diff/medium                     shapes={'ground_truth': (4, 3, 1024, 1024), 'cloth': (4, 3, 1024, 1024), 'mask': (4, 1, 1024, 1024), 'person': (4, 3, 1024, 1024)}
+  ✓ diff/hard                       shapes={'ground_truth': (4, 3, 1024, 1024), 'cloth': (4, 3, 1024, 1024), 'mask': (4, 1, 1024, 1024), 'person': (4, 3, 1024, 1024)}
+✓ Sanity check passed — 4 loaders OK.
+
+
+✓ No checkpoint found. Starting fresh with Xavier init on new UNet channels.
+
+============================================================
+TRAINING: 9999 epochs, 13539 batches/epoch per GPU
+Mode: full_unet  |  Per-GPU batch=4  Total batch=16 (4 GPUs)
+LR: Cosine 1e-04 → 5e-05 over 14400 steps
+============================================================
+
+[step      0/14400] loss=0.0384  ema=0.0384  mean=0.0384  gnorm=0.101  lr=1.00e-04  phase1
+[step     10/14400] loss=0.0895  ema=0.0416  mean=0.0690  gnorm=0.050  lr=1.00e-04  phase1
+[step     20/14400] loss=0.1186  ema=0.0482  mean=0.0891  gnorm=0.054  lr=1.00e-04  phase1
+[step     30/14400] loss=0.1597  ema=0.0536  mean=0.0940  gnorm=0.072  lr=1.00e-04  phase1
+[step     40/14400] loss=0.1510  ema=0.0577  mean=0.0946  gnorm=0.099  lr=1.00e-04  phase1
+[step     50/14400] loss=0.1408  ema=0.0592  mean=0.0903  gnorm=0.158  lr=1.00e-04  phase1
+[step     60/14400] loss=0.0049  ema=0.0587  mean=0.0845  gnorm=0.050  lr=1.00e-04  phase1
+[step     70/14400] loss=0.0664  ema=0.0579  mean=0.0798  gnorm=0.053  lr=1.00e-04  phase1
+[step     80/14400] loss=0.0638  ema=0.0580  mean=0.0773  gnorm=0.048  lr=1.00e-04  phase1
+[step     90/14400] loss=0.0238  ema=0.0582  mean=0.0754  gnorm=0.069  lr=1.00e-04  phase1
+[step    100/14400] loss=0.0164  ema=0.0586  mean=0.0745  gnorm=0.070  lr=1.00e-04  phase1
+[step    110/14400] loss=0.0147  ema=0.0579  mean=0.0725  gnorm=0.048  lr=1.00e-04  phase1
+[step    120/14400] loss=0.0576  ema=0.0560  mean=0.0652  gnorm=0.031  lr=1.00e-04  phase1
+[step    130/14400] loss=0.0358  ema=0.0539  mean=0.0581  gnorm=0.032  lr=1.00e-04  phase1
+[step    140/14400] loss=0.0045  ema=0.0531  mean=0.0530  gnorm=0.043  lr=1.00e-04  phase1
+[step    150/14400] loss=0.0718  ema=0.0549  mean=0.0529  gnorm=0.094  lr=1.00e-04  phase1
+[step    160/14400] loss=0.0262  ema=0.0543  mean=0.0522  gnorm=0.038  lr=1.00e-04  phase1
+[step    170/14400] loss=0.0243  ema=0.0555  mean=0.0538  gnorm=0.085  lr=1.00e-04  phase1
+[step    180/14400] loss=0.0497  ema=0.0563  mean=0.0543  gnorm=0.053  lr=1.00e-04  phase1
+[step    190/14400] loss=0.0870  ema=0.0576  mean=0.0552  gnorm=0.053  lr=1.00e-04  phase1
+[step    200/14400] loss=0.0658  ema=0.0557  mean=0.0527  gnorm=0.039  lr=1.00e-04  phase1
+[step    210/14400] loss=0.0772  ema=0.0570  mean=0.0543  gnorm=0.062  lr=1.00e-04  phase1
+[step    220/14400] loss=0.0323  ema=0.0560  mean=0.0552  gnorm=0.055  lr=1.00e-04  phase1
+[step    230/14400] loss=0.0839  ema=0.0545  mean=0.0559  gnorm=0.026  lr=1.00e-04  phase1
+[step    240/14400] loss=0.0200  ema=0.0532  mean=0.0555  gnorm=0.061  lr=1.00e-04  phase1
+[step    250/14400] loss=0.0430  ema=0.0553  mean=0.0558  gnorm=0.031  lr=1.00e-04  phase1
+[step    260/14400] loss=0.1160  ema=0.0545  mean=0.0556  gnorm=0.127  lr=1.00e-04  phase1
+[step    270/14400] loss=0.1034  ema=0.0539  mean=0.0538  gnorm=0.062  lr=1.00e-04  phase1
+[step    280/14400] loss=0.0553  ema=0.0533  mean=0.0522  gnorm=0.057  lr=1.00e-04  phase1
+[step    290/14400] loss=0.0221  ema=0.0514  mean=0.0486  gnorm=0.049  lr=9.99e-05  phase1
+[step    300/14400] loss=0.1406  ema=0.0523  mean=0.0509  gnorm=0.038  lr=9.99e-05  phase1
+[step    310/14400] loss=0.0099  ema=0.0503  mean=0.0473  gnorm=0.027  lr=9.99e-05  phase1
+[step    320/14400] loss=0.0059  ema=0.0501  mean=0.0474  gnorm=0.018  lr=9.99e-05  phase1
+[step    330/14400] loss=0.0286  ema=0.0526  mean=0.0509  gnorm=0.032  lr=9.99e-05  phase1
+[step    340/14400] loss=0.0479  ema=0.0516  mean=0.0510  gnorm=0.026  lr=9.99e-05  phase1
+[step    350/14400] loss=0.0271  ema=0.0529  mean=0.0499  gnorm=0.035  lr=9.99e-05  phase1
+[step    360/14400] loss=0.1256  ema=0.0532  mean=0.0509  gnorm=0.050  lr=9.99e-05  phase1
+[step    370/14400] loss=0.0386  ema=0.0519  mean=0.0500  gnorm=0.041  lr=9.99e-05  phase1
+[step    380/14400] loss=0.0649  ema=0.0519  mean=0.0502  gnorm=0.020  lr=9.99e-05  phase1
+[step    390/14400] loss=0.0219  ema=0.0517  mean=0.0519  gnorm=0.012  lr=9.99e-05  phase1
+[step    400/14400] loss=0.1467  ema=0.0513  mean=0.0506  gnorm=0.056  lr=9.99e-05  phase1
+[step    410/14400] loss=0.0380  ema=0.0502  mean=0.0513  gnorm=0.041  lr=9.99e-05  phase1
+[step    420/14400] loss=0.0579  ema=0.0493  mean=0.0506  gnorm=0.042  lr=9.99e-05  phase1
+[step    430/14400] loss=0.0468  ema=0.0471  mean=0.0457  gnorm=0.029  lr=9.99e-05  phase1
+[step    440/14400] loss=0.0115  ema=0.0471  mean=0.0463  gnorm=0.046  lr=9.99e-05  phase1
+[step    450/14400] loss=0.0187  ema=0.0468  mean=0.0442  gnorm=0.069  lr=9.99e-05  phase1
+[step    460/14400] loss=0.1552  ema=0.0470  mean=0.0433  gnorm=0.091  lr=9.99e-05  phase1
+[step    470/14400] loss=0.0649  ema=0.0463  mean=0.0433  gnorm=0.113  lr=9.99e-05  phase1
+[step    480/14400] loss=0.0581  ema=0.0452  mean=0.0418  gnorm=0.028  lr=9.99e-05  phase1
+[step    490/14400] loss=0.0077  ema=0.0460  mean=0.0421  gnorm=0.018  lr=9.99e-05  phase1
+[step    500/14400] loss=0.0066  ema=0.0445  mean=0.0405  gnorm=0.023  lr=9.99e-05  phase1
+[step    510/14400] loss=0.0630  ema=0.0462  mean=0.0428  gnorm=0.023  lr=9.98e-05  phase1
+[step    520/14400] loss=0.0297  ema=0.0460  mean=0.0430  gnorm=0.046  lr=9.98e-05  phase1
+[step    530/14400] loss=0.0693  ema=0.0469  mean=0.0460  gnorm=0.055  lr=9.98e-05  phase1
+[step    540/14400] loss=0.0588  ema=0.0451  mean=0.0441  gnorm=0.026  lr=9.98e-05  phase1
+[step    550/14400] loss=0.1506  ema=0.0456  mean=0.0446  gnorm=0.058  lr=9.98e-05  phase1
+[step    560/14400] loss=0.0572  ema=0.0459  mean=0.0446  gnorm=0.049  lr=9.98e-05  phase1
+[step    570/14400] loss=0.0150  ema=0.0461  mean=0.0455  gnorm=0.023  lr=9.98e-05  phase1
+[step    580/14400] loss=0.0715  ema=0.0478  mean=0.0484  gnorm=0.026  lr=9.98e-05  phase1
+[step    590/14400] loss=0.0687  ema=0.0482  mean=0.0482  gnorm=0.024  lr=9.98e-05  phase1
+[step    600/14400] loss=0.0246  ema=0.0457  mean=0.0474  gnorm=0.023  lr=9.98e-05  phase1
+[step    610/14400] loss=0.0150  ema=0.0438  mean=0.0436  gnorm=0.016  lr=9.98e-05  phase1
+[step    620/14400] loss=0.0588  ema=0.0440  mean=0.0439  gnorm=0.033  lr=9.98e-05  phase1
+[step    630/14400] loss=0.1214  ema=0.0438  mean=0.0425  gnorm=0.032  lr=9.98e-05  phase1
+[step    640/14400] loss=0.1153  ema=0.0437  mean=0.0439  gnorm=0.056  lr=9.98e-05  phase1
+[step    650/14400] loss=0.0169  ema=0.0440  mean=0.0436  gnorm=0.033  lr=9.97e-05  phase1
+[step    660/14400] loss=0.0094  ema=0.0432  mean=0.0424  gnorm=0.029  lr=9.97e-05  phase1
+[step    670/14400] loss=0.0204  ema=0.0429  mean=0.0417  gnorm=0.020  lr=9.97e-05  phase1
+[step    680/14400] loss=0.0189  ema=0.0425  mean=0.0392  gnorm=0.024  lr=9.97e-05  phase1
+[step    690/14400] loss=0.0260  ema=0.0434  mean=0.0392  gnorm=0.023  lr=9.97e-05  phase1
+[step    700/14400] loss=0.1104  ema=0.0446  mean=0.0425  gnorm=0.035  lr=9.97e-05  phase1
+[step    710/14400] loss=0.0166  ema=0.0448  mean=0.0447  gnorm=0.012  lr=9.97e-05  phase1
+[step    720/14400] loss=0.0231  ema=0.0433  mean=0.0431  gnorm=0.023  lr=9.97e-05  phase1
+[step    730/14400] loss=0.0452  ema=0.0439  mean=0.0439  gnorm=0.036  lr=9.97e-05  phase1
+[step    740/14400] loss=0.0447  ema=0.0459  mean=0.0461  gnorm=0.028  lr=9.97e-05  phase1
+[step    750/14400] loss=0.0188  ema=0.0450  mean=0.0450  gnorm=0.036  lr=9.97e-05  phase1
+[step    760/14400] loss=0.0067  ema=0.0439  mean=0.0447  gnorm=0.026  lr=9.97e-05  phase1
+[step    770/14400] loss=0.0067  ema=0.0427  mean=0.0439  gnorm=0.025  lr=9.96e-05  phase1
+[step    780/14400] loss=0.0185  ema=0.0425  mean=0.0440  gnorm=0.022  lr=9.96e-05  phase1
+[step    790/14400] loss=0.0615  ema=0.0410  mean=0.0415  gnorm=0.024  lr=9.96e-05  phase1
+[step    800/14400] loss=0.0486  ema=0.0424  mean=0.0415  gnorm=0.021  lr=9.96e-05  phase1
+[step    810/14400] loss=0.0409  ema=0.0432  mean=0.0418  gnorm=0.019  lr=9.96e-05  phase1
+[step    820/14400] loss=0.0217  ema=0.0429  mean=0.0429  gnorm=0.017  lr=9.96e-05  phase1
+[step    830/14400] loss=0.0689  ema=0.0423  mean=0.0416  gnorm=0.038  lr=9.96e-05  phase1
+[step    840/14400] loss=0.0322  ema=0.0441  mean=0.0412  gnorm=0.034  lr=9.96e-05  phase1
+[step    850/14400] loss=0.0445  ema=0.0445  mean=0.0425  gnorm=0.050  lr=9.96e-05  phase1
+[step    860/14400] loss=0.1735  ema=0.0447  mean=0.0436  gnorm=0.081  lr=9.96e-05  phase1
+[step    870/14400] loss=0.0713  ema=0.0444  mean=0.0446  gnorm=0.027  lr=9.95e-05  phase1
+[step    880/14400] loss=0.0169  ema=0.0427  mean=0.0433  gnorm=0.025  lr=9.95e-05  phase1
+[step    890/14400] loss=0.0355  ema=0.0435  mean=0.0457  gnorm=0.018  lr=9.95e-05  phase1
+[step    900/14400] loss=0.0366  ema=0.0427  mean=0.0437  gnorm=0.037  lr=9.95e-05  phase1
+[step    910/14400] loss=0.0042  ema=0.0430  mean=0.0432  gnorm=0.020  lr=9.95e-05  phase1
+[step    920/14400] loss=0.0400  ema=0.0421  mean=0.0426  gnorm=0.021  lr=9.95e-05  phase1
+[step    930/14400] loss=0.0238  ema=0.0422  mean=0.0433  gnorm=0.022  lr=9.95e-05  phase1
+[step    940/14400] loss=0.0317  ema=0.0423  mean=0.0415  gnorm=0.072  lr=9.95e-05  phase1
+[step    950/14400] loss=0.0140  ema=0.0427  mean=0.0413  gnorm=0.031  lr=9.95e-05  phase1
+[step    960/14400] loss=0.0234  ema=0.0419  mean=0.0402  gnorm=0.024  lr=9.95e-05  phase1
+[step    970/14400] loss=0.0049  ema=0.0409  mean=0.0392  gnorm=0.024  lr=9.94e-05  phase1
+[step    980/14400] loss=0.0585  ema=0.0401  mean=0.0398  gnorm=0.026  lr=9.94e-05  phase1
+[step    990/14400] loss=0.0197  ema=0.0393  mean=0.0380  gnorm=0.058  lr=9.94e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_1000.pt
+[step   1000/14400] loss=0.0055  ema=0.0397  mean=0.0387  gnorm=0.021  lr=9.94e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_1000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_1000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_1000.pt
+[step   1010/14400] loss=0.0492  ema=0.0401  mean=0.0385  gnorm=0.015  lr=9.94e-05  phase1
+[step   1020/14400] loss=0.0050  ema=0.0397  mean=0.0387  gnorm=0.017  lr=9.94e-05  phase1
+[step   1030/14400] loss=0.0319  ema=0.0402  mean=0.0388  gnorm=0.024  lr=9.94e-05  phase1
+[step   1040/14400] loss=0.0581  ema=0.0396  mean=0.0378  gnorm=0.024  lr=9.94e-05  phase1
+[step   1050/14400] loss=0.0204  ema=0.0387  mean=0.0362  gnorm=0.031  lr=9.93e-05  phase1
+[step   1060/14400] loss=0.0116  ema=0.0383  mean=0.0363  gnorm=0.027  lr=9.93e-05  phase1
+[step   1070/14400] loss=0.0330  ema=0.0400  mean=0.0388  gnorm=0.041  lr=9.93e-05  phase1
+[step   1080/14400] loss=0.0107  ema=0.0401  mean=0.0396  gnorm=0.016  lr=9.93e-05  phase1
+[step   1090/14400] loss=0.0176  ema=0.0388  mean=0.0390  gnorm=0.028  lr=9.93e-05  phase1
+[step   1100/14400] loss=0.0269  ema=0.0400  mean=0.0400  gnorm=0.040  lr=9.93e-05  phase1
+[step   1110/14400] loss=0.0513  ema=0.0400  mean=0.0395  gnorm=0.042  lr=9.93e-05  phase1
+[step   1120/14400] loss=0.0173  ema=0.0398  mean=0.0397  gnorm=0.027  lr=9.93e-05  phase1
+[step   1130/14400] loss=0.0326  ema=0.0390  mean=0.0384  gnorm=0.030  lr=9.92e-05  phase1
+[step   1140/14400] loss=0.0886  ema=0.0402  mean=0.0402  gnorm=0.025  lr=9.92e-05  phase1
+[step   1150/14400] loss=0.0678  ema=0.0413  mean=0.0422  gnorm=0.029  lr=9.92e-05  phase1
+[step   1160/14400] loss=0.0289  ema=0.0420  mean=0.0437  gnorm=0.027  lr=9.92e-05  phase1
+[step   1170/14400] loss=0.0091  ema=0.0421  mean=0.0423  gnorm=0.016  lr=9.92e-05  phase1
+[step   1180/14400] loss=0.0977  ema=0.0421  mean=0.0424  gnorm=0.031  lr=9.92e-05  phase1
+[step   1190/14400] loss=0.0084  ema=0.0408  mean=0.0426  gnorm=0.039  lr=9.92e-05  phase1
+[step   1200/14400] loss=0.0227  ema=0.0418  mean=0.0426  gnorm=0.030  lr=9.91e-05  phase1
+[step   1210/14400] loss=0.0149  ema=0.0412  mean=0.0421  gnorm=0.031  lr=9.91e-05  phase1
+[step   1220/14400] loss=0.0170  ema=0.0414  mean=0.0427  gnorm=0.028  lr=9.91e-05  phase1
+[step   1230/14400] loss=0.0138  ema=0.0408  mean=0.0431  gnorm=0.016  lr=9.91e-05  phase1
+[step   1240/14400] loss=0.0246  ema=0.0404  mean=0.0417  gnorm=0.022  lr=9.91e-05  phase1
+[step   1250/14400] loss=0.0048  ema=0.0413  mean=0.0416  gnorm=0.015  lr=9.91e-05  phase1
+[step   1260/14400] loss=0.0205  ema=0.0414  mean=0.0410  gnorm=0.035  lr=9.91e-05  phase1
+[step   1270/14400] loss=0.0068  ema=0.0402  mean=0.0395  gnorm=0.018  lr=9.90e-05  phase1
+[step   1280/14400] loss=0.0185  ema=0.0390  mean=0.0382  gnorm=0.022  lr=9.90e-05  phase1
+[step   1290/14400] loss=0.0733  ema=0.0401  mean=0.0403  gnorm=0.023  lr=9.90e-05  phase1
+[step   1300/14400] loss=0.0126  ema=0.0390  mean=0.0380  gnorm=0.020  lr=9.90e-05  phase1
+[step   1310/14400] loss=0.0528  ema=0.0402  mean=0.0396  gnorm=0.018  lr=9.90e-05  phase1
+[step   1320/14400] loss=0.0626  ema=0.0403  mean=0.0393  gnorm=0.020  lr=9.90e-05  phase1
+[step   1330/14400] loss=0.0374  ema=0.0396  mean=0.0391  gnorm=0.021  lr=9.90e-05  phase1
+[step   1340/14400] loss=0.0258  ema=0.0397  mean=0.0395  gnorm=0.027  lr=9.89e-05  phase1
+[step   1350/14400] loss=0.0064  ema=0.0393  mean=0.0380  gnorm=0.018  lr=9.89e-05  phase1
+[step   1360/14400] loss=0.0114  ema=0.0381  mean=0.0363  gnorm=0.025  lr=9.89e-05  phase1
+[step   1370/14400] loss=0.0845  ema=0.0386  mean=0.0379  gnorm=0.047  lr=9.89e-05  phase1
+[step   1380/14400] loss=0.0160  ema=0.0389  mean=0.0392  gnorm=0.015  lr=9.89e-05  phase1
+[step   1390/14400] loss=0.0198  ema=0.0384  mean=0.0375  gnorm=0.027  lr=9.89e-05  phase1
+[step   1400/14400] loss=0.0922  ema=0.0374  mean=0.0374  gnorm=0.026  lr=9.88e-05  phase1
+[step   1410/14400] loss=0.0196  ema=0.0375  mean=0.0362  gnorm=0.016  lr=9.88e-05  phase1
+[step   1420/14400] loss=0.0187  ema=0.0372  mean=0.0356  gnorm=0.015  lr=9.88e-05  phase1
+[step   1430/14400] loss=0.0625  ema=0.0375  mean=0.0362  gnorm=0.019  lr=9.88e-05  phase1
+[step   1440/14400] loss=0.0928  ema=0.0382  mean=0.0366  gnorm=0.025  lr=9.88e-05  phase1
+[step   1450/14400] loss=0.0197  ema=0.0376  mean=0.0363  gnorm=0.065  lr=9.88e-05  phase1
+[step   1460/14400] loss=0.0229  ema=0.0359  mean=0.0356  gnorm=0.024  lr=9.87e-05  phase1
+[step   1470/14400] loss=0.0084  ema=0.0358  mean=0.0347  gnorm=0.030  lr=9.87e-05  phase1
+[step   1480/14400] loss=0.0691  ema=0.0359  mean=0.0343  gnorm=0.019  lr=9.87e-05  phase1
+[step   1490/14400] loss=0.0181  ema=0.0362  mean=0.0348  gnorm=0.027  lr=9.87e-05  phase1
+[step   1500/14400] loss=0.0404  ema=0.0358  mean=0.0352  gnorm=0.028  lr=9.87e-05  phase1
+[step   1510/14400] loss=0.0070  ema=0.0360  mean=0.0352  gnorm=0.017  lr=9.87e-05  phase1
+[step   1520/14400] loss=0.0203  ema=0.0360  mean=0.0353  gnorm=0.016  lr=9.86e-05  phase1
+[step   1530/14400] loss=0.0397  ema=0.0365  mean=0.0355  gnorm=0.029  lr=9.86e-05  phase1
+[step   1540/14400] loss=0.1139  ema=0.0381  mean=0.0362  gnorm=0.029  lr=9.86e-05  phase1
+[step   1550/14400] loss=0.0651  ema=0.0384  mean=0.0372  gnorm=0.052  lr=9.86e-05  phase1
+[step   1560/14400] loss=0.0373  ema=0.0379  mean=0.0386  gnorm=0.030  lr=9.86e-05  phase1
+[step   1570/14400] loss=0.2084  ema=0.0396  mean=0.0406  gnorm=0.068  lr=9.85e-05  phase1
+[step   1580/14400] loss=0.0200  ema=0.0397  mean=0.0409  gnorm=0.023  lr=9.85e-05  phase1
+[step   1590/14400] loss=0.0736  ema=0.0403  mean=0.0416  gnorm=0.028  lr=9.85e-05  phase1
+[step   1600/14400] loss=0.0268  ema=0.0404  mean=0.0425  gnorm=0.017  lr=9.85e-05  phase1
+[step   1610/14400] loss=0.0507  ema=0.0418  mean=0.0443  gnorm=0.030  lr=9.85e-05  phase1
+[step   1620/14400] loss=0.0238  ema=0.0421  mean=0.0452  gnorm=0.021  lr=9.85e-05  phase1
+[step   1630/14400] loss=0.0011  ema=0.0455  mean=0.0490  gnorm=0.024  lr=9.84e-05  phase1
+[step   1640/14400] loss=0.0111  ema=0.0445  mean=0.0473  gnorm=0.018  lr=9.84e-05  phase1
+[step   1650/14400] loss=0.0192  ema=0.0424  mean=0.0454  gnorm=0.018  lr=9.84e-05  phase1
+[step   1660/14400] loss=0.1059  ema=0.0425  mean=0.0463  gnorm=0.033  lr=9.84e-05  phase1
+[step   1670/14400] loss=0.0849  ema=0.0442  mean=0.0467  gnorm=0.040  lr=9.84e-05  phase1
+[step   1680/14400] loss=0.0256  ema=0.0429  mean=0.0457  gnorm=0.018  lr=9.83e-05  phase1
+[step   1690/14400] loss=0.0264  ema=0.0416  mean=0.0441  gnorm=0.025  lr=9.83e-05  phase1
+[step   1700/14400] loss=0.0142  ema=0.0401  mean=0.0427  gnorm=0.011  lr=9.83e-05  phase1
+[step   1710/14400] loss=0.0487  ema=0.0403  mean=0.0412  gnorm=0.022  lr=9.83e-05  phase1
+[step   1720/14400] loss=0.0233  ema=0.0403  mean=0.0408  gnorm=0.020  lr=9.83e-05  phase1
+[step   1730/14400] loss=0.0426  ema=0.0393  mean=0.0358  gnorm=0.021  lr=9.82e-05  phase1
+[step   1740/14400] loss=0.0257  ema=0.0391  mean=0.0359  gnorm=0.026  lr=9.82e-05  phase1
+[step   1750/14400] loss=0.0101  ema=0.0387  mean=0.0372  gnorm=0.019  lr=9.82e-05  phase1
+[step   1760/14400] loss=0.0492  ema=0.0397  mean=0.0379  gnorm=0.024  lr=9.82e-05  phase1
+[step   1770/14400] loss=0.0301  ema=0.0395  mean=0.0357  gnorm=0.031  lr=9.82e-05  phase1
+[step   1780/14400] loss=0.0582  ema=0.0397  mean=0.0368  gnorm=0.033  lr=9.81e-05  phase1
+[step   1790/14400] loss=0.0158  ema=0.0389  mean=0.0370  gnorm=0.014  lr=9.81e-05  phase1
+[step   1800/14400] loss=0.0169  ema=0.0374  mean=0.0366  gnorm=0.017  lr=9.81e-05  phase1
+[step   1810/14400] loss=0.0309  ema=0.0378  mean=0.0367  gnorm=0.015  lr=9.81e-05  phase1
+[step   1820/14400] loss=0.0279  ema=0.0369  mean=0.0354  gnorm=0.021  lr=9.81e-05  phase1
+[step   1830/14400] loss=0.0283  ema=0.0370  mean=0.0364  gnorm=0.025  lr=9.80e-05  phase1
+[step   1840/14400] loss=0.0813  ema=0.0380  mean=0.0374  gnorm=0.031  lr=9.80e-05  phase1
+[step   1850/14400] loss=0.0385  ema=0.0372  mean=0.0368  gnorm=0.023  lr=9.80e-05  phase1
+[step   1860/14400] loss=0.0085  ema=0.0396  mean=0.0382  gnorm=0.026  lr=9.80e-05  phase1
+[step   1870/14400] loss=0.0073  ema=0.0385  mean=0.0372  gnorm=0.017  lr=9.79e-05  phase1
+[step   1880/14400] loss=0.0906  ema=0.0393  mean=0.0377  gnorm=0.023  lr=9.79e-05  phase1
+[step   1890/14400] loss=0.0586  ema=0.0411  mean=0.0405  gnorm=0.066  lr=9.79e-05  phase1
+[step   1900/14400] loss=0.0753  ema=0.0411  mean=0.0423  gnorm=0.027  lr=9.79e-05  phase1
+[step   1910/14400] loss=0.0530  ema=0.0411  mean=0.0422  gnorm=0.018  lr=9.79e-05  phase1
+[step   1920/14400] loss=0.0376  ema=0.0407  mean=0.0431  gnorm=0.022  lr=9.78e-05  phase1
+[step   1930/14400] loss=0.0491  ema=0.0413  mean=0.0440  gnorm=0.022  lr=9.78e-05  phase1
+[step   1940/14400] loss=0.0710  ema=0.0401  mean=0.0421  gnorm=0.023  lr=9.78e-05  phase1
+[step   1950/14400] loss=0.0299  ema=0.0389  mean=0.0419  gnorm=0.021  lr=9.78e-05  phase1
+[step   1960/14400] loss=0.0332  ema=0.0374  mean=0.0379  gnorm=0.028  lr=9.77e-05  phase1
+[step   1970/14400] loss=0.0252  ema=0.0380  mean=0.0395  gnorm=0.019  lr=9.77e-05  phase1
+[step   1980/14400] loss=0.1319  ema=0.0396  mean=0.0403  gnorm=0.037  lr=9.77e-05  phase1
+[step   1990/14400] loss=0.0110  ema=0.0394  mean=0.0383  gnorm=0.022  lr=9.77e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_2000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_2000.pt
+[step   2000/14400] loss=0.0471  ema=0.0383  mean=0.0369  gnorm=0.032  lr=9.77e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_2000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_2000.pt
+[step   2010/14400] loss=0.0797  ema=0.0386  mean=0.0368  gnorm=0.033  lr=9.76e-05  phase1
+[step   2020/14400] loss=0.0117  ema=0.0372  mean=0.0355  gnorm=0.015  lr=9.76e-05  phase1
+[step   2030/14400] loss=0.0339  ema=0.0375  mean=0.0349  gnorm=0.015  lr=9.76e-05  phase1
+[step   2040/14400] loss=0.0234  ema=0.0377  mean=0.0361  gnorm=0.036  lr=9.76e-05  phase1
+[step   2050/14400] loss=0.0699  ema=0.0381  mean=0.0375  gnorm=0.041  lr=9.75e-05  phase1
+[step   2060/14400] loss=0.0464  ema=0.0379  mean=0.0388  gnorm=0.027  lr=9.75e-05  phase1
+[step   2070/14400] loss=0.0302  ema=0.0368  mean=0.0370  gnorm=0.026  lr=9.75e-05  phase1
+[step   2080/14400] loss=0.1001  ema=0.0368  mean=0.0352  gnorm=0.033  lr=9.75e-05  phase1
+[step   2090/14400] loss=0.0193  ema=0.0366  mean=0.0349  gnorm=0.018  lr=9.74e-05  phase1
+[step   2100/14400] loss=0.0627  ema=0.0390  mean=0.0382  gnorm=0.017  lr=9.74e-05  phase1
+[step   2110/14400] loss=0.0568  ema=0.0377  mean=0.0367  gnorm=0.024  lr=9.74e-05  phase1
+[step   2120/14400] loss=0.0288  ema=0.0376  mean=0.0379  gnorm=0.016  lr=9.74e-05  phase1
+[step   2130/14400] loss=0.0188  ema=0.0386  mean=0.0387  gnorm=0.013  lr=9.73e-05  phase1
+[step   2140/14400] loss=0.0380  ema=0.0380  mean=0.0379  gnorm=0.043  lr=9.73e-05  phase1
+[step   2150/14400] loss=0.0755  ema=0.0393  mean=0.0389  gnorm=0.032  lr=9.73e-05  phase1
+[step   2160/14400] loss=0.0625  ema=0.0393  mean=0.0392  gnorm=0.028  lr=9.73e-05  phase1
+[step   2170/14400] loss=0.0365  ema=0.0391  mean=0.0404  gnorm=0.022  lr=9.72e-05  phase1
+[step   2180/14400] loss=0.0113  ema=0.0377  mean=0.0391  gnorm=0.033  lr=9.72e-05  phase1
+[step   2190/14400] loss=0.0092  ema=0.0364  mean=0.0381  gnorm=0.026  lr=9.72e-05  phase1
+[step   2200/14400] loss=0.0418  ema=0.0371  mean=0.0363  gnorm=0.019  lr=9.72e-05  phase1
+[step   2210/14400] loss=0.1002  ema=0.0377  mean=0.0380  gnorm=0.036  lr=9.71e-05  phase1
+[step   2220/14400] loss=0.0352  ema=0.0384  mean=0.0389  gnorm=0.018  lr=9.71e-05  phase1
+[step   2230/14400] loss=0.0436  ema=0.0389  mean=0.0384  gnorm=0.020  lr=9.71e-05  phase1
+[step   2240/14400] loss=0.0964  ema=0.0387  mean=0.0389  gnorm=0.031  lr=9.71e-05  phase1
+[step   2250/14400] loss=0.1138  ema=0.0386  mean=0.0374  gnorm=0.019  lr=9.70e-05  phase1
+[step   2260/14400] loss=0.0411  ema=0.0393  mean=0.0381  gnorm=0.034  lr=9.70e-05  phase1
+[step   2270/14400] loss=0.0616  ema=0.0390  mean=0.0380  gnorm=0.036  lr=9.70e-05  phase1
+[step   2280/14400] loss=0.0618  ema=0.0390  mean=0.0394  gnorm=0.022  lr=9.70e-05  phase1
+[step   2290/14400] loss=0.1125  ema=0.0381  mean=0.0398  gnorm=0.032  lr=9.69e-05  phase1
+[step   2300/14400] loss=0.0584  ema=0.0379  mean=0.0391  gnorm=0.024  lr=9.69e-05  phase1
+[step   2310/14400] loss=0.0045  ema=0.0384  mean=0.0391  gnorm=0.029  lr=9.69e-05  phase1
+[step   2320/14400] loss=0.0468  ema=0.0383  mean=0.0383  gnorm=0.021  lr=9.69e-05  phase1
+[step   2330/14400] loss=0.0088  ema=0.0388  mean=0.0384  gnorm=0.018  lr=9.68e-05  phase1
+[step   2340/14400] loss=0.0263  ema=0.0384  mean=0.0381  gnorm=0.019  lr=9.68e-05  phase1
+[step   2350/14400] loss=0.0148  ema=0.0382  mean=0.0380  gnorm=0.011  lr=9.68e-05  phase1
+[step   2360/14400] loss=0.0061  ema=0.0361  mean=0.0351  gnorm=0.019  lr=9.68e-05  phase1
+[step   2370/14400] loss=0.0678  ema=0.0357  mean=0.0347  gnorm=0.019  lr=9.67e-05  phase1
+[step   2380/14400] loss=0.0157  ema=0.0342  mean=0.0328  gnorm=0.012  lr=9.67e-05  phase1
+[step   2390/14400] loss=0.0108  ema=0.0335  mean=0.0326  gnorm=0.015  lr=9.67e-05  phase1
+[step   2400/14400] loss=0.0300  ema=0.0334  mean=0.0322  gnorm=0.016  lr=9.66e-05  phase1
+[step   2410/14400] loss=0.1559  ema=0.0345  mean=0.0325  gnorm=0.081  lr=9.66e-05  phase1
+[step   2420/14400] loss=0.0280  ema=0.0333  mean=0.0308  gnorm=0.019  lr=9.66e-05  phase1
+[step   2430/14400] loss=0.0252  ema=0.0347  mean=0.0312  gnorm=0.012  lr=9.66e-05  phase1
+[step   2440/14400] loss=0.0362  ema=0.0339  mean=0.0305  gnorm=0.019  lr=9.65e-05  phase1
+[step   2450/14400] loss=0.0444  ema=0.0358  mean=0.0321  gnorm=0.028  lr=9.65e-05  phase1
+[step   2460/14400] loss=0.0503  ema=0.0353  mean=0.0336  gnorm=0.023  lr=9.65e-05  phase1
+[step   2470/14400] loss=0.0580  ema=0.0345  mean=0.0331  gnorm=0.035  lr=9.65e-05  phase1
+[step   2480/14400] loss=0.0710  ema=0.0349  mean=0.0350  gnorm=0.033  lr=9.64e-05  phase1
+[step   2490/14400] loss=0.0323  ema=0.0349  mean=0.0357  gnorm=0.018  lr=9.64e-05  phase1
+[step   2500/14400] loss=0.0173  ema=0.0351  mean=0.0362  gnorm=0.015  lr=9.64e-05  phase1
+[step   2510/14400] loss=0.0402  ema=0.0353  mean=0.0355  gnorm=0.019  lr=9.63e-05  phase1
+[step   2520/14400] loss=0.0188  ema=0.0356  mean=0.0372  gnorm=0.044  lr=9.63e-05  phase1
+[step   2530/14400] loss=0.0165  ema=0.0351  mean=0.0354  gnorm=0.026  lr=9.63e-05  phase1
+[step   2540/14400] loss=0.1313  ema=0.0371  mean=0.0382  gnorm=0.032  lr=9.63e-05  phase1
+[step   2550/14400] loss=0.0277  ema=0.0364  mean=0.0359  gnorm=0.026  lr=9.62e-05  phase1
+[step   2560/14400] loss=0.0093  ema=0.0370  mean=0.0373  gnorm=0.016  lr=9.62e-05  phase1
+[step   2570/14400] loss=0.0311  ema=0.0389  mean=0.0403  gnorm=0.019  lr=9.62e-05  phase1
+[step   2580/14400] loss=0.0704  ema=0.0386  mean=0.0399  gnorm=0.019  lr=9.61e-05  phase1
+[step   2590/14400] loss=0.0121  ema=0.0398  mean=0.0416  gnorm=0.014  lr=9.61e-05  phase1
+[step   2600/14400] loss=0.0397  ema=0.0394  mean=0.0415  gnorm=0.025  lr=9.61e-05  phase1
+[step   2610/14400] loss=0.0252  ema=0.0387  mean=0.0409  gnorm=0.012  lr=9.61e-05  phase1
+[step   2620/14400] loss=0.0228  ema=0.0384  mean=0.0407  gnorm=0.013  lr=9.60e-05  phase1
+[step   2630/14400] loss=0.0101  ema=0.0376  mean=0.0406  gnorm=0.018  lr=9.60e-05  phase1
+[step   2640/14400] loss=0.0154  ema=0.0370  mean=0.0383  gnorm=0.017  lr=9.60e-05  phase1
+[step   2650/14400] loss=0.0255  ema=0.0367  mean=0.0386  gnorm=0.019  lr=9.59e-05  phase1
+[step   2660/14400] loss=0.0697  ema=0.0390  mean=0.0403  gnorm=0.022  lr=9.59e-05  phase1
+[step   2670/14400] loss=0.0149  ema=0.0386  mean=0.0381  gnorm=0.017  lr=9.59e-05  phase1
+[step   2680/14400] loss=0.0126  ema=0.0404  mean=0.0402  gnorm=0.034  lr=9.58e-05  phase1
+[step   2690/14400] loss=0.0627  ema=0.0402  mean=0.0390  gnorm=0.033  lr=9.58e-05  phase1
+[step   2700/14400] loss=0.0313  ema=0.0439  mean=0.0432  gnorm=0.018  lr=9.58e-05  phase1
+[step   2710/14400] loss=0.0146  ema=0.0447  mean=0.0451  gnorm=0.033  lr=9.58e-05  phase1
+[step   2720/14400] loss=0.0159  ema=0.0441  mean=0.0454  gnorm=0.029  lr=9.57e-05  phase1
+[step   2730/14400] loss=0.0337  ema=0.0430  mean=0.0457  gnorm=0.021  lr=9.57e-05  phase1
+[step   2740/14400] loss=0.1211  ema=0.0433  mean=0.0471  gnorm=0.035  lr=9.57e-05  phase1
+[step   2750/14400] loss=0.0303  ema=0.0437  mean=0.0486  gnorm=0.022  lr=9.56e-05  phase1
+[step   2760/14400] loss=0.0156  ema=0.0433  mean=0.0464  gnorm=0.020  lr=9.56e-05  phase1
+[step   2770/14400] loss=0.0492  ema=0.0429  mean=0.0469  gnorm=0.021  lr=9.56e-05  phase1
+[step   2780/14400] loss=0.0172  ema=0.0438  mean=0.0464  gnorm=0.013  lr=9.55e-05  phase1
+[step   2790/14400] loss=0.0039  ema=0.0416  mean=0.0447  gnorm=0.020  lr=9.55e-05  phase1
+[step   2800/14400] loss=0.0375  ema=0.0418  mean=0.0412  gnorm=0.022  lr=9.55e-05  phase1
+[step   2810/14400] loss=0.0296  ema=0.0420  mean=0.0405  gnorm=0.029  lr=9.54e-05  phase1
+[step   2820/14400] loss=0.0669  ema=0.0422  mean=0.0410  gnorm=0.016  lr=9.54e-05  phase1
+[step   2830/14400] loss=0.0688  ema=0.0412  mean=0.0409  gnorm=0.020  lr=9.54e-05  phase1
+[step   2840/14400] loss=0.0429  ema=0.0405  mean=0.0397  gnorm=0.021  lr=9.53e-05  phase1
+[step   2850/14400] loss=0.0336  ema=0.0408  mean=0.0394  gnorm=0.016  lr=9.53e-05  phase1
+[step   2860/14400] loss=0.0323  ema=0.0432  mean=0.0420  gnorm=0.026  lr=9.53e-05  phase1
+[step   2870/14400] loss=0.0037  ema=0.0414  mean=0.0405  gnorm=0.013  lr=9.53e-05  phase1
+[step   2880/14400] loss=0.0163  ema=0.0414  mean=0.0395  gnorm=0.019  lr=9.52e-05  phase1
+[step   2890/14400] loss=0.0238  ema=0.0406  mean=0.0408  gnorm=0.030  lr=9.52e-05  phase1
+[step   2900/14400] loss=0.0167  ema=0.0386  mean=0.0384  gnorm=0.015  lr=9.52e-05  phase1
+[step   2910/14400] loss=0.0494  ema=0.0399  mean=0.0392  gnorm=0.021  lr=9.51e-05  phase1
+[step   2920/14400] loss=0.0563  ema=0.0416  mean=0.0406  gnorm=0.017  lr=9.51e-05  phase1
+[step   2930/14400] loss=0.0162  ema=0.0413  mean=0.0413  gnorm=0.021  lr=9.51e-05  phase1
+[step   2940/14400] loss=0.0185  ema=0.0405  mean=0.0411  gnorm=0.015  lr=9.50e-05  phase1
+[step   2950/14400] loss=0.0101  ema=0.0405  mean=0.0408  gnorm=0.009  lr=9.50e-05  phase1
+[step   2960/14400] loss=0.0096  ema=0.0391  mean=0.0367  gnorm=0.017  lr=9.50e-05  phase1
+[step   2970/14400] loss=0.0292  ema=0.0380  mean=0.0370  gnorm=0.019  lr=9.49e-05  phase1
+[step   2980/14400] loss=0.0267  ema=0.0384  mean=0.0370  gnorm=0.018  lr=9.49e-05  phase1
+[step   2990/14400] loss=0.0152  ema=0.0396  mean=0.0388  gnorm=0.015  lr=9.49e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_3000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_3000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_3000.pt
+[step   3000/14400] loss=0.0136  ema=0.0379  mean=0.0391  gnorm=0.014  lr=9.48e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_3000.pt
+[step   3010/14400] loss=0.0498  ema=0.0394  mean=0.0393  gnorm=0.021  lr=9.48e-05  phase1
+[step   3020/14400] loss=0.0381  ema=0.0387  mean=0.0367  gnorm=0.022  lr=9.48e-05  phase1
+[step   3030/14400] loss=0.0502  ema=0.0386  mean=0.0365  gnorm=0.016  lr=9.47e-05  phase1
+[step   3040/14400] loss=0.0268  ema=0.0374  mean=0.0359  gnorm=0.024  lr=9.47e-05  phase1
+[step   3050/14400] loss=0.0241  ema=0.0357  mean=0.0338  gnorm=0.013  lr=9.47e-05  phase1
+[step   3060/14400] loss=0.0310  ema=0.0355  mean=0.0347  gnorm=0.024  lr=9.46e-05  phase1
+[step   3070/14400] loss=0.0332  ema=0.0352  mean=0.0352  gnorm=0.014  lr=9.46e-05  phase1
+[step   3080/14400] loss=0.0089  ema=0.0353  mean=0.0345  gnorm=0.016  lr=9.46e-05  phase1
+[step   3090/14400] loss=0.0186  ema=0.0361  mean=0.0338  gnorm=0.017  lr=9.45e-05  phase1
+[step   3100/14400] loss=0.0290  ema=0.0359  mean=0.0350  gnorm=0.021  lr=9.45e-05  phase1
+[step   3110/14400] loss=0.0581  ema=0.0367  mean=0.0340  gnorm=0.019  lr=9.45e-05  phase1
+[step   3120/14400] loss=0.0310  ema=0.0375  mean=0.0352  gnorm=0.016  lr=9.44e-05  phase1
+[step   3130/14400] loss=0.0101  ema=0.0375  mean=0.0352  gnorm=0.013  lr=9.44e-05  phase1
+[step   3140/14400] loss=0.0172  ema=0.0364  mean=0.0353  gnorm=0.018  lr=9.44e-05  phase1
+[step   3150/14400] loss=0.0433  ema=0.0370  mean=0.0376  gnorm=0.036  lr=9.43e-05  phase1
+[step   3160/14400] loss=0.0147  ema=0.0357  mean=0.0365  gnorm=0.027  lr=9.43e-05  phase1
+[step   3170/14400] loss=0.0434  ema=0.0362  mean=0.0374  gnorm=0.022  lr=9.43e-05  phase1
+[step   3180/14400] loss=0.0367  ema=0.0359  mean=0.0371  gnorm=0.015  lr=9.42e-05  phase1
+[step   3190/14400] loss=0.0458  ema=0.0363  mean=0.0367  gnorm=0.026  lr=9.42e-05  phase1
+[step   3200/14400] loss=0.0590  ema=0.0366  mean=0.0372  gnorm=0.019  lr=9.41e-05  phase1
+[step   3210/14400] loss=0.0073  ema=0.0362  mean=0.0361  gnorm=0.024  lr=9.41e-05  phase1
+[step   3220/14400] loss=0.0145  ema=0.0365  mean=0.0356  gnorm=0.017  lr=9.41e-05  phase1
+[step   3230/14400] loss=0.0357  ema=0.0375  mean=0.0366  gnorm=0.011  lr=9.40e-05  phase1
+[step   3240/14400] loss=0.0227  ema=0.0386  mean=0.0388  gnorm=0.016  lr=9.40e-05  phase1
+[step   3250/14400] loss=0.0232  ema=0.0381  mean=0.0378  gnorm=0.017  lr=9.40e-05  phase1
+[step   3260/14400] loss=0.0693  ema=0.0382  mean=0.0394  gnorm=0.031  lr=9.39e-05  phase1
+[step   3270/14400] loss=0.0241  ema=0.0380  mean=0.0389  gnorm=0.016  lr=9.39e-05  phase1
+[step   3280/14400] loss=0.0183  ema=0.0372  mean=0.0385  gnorm=0.017  lr=9.39e-05  phase1
+[step   3290/14400] loss=0.0470  ema=0.0374  mean=0.0385  gnorm=0.021  lr=9.38e-05  phase1
+[step   3300/14400] loss=0.0207  ema=0.0372  mean=0.0380  gnorm=0.018  lr=9.38e-05  phase1
+[step   3310/14400] loss=0.1150  ema=0.0386  mean=0.0399  gnorm=0.028  lr=9.38e-05  phase1
+[step   3320/14400] loss=0.0284  ema=0.0382  mean=0.0394  gnorm=0.014  lr=9.37e-05  phase1
+[step   3330/14400] loss=0.0676  ema=0.0379  mean=0.0382  gnorm=0.020  lr=9.37e-05  phase1
+[step   3340/14400] loss=0.0378  ema=0.0376  mean=0.0368  gnorm=0.015  lr=9.36e-05  phase1
+[step   3350/14400] loss=0.1111  ema=0.0396  mean=0.0393  gnorm=0.025  lr=9.36e-05  phase1
+[step   3360/14400] loss=0.0363  ema=0.0391  mean=0.0388  gnorm=0.018  lr=9.36e-05  phase1
+[step   3370/14400] loss=0.0148  ema=0.0397  mean=0.0398  gnorm=0.016  lr=9.35e-05  phase1
+[step   3380/14400] loss=0.0161  ema=0.0409  mean=0.0420  gnorm=0.046  lr=9.35e-05  phase1
+[step   3390/14400] loss=0.0839  ema=0.0406  mean=0.0418  gnorm=0.034  lr=9.35e-05  phase1
+[step   3400/14400] loss=0.0071  ema=0.0401  mean=0.0420  gnorm=0.016  lr=9.34e-05  phase1
+[step   3410/14400] loss=0.1397  ema=0.0413  mean=0.0420  gnorm=0.036  lr=9.34e-05  phase1
+[step   3420/14400] loss=0.1208  ema=0.0418  mean=0.0432  gnorm=0.022  lr=9.34e-05  phase1
+[step   3430/14400] loss=0.0100  ema=0.0407  mean=0.0427  gnorm=0.015  lr=9.33e-05  phase1
+[step   3440/14400] loss=0.0396  ema=0.0412  mean=0.0439  gnorm=0.021  lr=9.33e-05  phase1
+[step   3450/14400] loss=0.1500  ema=0.0422  mean=0.0432  gnorm=0.034  lr=9.32e-05  phase1
+[step   3460/14400] loss=0.0063  ema=0.0409  mean=0.0426  gnorm=0.016  lr=9.32e-05  phase1
+[step   3470/14400] loss=0.0210  ema=0.0402  mean=0.0414  gnorm=0.022  lr=9.32e-05  phase1
+[step   3480/14400] loss=0.0698  ema=0.0398  mean=0.0398  gnorm=0.051  lr=9.31e-05  phase1
+[step   3490/14400] loss=0.0183  ema=0.0391  mean=0.0393  gnorm=0.022  lr=9.31e-05  phase1
+[step   3500/14400] loss=0.0059  ema=0.0372  mean=0.0376  gnorm=0.015  lr=9.31e-05  phase1
+[step   3510/14400] loss=0.0349  ema=0.0374  mean=0.0364  gnorm=0.020  lr=9.30e-05  phase1
+[step   3520/14400] loss=0.0161  ema=0.0373  mean=0.0354  gnorm=0.017  lr=9.30e-05  phase1
+[step   3530/14400] loss=0.0343  ema=0.0388  mean=0.0377  gnorm=0.016  lr=9.29e-05  phase1
+[step   3540/14400] loss=0.0471  ema=0.0372  mean=0.0353  gnorm=0.023  lr=9.29e-05  phase1
+[step   3550/14400] loss=0.0538  ema=0.0368  mean=0.0335  gnorm=0.017  lr=9.29e-05  phase1
+[step   3560/14400] loss=0.0632  ema=0.0360  mean=0.0333  gnorm=0.030  lr=9.28e-05  phase1
+[step   3570/14400] loss=0.0417  ema=0.0367  mean=0.0343  gnorm=0.018  lr=9.28e-05  phase1
+[step   3580/14400] loss=0.0453  ema=0.0364  mean=0.0341  gnorm=0.029  lr=9.28e-05  phase1
+[step   3590/14400] loss=0.0238  ema=0.0366  mean=0.0346  gnorm=0.016  lr=9.27e-05  phase1
+[step   3600/14400] loss=0.0122  ema=0.0355  mean=0.0352  gnorm=0.013  lr=9.27e-05  phase1
+[step   3610/14400] loss=0.0364  ema=0.0366  mean=0.0360  gnorm=0.011  lr=9.26e-05  phase1
+[step   3620/14400] loss=0.0522  ema=0.0367  mean=0.0360  gnorm=0.018  lr=9.26e-05  phase1
+[step   3630/14400] loss=0.1808  ema=0.0379  mean=0.0356  gnorm=0.039  lr=9.26e-05  phase1
+[step   3640/14400] loss=0.0327  ema=0.0390  mean=0.0383  gnorm=0.018  lr=9.25e-05  phase1
+[step   3650/14400] loss=0.0860  ema=0.0394  mean=0.0393  gnorm=0.022  lr=9.25e-05  phase1
+[step   3660/14400] loss=0.0194  ema=0.0386  mean=0.0397  gnorm=0.019  lr=9.24e-05  phase1
+[step   3670/14400] loss=0.0882  ema=0.0397  mean=0.0403  gnorm=0.043  lr=9.24e-05  phase1
+[step   3680/14400] loss=0.0210  ema=0.0399  mean=0.0412  gnorm=0.022  lr=9.24e-05  phase1
+[step   3690/14400] loss=0.0227  ema=0.0424  mean=0.0439  gnorm=0.024  lr=9.23e-05  phase1
+[step   3700/14400] loss=0.0594  ema=0.0425  mean=0.0457  gnorm=0.020  lr=9.23e-05  phase1
+[step   3710/14400] loss=0.0103  ema=0.0407  mean=0.0434  gnorm=0.012  lr=9.22e-05  phase1
+[step   3720/14400] loss=0.0142  ema=0.0392  mean=0.0421  gnorm=0.016  lr=9.22e-05  phase1
+[step   3730/14400] loss=0.0399  ema=0.0388  mean=0.0408  gnorm=0.023  lr=9.22e-05  phase1
+[step   3740/14400] loss=0.0197  ema=0.0391  mean=0.0401  gnorm=0.022  lr=9.21e-05  phase1
+[step   3750/14400] loss=0.1217  ema=0.0391  mean=0.0396  gnorm=0.039  lr=9.21e-05  phase1
+[step   3760/14400] loss=0.0158  ema=0.0394  mean=0.0407  gnorm=0.013  lr=9.20e-05  phase1
+[step   3770/14400] loss=0.0236  ema=0.0390  mean=0.0393  gnorm=0.014  lr=9.20e-05  phase1
+[step   3780/14400] loss=0.0203  ema=0.0377  mean=0.0376  gnorm=0.018  lr=9.20e-05  phase1
+[step   3790/14400] loss=0.0603  ema=0.0376  mean=0.0348  gnorm=0.022  lr=9.19e-05  phase1
+[step   3800/14400] loss=0.0458  ema=0.0387  mean=0.0354  gnorm=0.026  lr=9.19e-05  phase1
+[step   3810/14400] loss=0.0332  ema=0.0395  mean=0.0377  gnorm=0.032  lr=9.18e-05  phase1
+[step   3820/14400] loss=0.0163  ema=0.0386  mean=0.0383  gnorm=0.030  lr=9.18e-05  phase1
+[step   3830/14400] loss=0.0452  ema=0.0394  mean=0.0393  gnorm=0.013  lr=9.18e-05  phase1
+[step   3840/14400] loss=0.0078  ema=0.0401  mean=0.0398  gnorm=0.015  lr=9.17e-05  phase1
+[step   3850/14400] loss=0.0373  ema=0.0403  mean=0.0402  gnorm=0.018  lr=9.17e-05  phase1
+[step   3860/14400] loss=0.0232  ema=0.0390  mean=0.0386  gnorm=0.019  lr=9.16e-05  phase1
+[step   3870/14400] loss=0.0421  ema=0.0380  mean=0.0379  gnorm=0.020  lr=9.16e-05  phase1
+[step   3880/14400] loss=0.0417  ema=0.0376  mean=0.0388  gnorm=0.023  lr=9.16e-05  phase1
+[step   3890/14400] loss=0.0441  ema=0.0396  mean=0.0410  gnorm=0.024  lr=9.15e-05  phase1
+[step   3900/14400] loss=0.0517  ema=0.0388  mean=0.0393  gnorm=0.018  lr=9.15e-05  phase1
+[step   3910/14400] loss=0.0337  ema=0.0391  mean=0.0387  gnorm=0.019  lr=9.14e-05  phase1
+[step   3920/14400] loss=0.0388  ema=0.0405  mean=0.0411  gnorm=0.016  lr=9.14e-05  phase1
+[step   3930/14400] loss=0.1067  ema=0.0404  mean=0.0404  gnorm=0.025  lr=9.14e-05  phase1
+[step   3940/14400] loss=0.0108  ema=0.0412  mean=0.0405  gnorm=0.017  lr=9.13e-05  phase1
+[step   3950/14400] loss=0.0272  ema=0.0412  mean=0.0405  gnorm=0.023  lr=9.13e-05  phase1
+[step   3960/14400] loss=0.0660  ema=0.0416  mean=0.0423  gnorm=0.017  lr=9.12e-05  phase1
+[step   3970/14400] loss=0.0813  ema=0.0433  mean=0.0453  gnorm=0.029  lr=9.12e-05  phase1
+[step   3980/14400] loss=0.0697  ema=0.0438  mean=0.0467  gnorm=0.019  lr=9.11e-05  phase1
+[step   3990/14400] loss=0.0756  ema=0.0451  mean=0.0466  gnorm=0.024  lr=9.11e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_4000.pt
+[step   4000/14400] loss=0.0270  ema=0.0434  mean=0.0462  gnorm=0.013  lr=9.11e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_4000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_4000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_4000.pt
+[step   4010/14400] loss=0.0557  ema=0.0426  mean=0.0455  gnorm=0.018  lr=9.10e-05  phase1
+[step   4020/14400] loss=0.0435  ema=0.0412  mean=0.0430  gnorm=0.014  lr=9.10e-05  phase1
+[step   4030/14400] loss=0.0695  ema=0.0424  mean=0.0444  gnorm=0.022  lr=9.09e-05  phase1
+[step   4040/14400] loss=0.0226  ema=0.0424  mean=0.0438  gnorm=0.015  lr=9.09e-05  phase1
+[step   4050/14400] loss=0.0171  ema=0.0421  mean=0.0436  gnorm=0.018  lr=9.09e-05  phase1
+[step   4060/14400] loss=0.1292  ema=0.0431  mean=0.0442  gnorm=0.041  lr=9.08e-05  phase1
+[step   4070/14400] loss=0.0130  ema=0.0451  mean=0.0450  gnorm=0.039  lr=9.08e-05  phase1
+[step   4080/14400] loss=0.1655  ema=0.0452  mean=0.0446  gnorm=0.033  lr=9.07e-05  phase1
+[step   4090/14400] loss=0.0171  ema=0.0458  mean=0.0441  gnorm=0.027  lr=9.07e-05  phase1
+[step   4100/14400] loss=0.0046  ema=0.0469  mean=0.0471  gnorm=0.027  lr=9.06e-05  phase1
+[step   4110/14400] loss=0.0131  ema=0.0457  mean=0.0470  gnorm=0.016  lr=9.06e-05  phase1
+[step   4120/14400] loss=0.0304  ema=0.0438  mean=0.0469  gnorm=0.021  lr=9.06e-05  phase1
+[step   4130/14400] loss=0.0126  ema=0.0444  mean=0.0465  gnorm=0.030  lr=9.05e-05  phase1
+[step   4140/14400] loss=0.0554  ema=0.0456  mean=0.0479  gnorm=0.027  lr=9.05e-05  phase1
+[step   4150/14400] loss=0.0064  ema=0.0445  mean=0.0474  gnorm=0.015  lr=9.04e-05  phase1
+[step   4160/14400] loss=0.0479  ema=0.0427  mean=0.0448  gnorm=0.023  lr=9.04e-05  phase1
+[step   4170/14400] loss=0.0252  ema=0.0418  mean=0.0416  gnorm=0.024  lr=9.03e-05  phase1
+[step   4180/14400] loss=0.0120  ema=0.0416  mean=0.0410  gnorm=0.018  lr=9.03e-05  phase1
+[step   4190/14400] loss=0.0439  ema=0.0423  mean=0.0408  gnorm=0.014  lr=9.03e-05  phase1
+[step   4200/14400] loss=0.0350  ema=0.0415  mean=0.0385  gnorm=0.015  lr=9.02e-05  phase1
+[step   4210/14400] loss=0.0642  ema=0.0404  mean=0.0380  gnorm=0.021  lr=9.02e-05  phase1
+[step   4220/14400] loss=0.0448  ema=0.0394  mean=0.0383  gnorm=0.028  lr=9.01e-05  phase1
+[step   4230/14400] loss=0.0260  ema=0.0383  mean=0.0361  gnorm=0.018  lr=9.01e-05  phase1
+[step   4240/14400] loss=0.0295  ema=0.0400  mean=0.0360  gnorm=0.017  lr=9.00e-05  phase1
+[step   4250/14400] loss=0.1484  ema=0.0406  mean=0.0372  gnorm=0.026  lr=9.00e-05  phase1
+[step   4260/14400] loss=0.0319  ema=0.0393  mean=0.0374  gnorm=0.018  lr=9.00e-05  phase1
+[step   4270/14400] loss=0.0088  ema=0.0389  mean=0.0376  gnorm=0.015  lr=8.99e-05  phase1
+[step   4280/14400] loss=0.0574  ema=0.0390  mean=0.0375  gnorm=0.024  lr=8.99e-05  phase1
+[step   4290/14400] loss=0.0553  ema=0.0379  mean=0.0354  gnorm=0.015  lr=8.98e-05  phase1
+[step   4300/14400] loss=0.0281  ema=0.0385  mean=0.0365  gnorm=0.016  lr=8.98e-05  phase1
+[step   4310/14400] loss=0.0113  ema=0.0384  mean=0.0372  gnorm=0.012  lr=8.97e-05  phase1
+[step   4320/14400] loss=0.0364  ema=0.0395  mean=0.0392  gnorm=0.055  lr=8.97e-05  phase1
+[step   4330/14400] loss=0.0137  ema=0.0386  mean=0.0395  gnorm=0.015  lr=8.96e-05  phase1
+[step   4340/14400] loss=0.0129  ema=0.0394  mean=0.0386  gnorm=0.013  lr=8.96e-05  phase1
+[step   4350/14400] loss=0.0238  ema=0.0392  mean=0.0378  gnorm=0.020  lr=8.96e-05  phase1
+[step   4360/14400] loss=0.0293  ema=0.0390  mean=0.0386  gnorm=0.022  lr=8.95e-05  phase1
+[step   4370/14400] loss=0.0165  ema=0.0374  mean=0.0374  gnorm=0.018  lr=8.95e-05  phase1
+[step   4380/14400] loss=0.0422  ema=0.0376  mean=0.0374  gnorm=0.029  lr=8.94e-05  phase1
+[step   4390/14400] loss=0.0450  ema=0.0375  mean=0.0383  gnorm=0.020  lr=8.94e-05  phase1
+[step   4400/14400] loss=0.0576  ema=0.0372  mean=0.0372  gnorm=0.022  lr=8.93e-05  phase1
+[step   4410/14400] loss=0.0320  ema=0.0367  mean=0.0367  gnorm=0.018  lr=8.93e-05  phase1
+[step   4420/14400] loss=0.0154  ema=0.0365  mean=0.0351  gnorm=0.022  lr=8.92e-05  phase1
+[step   4430/14400] loss=0.0548  ema=0.0364  mean=0.0357  gnorm=0.017  lr=8.92e-05  phase1
+[step   4440/14400] loss=0.0188  ema=0.0359  mean=0.0341  gnorm=0.024  lr=8.92e-05  phase1
+[step   4450/14400] loss=0.0539  ema=0.0368  mean=0.0349  gnorm=0.028  lr=8.91e-05  phase1
+[step   4460/14400] loss=0.0345  ema=0.0366  mean=0.0347  gnorm=0.022  lr=8.91e-05  phase1
+[step   4470/14400] loss=0.0049  ema=0.0371  mean=0.0366  gnorm=0.016  lr=8.90e-05  phase1
+[step   4480/14400] loss=0.0406  ema=0.0367  mean=0.0359  gnorm=0.020  lr=8.90e-05  phase1
+[step   4490/14400] loss=0.0853  ema=0.0373  mean=0.0366  gnorm=0.026  lr=8.89e-05  phase1
+[step   4500/14400] loss=0.0485  ema=0.0375  mean=0.0371  gnorm=0.022  lr=8.89e-05  phase1
+[step   4510/14400] loss=0.0145  ema=0.0377  mean=0.0379  gnorm=0.020  lr=8.88e-05  phase1
+[step   4520/14400] loss=0.0595  ema=0.0392  mean=0.0399  gnorm=0.021  lr=8.88e-05  phase1
+[step   4530/14400] loss=0.0020  ema=0.0402  mean=0.0413  gnorm=0.024  lr=8.87e-05  phase1
+[step   4540/14400] loss=0.0353  ema=0.0401  mean=0.0421  gnorm=0.024  lr=8.87e-05  phase1
+[step   4550/14400] loss=0.0371  ema=0.0404  mean=0.0418  gnorm=0.013  lr=8.87e-05  phase1
+[step   4560/14400] loss=0.1774  ema=0.0416  mean=0.0436  gnorm=0.040  lr=8.86e-05  phase1
+[step   4570/14400] loss=0.0372  ema=0.0419  mean=0.0438  gnorm=0.016  lr=8.86e-05  phase1
+[step   4580/14400] loss=0.0409  ema=0.0403  mean=0.0432  gnorm=0.024  lr=8.85e-05  phase1
+[step   4590/14400] loss=0.0145  ema=0.0389  mean=0.0414  gnorm=0.020  lr=8.85e-05  phase1
+[step   4600/14400] loss=0.0129  ema=0.0380  mean=0.0405  gnorm=0.013  lr=8.84e-05  phase1
+[step   4610/14400] loss=0.0567  ema=0.0407  mean=0.0430  gnorm=0.035  lr=8.84e-05  phase1
+[step   4620/14400] loss=0.0236  ema=0.0406  mean=0.0417  gnorm=0.012  lr=8.83e-05  phase1
+[step   4630/14400] loss=0.0429  ema=0.0413  mean=0.0415  gnorm=0.031  lr=8.83e-05  phase1
+[step   4640/14400] loss=0.0100  ema=0.0413  mean=0.0418  gnorm=0.029  lr=8.82e-05  phase1
+[step   4650/14400] loss=0.0933  ema=0.0414  mean=0.0416  gnorm=0.031  lr=8.82e-05  phase1
+[step   4660/14400] loss=0.0147  ema=0.0419  mean=0.0410  gnorm=0.009  lr=8.82e-05  phase1
+[step   4670/14400] loss=0.1286  ema=0.0441  mean=0.0430  gnorm=0.047  lr=8.81e-05  phase1
+[step   4680/14400] loss=0.0384  ema=0.0420  mean=0.0426  gnorm=0.031  lr=8.81e-05  phase1
+[step   4690/14400] loss=0.0184  ema=0.0418  mean=0.0441  gnorm=0.015  lr=8.80e-05  phase1
+[step   4700/14400] loss=0.0877  ema=0.0418  mean=0.0452  gnorm=0.017  lr=8.80e-05  phase1
+[step   4710/14400] loss=0.0157  ema=0.0420  mean=0.0430  gnorm=0.020  lr=8.79e-05  phase1
+[step   4720/14400] loss=0.0234  ema=0.0433  mean=0.0445  gnorm=0.014  lr=8.79e-05  phase1
+[step   4730/14400] loss=0.0096  ema=0.0427  mean=0.0434  gnorm=0.020  lr=8.78e-05  phase1
+[step   4740/14400] loss=0.0447  ema=0.0412  mean=0.0419  gnorm=0.034  lr=8.78e-05  phase1
+[step   4750/14400] loss=0.0087  ema=0.0393  mean=0.0398  gnorm=0.014  lr=8.77e-05  phase1
+[step   4760/14400] loss=0.0097  ema=0.0387  mean=0.0386  gnorm=0.023  lr=8.77e-05  phase1
+[step   4770/14400] loss=0.0729  ema=0.0388  mean=0.0361  gnorm=0.029  lr=8.76e-05  phase1
+[step   4780/14400] loss=0.0130  ema=0.0369  mean=0.0357  gnorm=0.020  lr=8.76e-05  phase1
+[step   4790/14400] loss=0.0259  ema=0.0367  mean=0.0352  gnorm=0.013  lr=8.75e-05  phase1
+[step   4800/14400] loss=0.0431  ema=0.0380  mean=0.0361  gnorm=0.022  lr=8.75e-05  phase1
+[step   4810/14400] loss=0.0486  ema=0.0380  mean=0.0356  gnorm=0.015  lr=8.74e-05  phase1
+[step   4820/14400] loss=0.0380  ema=0.0377  mean=0.0335  gnorm=0.020  lr=8.74e-05  phase1
+[step   4830/14400] loss=0.0346  ema=0.0375  mean=0.0334  gnorm=0.015  lr=8.74e-05  phase1
+[step   4840/14400] loss=0.0028  ema=0.0386  mean=0.0356  gnorm=0.019  lr=8.73e-05  phase1
+[step   4850/14400] loss=0.0399  ema=0.0390  mean=0.0379  gnorm=0.014  lr=8.73e-05  phase1
+[step   4860/14400] loss=0.0429  ema=0.0389  mean=0.0383  gnorm=0.016  lr=8.72e-05  phase1
+[step   4870/14400] loss=0.0872  ema=0.0397  mean=0.0390  gnorm=0.025  lr=8.72e-05  phase1
+[step   4880/14400] loss=0.0271  ema=0.0390  mean=0.0404  gnorm=0.028  lr=8.71e-05  phase1
+[step   4890/14400] loss=0.0176  ema=0.0378  mean=0.0396  gnorm=0.017  lr=8.71e-05  phase1
+[step   4900/14400] loss=0.0362  ema=0.0375  mean=0.0380  gnorm=0.027  lr=8.70e-05  phase1
+[step   4910/14400] loss=0.0203  ema=0.0376  mean=0.0380  gnorm=0.022  lr=8.70e-05  phase1
+[step   4920/14400] loss=0.0337  ema=0.0364  mean=0.0370  gnorm=0.020  lr=8.69e-05  phase1
+[step   4930/14400] loss=0.0533  ema=0.0372  mean=0.0379  gnorm=0.049  lr=8.69e-05  phase1
+[step   4940/14400] loss=0.0237  ema=0.0382  mean=0.0378  gnorm=0.019  lr=8.68e-05  phase1
+[step   4950/14400] loss=0.0414  ema=0.0374  mean=0.0363  gnorm=0.017  lr=8.68e-05  phase1
+[step   4960/14400] loss=0.0867  ema=0.0385  mean=0.0374  gnorm=0.090  lr=8.67e-05  phase1
+[step   4970/14400] loss=0.0074  ema=0.0375  mean=0.0355  gnorm=0.019  lr=8.67e-05  phase1
+[step   4980/14400] loss=0.0295  ema=0.0374  mean=0.0359  gnorm=0.016  lr=8.66e-05  phase1
+[step   4990/14400] loss=0.0278  ema=0.0368  mean=0.0364  gnorm=0.017  lr=8.66e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_5000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_5000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_5000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_5000.pt
+[step   5000/14400] loss=0.0155  ema=0.0373  mean=0.0372  gnorm=0.015  lr=8.65e-05  phase1
+[step   5010/14400] loss=0.0511  ema=0.0374  mean=0.0371  gnorm=0.012  lr=8.65e-05  phase1
+[step   5020/14400] loss=0.0580  ema=0.0368  mean=0.0377  gnorm=0.018  lr=8.64e-05  phase1
+[step   5030/14400] loss=0.0385  ema=0.0360  mean=0.0361  gnorm=0.012  lr=8.64e-05  phase1
+[step   5040/14400] loss=0.0091  ema=0.0350  mean=0.0339  gnorm=0.016  lr=8.63e-05  phase1
+[step   5050/14400] loss=0.0268  ema=0.0366  mean=0.0361  gnorm=0.013  lr=8.63e-05  phase1
+[step   5060/14400] loss=0.1809  ema=0.0374  mean=0.0357  gnorm=0.034  lr=8.62e-05  phase1
+[step   5070/14400] loss=0.0097  ema=0.0372  mean=0.0365  gnorm=0.016  lr=8.62e-05  phase1
+[step   5080/14400] loss=0.0405  ema=0.0370  mean=0.0363  gnorm=0.014  lr=8.62e-05  phase1
+[step   5090/14400] loss=0.0478  ema=0.0388  mean=0.0387  gnorm=0.015  lr=8.61e-05  phase1
+[step   5100/14400] loss=0.0157  ema=0.0399  mean=0.0395  gnorm=0.022  lr=8.61e-05  phase1
+[step   5110/14400] loss=0.0036  ema=0.0400  mean=0.0398  gnorm=0.014  lr=8.60e-05  phase1
+[step   5120/14400] loss=0.0318  ema=0.0407  mean=0.0415  gnorm=0.019  lr=8.60e-05  phase1
+[step   5130/14400] loss=0.0653  ema=0.0413  mean=0.0434  gnorm=0.023  lr=8.59e-05  phase1
+[step   5140/14400] loss=0.0525  ema=0.0408  mean=0.0444  gnorm=0.016  lr=8.59e-05  phase1
+[step   5150/14400] loss=0.0065  ema=0.0394  mean=0.0420  gnorm=0.015  lr=8.58e-05  phase1
+[step   5160/14400] loss=0.0071  ema=0.0384  mean=0.0405  gnorm=0.013  lr=8.58e-05  phase1
+[step   5170/14400] loss=0.0403  ema=0.0391  mean=0.0415  gnorm=0.013  lr=8.57e-05  phase1
+[step   5180/14400] loss=0.0353  ema=0.0392  mean=0.0419  gnorm=0.015  lr=8.57e-05  phase1
+[step   5190/14400] loss=0.0142  ema=0.0392  mean=0.0403  gnorm=0.014  lr=8.56e-05  phase1
+[step   5200/14400] loss=0.1033  ema=0.0393  mean=0.0393  gnorm=0.043  lr=8.56e-05  phase1
+[step   5210/14400] loss=0.0046  ema=0.0378  mean=0.0375  gnorm=0.028  lr=8.55e-05  phase1
+[step   5220/14400] loss=0.0259  ema=0.0368  mean=0.0355  gnorm=0.015  lr=8.55e-05  phase1
+[step   5230/14400] loss=0.0296  ema=0.0373  mean=0.0350  gnorm=0.024  lr=8.54e-05  phase1
+[step   5240/14400] loss=0.0271  ema=0.0373  mean=0.0351  gnorm=0.014  lr=8.54e-05  phase1
+[step   5250/14400] loss=0.0401  ema=0.0379  mean=0.0367  gnorm=0.013  lr=8.53e-05  phase1
+[step   5260/14400] loss=0.0133  ema=0.0381  mean=0.0379  gnorm=0.032  lr=8.53e-05  phase1
+[step   5270/14400] loss=0.0594  ema=0.0390  mean=0.0381  gnorm=0.020  lr=8.52e-05  phase1
+[step   5280/14400] loss=0.0586  ema=0.0391  mean=0.0381  gnorm=0.022  lr=8.52e-05  phase1
+[step   5290/14400] loss=0.0442  ema=0.0394  mean=0.0384  gnorm=0.023  lr=8.51e-05  phase1
+[step   5300/14400] loss=0.0139  ema=0.0391  mean=0.0380  gnorm=0.013  lr=8.51e-05  phase1
+[step   5310/14400] loss=0.0441  ema=0.0377  mean=0.0382  gnorm=0.019  lr=8.50e-05  phase1
+[step   5320/14400] loss=0.1089  ema=0.0398  mean=0.0414  gnorm=0.019  lr=8.50e-05  phase1
+[step   5330/14400] loss=0.0284  ema=0.0384  mean=0.0396  gnorm=0.020  lr=8.49e-05  phase1
+[step   5340/14400] loss=0.0110  ema=0.0387  mean=0.0401  gnorm=0.016  lr=8.49e-05  phase1
+[step   5350/14400] loss=0.0390  ema=0.0389  mean=0.0399  gnorm=0.024  lr=8.48e-05  phase1
+[step   5360/14400] loss=0.0244  ema=0.0368  mean=0.0376  gnorm=0.044  lr=8.48e-05  phase1
+[step   5370/14400] loss=0.1204  ema=0.0377  mean=0.0373  gnorm=0.038  lr=8.47e-05  phase1
+[step   5380/14400] loss=0.0409  ema=0.0394  mean=0.0388  gnorm=0.020  lr=8.47e-05  phase1
+[step   5390/14400] loss=0.0252  ema=0.0390  mean=0.0381  gnorm=0.026  lr=8.46e-05  phase1
+[step   5400/14400] loss=0.0225  ema=0.0385  mean=0.0379  gnorm=0.015  lr=8.46e-05  phase1
+[step   5410/14400] loss=0.0169  ema=0.0379  mean=0.0386  gnorm=0.023  lr=8.45e-05  phase1
+[step   5420/14400] loss=0.0065  ema=0.0393  mean=0.0380  gnorm=0.017  lr=8.45e-05  phase1
+[step   5430/14400] loss=0.0211  ema=0.0380  mean=0.0382  gnorm=0.017  lr=8.44e-05  phase1
+[step   5440/14400] loss=0.0236  ema=0.0388  mean=0.0387  gnorm=0.015  lr=8.44e-05  phase1
+[step   5450/14400] loss=0.0565  ema=0.0393  mean=0.0389  gnorm=0.013  lr=8.43e-05  phase1
+[step   5460/14400] loss=0.0431  ema=0.0391  mean=0.0410  gnorm=0.016  lr=8.43e-05  phase1
+[step   5470/14400] loss=0.0368  ema=0.0379  mean=0.0391  gnorm=0.029  lr=8.42e-05  phase1
+[step   5480/14400] loss=0.0088  ema=0.0381  mean=0.0375  gnorm=0.017  lr=8.42e-05  phase1
+[step   5490/14400] loss=0.0225  ema=0.0377  mean=0.0375  gnorm=0.016  lr=8.41e-05  phase1
+[step   5500/14400] loss=0.0239  ema=0.0366  mean=0.0366  gnorm=0.019  lr=8.41e-05  phase1
+[step   5510/14400] loss=0.0115  ema=0.0367  mean=0.0371  gnorm=0.011  lr=8.40e-05  phase1
+[step   5520/14400] loss=0.0688  ema=0.0374  mean=0.0363  gnorm=0.017  lr=8.40e-05  phase1
+[step   5530/14400] loss=0.0523  ema=0.0370  mean=0.0369  gnorm=0.015  lr=8.39e-05  phase1
+[step   5540/14400] loss=0.1581  ema=0.0384  mean=0.0374  gnorm=0.031  lr=8.39e-05  phase1
+[step   5550/14400] loss=0.0612  ema=0.0373  mean=0.0356  gnorm=0.020  lr=8.38e-05  phase1
+[step   5560/14400] loss=0.0646  ema=0.0367  mean=0.0350  gnorm=0.019  lr=8.38e-05  phase1
+[step   5570/14400] loss=0.0286  ema=0.0364  mean=0.0357  gnorm=0.021  lr=8.37e-05  phase1
+[step   5580/14400] loss=0.0424  ema=0.0362  mean=0.0352  gnorm=0.021  lr=8.36e-05  phase1
+[step   5590/14400] loss=0.0561  ema=0.0363  mean=0.0354  gnorm=0.020  lr=8.36e-05  phase1
+[step   5600/14400] loss=0.0589  ema=0.0363  mean=0.0365  gnorm=0.034  lr=8.35e-05  phase1
+[step   5610/14400] loss=0.0031  ema=0.0348  mean=0.0348  gnorm=0.020  lr=8.35e-05  phase1
+[step   5620/14400] loss=0.0069  ema=0.0362  mean=0.0353  gnorm=0.014  lr=8.34e-05  phase1
+[step   5630/14400] loss=0.0179  ema=0.0362  mean=0.0356  gnorm=0.013  lr=8.34e-05  phase1
+[step   5640/14400] loss=0.0215  ema=0.0362  mean=0.0341  gnorm=0.015  lr=8.33e-05  phase1
+[step   5650/14400] loss=0.0184  ema=0.0366  mean=0.0355  gnorm=0.018  lr=8.33e-05  phase1
+[step   5660/14400] loss=0.0030  ema=0.0357  mean=0.0352  gnorm=0.014  lr=8.32e-05  phase1
+[step   5670/14400] loss=0.0141  ema=0.0357  mean=0.0354  gnorm=0.015  lr=8.32e-05  phase1
+[step   5680/14400] loss=0.0616  ema=0.0377  mean=0.0376  gnorm=0.020  lr=8.31e-05  phase1
+[step   5690/14400] loss=0.0290  ema=0.0373  mean=0.0372  gnorm=0.017  lr=8.31e-05  phase1
+[step   5700/14400] loss=0.0183  ema=0.0368  mean=0.0368  gnorm=0.013  lr=8.30e-05  phase1
+[step   5710/14400] loss=0.0850  ema=0.0373  mean=0.0390  gnorm=0.024  lr=8.30e-05  phase1
+[step   5720/14400] loss=0.1112  ema=0.0399  mean=0.0405  gnorm=0.026  lr=8.29e-05  phase1
+[step   5730/14400] loss=0.1069  ema=0.0423  mean=0.0433  gnorm=0.026  lr=8.29e-05  phase1
+[step   5740/14400] loss=0.1170  ema=0.0429  mean=0.0445  gnorm=0.019  lr=8.28e-05  phase1
+[step   5750/14400] loss=0.0500  ema=0.0420  mean=0.0438  gnorm=0.058  lr=8.28e-05  phase1
+[step   5760/14400] loss=0.0644  ema=0.0409  mean=0.0440  gnorm=0.028  lr=8.27e-05  phase1
+[step   5770/14400] loss=0.0239  ema=0.0397  mean=0.0432  gnorm=0.012  lr=8.27e-05  phase1
+[step   5780/14400] loss=0.0868  ema=0.0394  mean=0.0413  gnorm=0.014  lr=8.26e-05  phase1
+[step   5790/14400] loss=0.0566  ema=0.0394  mean=0.0419  gnorm=0.025  lr=8.26e-05  phase1
+[step   5800/14400] loss=0.0538  ema=0.0382  mean=0.0413  gnorm=0.095  lr=8.25e-05  phase1
+[step   5810/14400] loss=0.0257  ema=0.0374  mean=0.0401  gnorm=0.024  lr=8.25e-05  phase1
+[step   5820/14400] loss=0.0486  ema=0.0381  mean=0.0382  gnorm=0.024  lr=8.24e-05  phase1
+[step   5830/14400] loss=0.0951  ema=0.0387  mean=0.0361  gnorm=0.023  lr=8.24e-05  phase1
+[step   5840/14400] loss=0.0728  ema=0.0394  mean=0.0359  gnorm=0.027  lr=8.23e-05  phase1
+[step   5850/14400] loss=0.0670  ema=0.0396  mean=0.0368  gnorm=0.021  lr=8.23e-05  phase1
+[step   5860/14400] loss=0.0358  ema=0.0391  mean=0.0372  gnorm=0.018  lr=8.22e-05  phase1
+[step   5870/14400] loss=0.0985  ema=0.0413  mean=0.0406  gnorm=0.034  lr=8.21e-05  phase1
+[step   5880/14400] loss=0.0426  ema=0.0419  mean=0.0417  gnorm=0.015  lr=8.21e-05  phase1
+[step   5890/14400] loss=0.0666  ema=0.0418  mean=0.0418  gnorm=0.032  lr=8.20e-05  phase1
+[step   5900/14400] loss=0.0257  ema=0.0400  mean=0.0415  gnorm=0.023  lr=8.20e-05  phase1
+[step   5910/14400] loss=0.0057  ema=0.0405  mean=0.0430  gnorm=0.022  lr=8.19e-05  phase1
+[step   5920/14400] loss=0.0758  ema=0.0397  mean=0.0417  gnorm=0.025  lr=8.19e-05  phase1
+[step   5930/14400] loss=0.0258  ema=0.0404  mean=0.0421  gnorm=0.021  lr=8.18e-05  phase1
+[step   5940/14400] loss=0.0797  ema=0.0400  mean=0.0410  gnorm=0.019  lr=8.18e-05  phase1
+[step   5950/14400] loss=0.1286  ema=0.0400  mean=0.0409  gnorm=0.026  lr=8.17e-05  phase1
+[step   5960/14400] loss=0.0542  ema=0.0401  mean=0.0415  gnorm=0.018  lr=8.17e-05  phase1
+[step   5970/14400] loss=0.0107  ema=0.0385  mean=0.0376  gnorm=0.013  lr=8.16e-05  phase1
+[step   5980/14400] loss=0.0545  ema=0.0381  mean=0.0362  gnorm=0.022  lr=8.16e-05  phase1
+[step   5990/14400] loss=0.0070  ema=0.0362  mean=0.0340  gnorm=0.013  lr=8.15e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_6000.pt
+[step   6000/14400] loss=0.0209  ema=0.0363  mean=0.0354  gnorm=0.012  lr=8.15e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_6000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_6000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_6000.pt
+[step   6010/14400] loss=0.3295  ema=0.0399  mean=0.0382  gnorm=0.041  lr=8.14e-05  phase1
+[step   6020/14400] loss=0.0441  ema=0.0393  mean=0.0383  gnorm=0.018  lr=8.14e-05  phase1
+[step   6030/14400] loss=0.0370  ema=0.0384  mean=0.0365  gnorm=0.012  lr=8.13e-05  phase1
+[step   6040/14400] loss=0.0885  ema=0.0387  mean=0.0370  gnorm=0.023  lr=8.13e-05  phase1
+[step   6050/14400] loss=0.0289  ema=0.0374  mean=0.0355  gnorm=0.016  lr=8.12e-05  phase1
+[step   6060/14400] loss=0.0321  ema=0.0381  mean=0.0359  gnorm=0.014  lr=8.11e-05  phase1
+[step   6070/14400] loss=0.0270  ema=0.0378  mean=0.0371  gnorm=0.011  lr=8.11e-05  phase1
+[step   6080/14400] loss=0.0256  ema=0.0385  mean=0.0382  gnorm=0.014  lr=8.10e-05  phase1
+[step   6090/14400] loss=0.0557  ema=0.0390  mean=0.0408  gnorm=0.023  lr=8.10e-05  phase1
+[step   6100/14400] loss=0.0225  ema=0.0385  mean=0.0405  gnorm=0.021  lr=8.09e-05  phase1
+[step   6110/14400] loss=0.0299  ema=0.0377  mean=0.0361  gnorm=0.018  lr=8.09e-05  phase1
+[step   6120/14400] loss=0.0183  ema=0.0363  mean=0.0352  gnorm=0.022  lr=8.08e-05  phase1
+[step   6130/14400] loss=0.0228  ema=0.0358  mean=0.0353  gnorm=0.013  lr=8.08e-05  phase1
+[step   6140/14400] loss=0.0578  ema=0.0366  mean=0.0355  gnorm=0.018  lr=8.07e-05  phase1
+[step   6150/14400] loss=0.0185  ema=0.0374  mean=0.0375  gnorm=0.022  lr=8.07e-05  phase1
+[step   6160/14400] loss=0.0222  ema=0.0379  mean=0.0374  gnorm=0.037  lr=8.06e-05  phase1
+[step   6170/14400] loss=0.0660  ema=0.0383  mean=0.0381  gnorm=0.028  lr=8.06e-05  phase1
+[step   6180/14400] loss=0.0527  ema=0.0382  mean=0.0372  gnorm=0.019  lr=8.05e-05  phase1
+[step   6190/14400] loss=0.0334  ema=0.0377  mean=0.0361  gnorm=0.020  lr=8.05e-05  phase1
+[step   6200/14400] loss=0.0329  ema=0.0387  mean=0.0375  gnorm=0.018  lr=8.04e-05  phase1
+[step   6210/14400] loss=0.1169  ema=0.0384  mean=0.0381  gnorm=0.023  lr=8.04e-05  phase1
+[step   6220/14400] loss=0.0264  ema=0.0390  mean=0.0402  gnorm=0.014  lr=8.03e-05  phase1
+[step   6230/14400] loss=0.0415  ema=0.0378  mean=0.0398  gnorm=0.014  lr=8.02e-05  phase1
+[step   6240/14400] loss=0.0420  ema=0.0369  mean=0.0382  gnorm=0.019  lr=8.02e-05  phase1
+[step   6250/14400] loss=0.0214  ema=0.0369  mean=0.0374  gnorm=0.022  lr=8.01e-05  phase1
+[step   6260/14400] loss=0.0147  ema=0.0358  mean=0.0356  gnorm=0.011  lr=8.01e-05  phase1
+[step   6270/14400] loss=0.0972  ema=0.0372  mean=0.0365  gnorm=0.034  lr=8.00e-05  phase1
+[step   6280/14400] loss=0.0220  ema=0.0381  mean=0.0375  gnorm=0.016  lr=8.00e-05  phase1
+[step   6290/14400] loss=0.0341  ema=0.0379  mean=0.0378  gnorm=0.013  lr=7.99e-05  phase1
+[step   6300/14400] loss=0.0269  ema=0.0379  mean=0.0368  gnorm=0.017  lr=7.99e-05  phase1
+[step   6310/14400] loss=0.0397  ema=0.0378  mean=0.0370  gnorm=0.016  lr=7.98e-05  phase1
+[step   6320/14400] loss=0.0085  ema=0.0370  mean=0.0354  gnorm=0.018  lr=7.98e-05  phase1
+[step   6330/14400] loss=0.0102  ema=0.0357  mean=0.0352  gnorm=0.016  lr=7.97e-05  phase1
+[step   6340/14400] loss=0.1113  ema=0.0366  mean=0.0369  gnorm=0.021  lr=7.97e-05  phase1
+[step   6350/14400] loss=0.0063  ema=0.0363  mean=0.0366  gnorm=0.017  lr=7.96e-05  phase1
+[step   6360/14400] loss=0.0095  ema=0.0363  mean=0.0376  gnorm=0.010  lr=7.96e-05  phase1
+[step   6370/14400] loss=0.0373  ema=0.0365  mean=0.0363  gnorm=0.015  lr=7.95e-05  phase1
+[step   6380/14400] loss=0.0197  ema=0.0349  mean=0.0337  gnorm=0.014  lr=7.94e-05  phase1
+[step   6390/14400] loss=0.0088  ema=0.0358  mean=0.0345  gnorm=0.016  lr=7.94e-05  phase1
+[step   6400/14400] loss=0.0299  ema=0.0360  mean=0.0345  gnorm=0.014  lr=7.93e-05  phase1
+[step   6410/14400] loss=0.0116  ema=0.0352  mean=0.0335  gnorm=0.016  lr=7.93e-05  phase1
+[step   6420/14400] loss=0.1440  ema=0.0384  mean=0.0375  gnorm=0.024  lr=7.92e-05  phase1
+[step   6430/14400] loss=0.0259  ema=0.0394  mean=0.0400  gnorm=0.011  lr=7.92e-05  phase1
+[step   6440/14400] loss=0.0153  ema=0.0372  mean=0.0372  gnorm=0.010  lr=7.91e-05  phase1
+[step   6450/14400] loss=0.0826  ema=0.0367  mean=0.0370  gnorm=0.015  lr=7.91e-05  phase1
+[step   6460/14400] loss=0.0106  ema=0.0355  mean=0.0358  gnorm=0.007  lr=7.90e-05  phase1
+[step   6470/14400] loss=0.0342  ema=0.0347  mean=0.0347  gnorm=0.017  lr=7.90e-05  phase1
+[step   6480/14400] loss=0.0236  ema=0.0344  mean=0.0359  gnorm=0.011  lr=7.89e-05  phase1
+[step   6490/14400] loss=0.0498  ema=0.0361  mean=0.0367  gnorm=0.024  lr=7.89e-05  phase1
+[step   6500/14400] loss=0.0322  ema=0.0364  mean=0.0368  gnorm=0.019  lr=7.88e-05  phase1
+[step   6510/14400] loss=0.0382  ema=0.0372  mean=0.0385  gnorm=0.021  lr=7.87e-05  phase1
+[step   6520/14400] loss=0.0525  ema=0.0377  mean=0.0360  gnorm=0.022  lr=7.87e-05  phase1
+[step   6530/14400] loss=0.0225  ema=0.0362  mean=0.0333  gnorm=0.021  lr=7.86e-05  phase1
+[step   6540/14400] loss=0.0043  ema=0.0353  mean=0.0343  gnorm=0.011  lr=7.86e-05  phase1
+[step   6550/14400] loss=0.0193  ema=0.0335  mean=0.0328  gnorm=0.012  lr=7.85e-05  phase1
+[step   6560/14400] loss=0.0132  ema=0.0325  mean=0.0326  gnorm=0.010  lr=7.85e-05  phase1
+[step   6570/14400] loss=0.0283  ema=0.0315  mean=0.0321  gnorm=0.018  lr=7.84e-05  phase1
+[step   6580/14400] loss=0.0261  ema=0.0325  mean=0.0331  gnorm=0.022  lr=7.84e-05  phase1
+[step   6590/14400] loss=0.0042  ema=0.0317  mean=0.0303  gnorm=0.012  lr=7.83e-05  phase1
+[step   6600/14400] loss=0.0355  ema=0.0325  mean=0.0304  gnorm=0.017  lr=7.83e-05  phase1
+[step   6610/14400] loss=0.0220  ema=0.0316  mean=0.0283  gnorm=0.020  lr=7.82e-05  phase1
+[step   6620/14400] loss=0.0493  ema=0.0324  mean=0.0279  gnorm=0.018  lr=7.81e-05  phase1
+[step   6630/14400] loss=0.0556  ema=0.0328  mean=0.0294  gnorm=0.025  lr=7.81e-05  phase1
+[step   6640/14400] loss=0.0068  ema=0.0317  mean=0.0288  gnorm=0.014  lr=7.80e-05  phase1
+[step   6650/14400] loss=0.0424  ema=0.0314  mean=0.0300  gnorm=0.018  lr=7.80e-05  phase1
+[step   6660/14400] loss=0.0321  ema=0.0324  mean=0.0320  gnorm=0.012  lr=7.79e-05  phase1
+[step   6670/14400] loss=0.0679  ema=0.0329  mean=0.0335  gnorm=0.022  lr=7.79e-05  phase1
+[step   6680/14400] loss=0.0367  ema=0.0327  mean=0.0325  gnorm=0.021  lr=7.78e-05  phase1
+[step   6690/14400] loss=0.0142  ema=0.0331  mean=0.0338  gnorm=0.015  lr=7.78e-05  phase1
+[step   6700/14400] loss=0.0507  ema=0.0332  mean=0.0331  gnorm=0.016  lr=7.77e-05  phase1
+[step   6710/14400] loss=0.0427  ema=0.0355  mean=0.0366  gnorm=0.021  lr=7.77e-05  phase1
+[step   6720/14400] loss=0.0171  ema=0.0356  mean=0.0363  gnorm=0.025  lr=7.76e-05  phase1
+[step   6730/14400] loss=0.0209  ema=0.0353  mean=0.0359  gnorm=0.013  lr=7.76e-05  phase1
+[step   6740/14400] loss=0.0209  ema=0.0342  mean=0.0361  gnorm=0.016  lr=7.75e-05  phase1
+[step   6750/14400] loss=0.0069  ema=0.0336  mean=0.0361  gnorm=0.016  lr=7.74e-05  phase1
+[step   6760/14400] loss=0.0201  ema=0.0345  mean=0.0361  gnorm=0.014  lr=7.74e-05  phase1
+[step   6770/14400] loss=0.0525  ema=0.0342  mean=0.0355  gnorm=0.013  lr=7.73e-05  phase1
+[step   6780/14400] loss=0.0601  ema=0.0349  mean=0.0366  gnorm=0.015  lr=7.73e-05  phase1
+[step   6790/14400] loss=0.0338  ema=0.0347  mean=0.0361  gnorm=0.017  lr=7.72e-05  phase1
+[step   6800/14400] loss=0.0129  ema=0.0340  mean=0.0355  gnorm=0.010  lr=7.72e-05  phase1
+[step   6810/14400] loss=0.0426  ema=0.0339  mean=0.0330  gnorm=0.019  lr=7.71e-05  phase1
+[step   6820/14400] loss=0.0077  ema=0.0329  mean=0.0317  gnorm=0.012  lr=7.71e-05  phase1
+[step   6830/14400] loss=0.0593  ema=0.0339  mean=0.0328  gnorm=0.017  lr=7.70e-05  phase1
+[step   6840/14400] loss=0.0774  ema=0.0338  mean=0.0338  gnorm=0.040  lr=7.70e-05  phase1
+[step   6850/14400] loss=0.0252  ema=0.0346  mean=0.0352  gnorm=0.015  lr=7.69e-05  phase1
+[step   6860/14400] loss=0.0419  ema=0.0353  mean=0.0351  gnorm=0.028  lr=7.68e-05  phase1
+[step   6870/14400] loss=0.0327  ema=0.0349  mean=0.0351  gnorm=0.027  lr=7.68e-05  phase1
+[step   6880/14400] loss=0.0054  ema=0.0350  mean=0.0344  gnorm=0.016  lr=7.67e-05  phase1
+[step   6890/14400] loss=0.0476  ema=0.0346  mean=0.0342  gnorm=0.022  lr=7.67e-05  phase1
+[step   6900/14400] loss=0.0450  ema=0.0351  mean=0.0355  gnorm=0.024  lr=7.66e-05  phase1
+[step   6910/14400] loss=0.0897  ema=0.0357  mean=0.0362  gnorm=0.017  lr=7.66e-05  phase1
+[step   6920/14400] loss=0.0767  ema=0.0364  mean=0.0382  gnorm=0.017  lr=7.65e-05  phase1
+[step   6930/14400] loss=0.0880  ema=0.0355  mean=0.0366  gnorm=0.024  lr=7.65e-05  phase1
+[step   6940/14400] loss=0.0527  ema=0.0363  mean=0.0375  gnorm=0.014  lr=7.64e-05  phase1
+[step   6950/14400] loss=0.0303  ema=0.0369  mean=0.0376  gnorm=0.014  lr=7.64e-05  phase1
+[step   6960/14400] loss=0.0588  ema=0.0370  mean=0.0372  gnorm=0.026  lr=7.63e-05  phase1
+[step   6970/14400] loss=0.0074  ema=0.0376  mean=0.0385  gnorm=0.023  lr=7.62e-05  phase1
+[step   6980/14400] loss=0.0150  ema=0.0372  mean=0.0383  gnorm=0.015  lr=7.62e-05  phase1
+[step   6990/14400] loss=0.1248  ema=0.0380  mean=0.0397  gnorm=0.020  lr=7.61e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_7000.pt
+[step   7000/14400] loss=0.0234  ema=0.0378  mean=0.0393  gnorm=0.015  lr=7.61e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_7000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_7000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_7000.pt
+[step   7010/14400] loss=0.0093  ema=0.0374  mean=0.0387  gnorm=0.023  lr=7.60e-05  phase1
+[step   7020/14400] loss=0.0248  ema=0.0364  mean=0.0370  gnorm=0.024  lr=7.60e-05  phase1
+[step   7030/14400] loss=0.0135  ema=0.0355  mean=0.0370  gnorm=0.018  lr=7.59e-05  phase1
+[step   7040/14400] loss=0.0299  ema=0.0355  mean=0.0363  gnorm=0.014  lr=7.59e-05  phase1
+[step   7050/14400] loss=0.0191  ema=0.0342  mean=0.0341  gnorm=0.020  lr=7.58e-05  phase1
+[step   7060/14400] loss=0.0117  ema=0.0330  mean=0.0326  gnorm=0.008  lr=7.58e-05  phase1
+[step   7070/14400] loss=0.0103  ema=0.0335  mean=0.0320  gnorm=0.015  lr=7.57e-05  phase1
+[step   7080/14400] loss=0.0163  ema=0.0338  mean=0.0323  gnorm=0.017  lr=7.56e-05  phase1
+[step   7090/14400] loss=0.0353  ema=0.0337  mean=0.0310  gnorm=0.014  lr=7.56e-05  phase1
+[step   7100/14400] loss=0.0535  ema=0.0347  mean=0.0319  gnorm=0.013  lr=7.55e-05  phase1
+[step   7110/14400] loss=0.0257  ema=0.0347  mean=0.0320  gnorm=0.011  lr=7.55e-05  phase1
+[step   7120/14400] loss=0.0796  ema=0.0361  mean=0.0343  gnorm=0.015  lr=7.54e-05  phase1
+[step   7130/14400] loss=0.0099  ema=0.0370  mean=0.0361  gnorm=0.012  lr=7.54e-05  phase1
+[step   7140/14400] loss=0.0302  ema=0.0373  mean=0.0365  gnorm=0.022  lr=7.53e-05  phase1
+[step   7150/14400] loss=0.1229  ema=0.0380  mean=0.0388  gnorm=0.021  lr=7.53e-05  phase1
+[step   7160/14400] loss=0.0779  ema=0.0383  mean=0.0407  gnorm=0.020  lr=7.52e-05  phase1
+[step   7170/14400] loss=0.1273  ema=0.0381  mean=0.0405  gnorm=0.027  lr=7.52e-05  phase1
+[step   7180/14400] loss=0.0654  ema=0.0375  mean=0.0400  gnorm=0.016  lr=7.51e-05  phase1
+[step   7190/14400] loss=0.0073  ema=0.0368  mean=0.0398  gnorm=0.016  lr=7.50e-05  phase1
+[step   7200/14400] loss=0.0170  ema=0.0362  mean=0.0384  gnorm=0.009  lr=7.50e-05  phase1
+[step   7210/14400] loss=0.0570  ema=0.0381  mean=0.0405  gnorm=0.018  lr=7.49e-05  phase1
+[step   7220/14400] loss=0.0395  ema=0.0388  mean=0.0401  gnorm=0.017  lr=7.49e-05  phase1
+[step   7230/14400] loss=0.0255  ema=0.0378  mean=0.0384  gnorm=0.013  lr=7.48e-05  phase1
+[step   7240/14400] loss=0.0068  ema=0.0376  mean=0.0379  gnorm=0.009  lr=7.48e-05  phase1
+[step   7250/14400] loss=0.0344  ema=0.0374  mean=0.0370  gnorm=0.013  lr=7.47e-05  phase1
+[step   7260/14400] loss=0.0123  ema=0.0365  mean=0.0359  gnorm=0.011  lr=7.47e-05  phase1
+[step   7270/14400] loss=0.0221  ema=0.0363  mean=0.0357  gnorm=0.017  lr=7.46e-05  phase1
+[step   7280/14400] loss=0.0658  ema=0.0363  mean=0.0361  gnorm=0.023  lr=7.46e-05  phase1
+[step   7290/14400] loss=0.0198  ema=0.0385  mean=0.0389  gnorm=0.017  lr=7.45e-05  phase1
+[step   7300/14400] loss=0.0680  ema=0.0400  mean=0.0414  gnorm=0.014  lr=7.44e-05  phase1
+[step   7310/14400] loss=0.0416  ema=0.0389  mean=0.0387  gnorm=0.015  lr=7.44e-05  phase1
+[step   7320/14400] loss=0.0216  ema=0.0390  mean=0.0381  gnorm=0.030  lr=7.43e-05  phase1
+[step   7330/14400] loss=0.0153  ema=0.0393  mean=0.0395  gnorm=0.013  lr=7.43e-05  phase1
+[step   7340/14400] loss=0.0377  ema=0.0379  mean=0.0384  gnorm=0.013  lr=7.42e-05  phase1
+[step   7350/14400] loss=0.0158  ema=0.0367  mean=0.0374  gnorm=0.013  lr=7.42e-05  phase1
+[step   7360/14400] loss=0.0141  ema=0.0356  mean=0.0370  gnorm=0.018  lr=7.41e-05  phase1
+[step   7370/14400] loss=0.0953  ema=0.0392  mean=0.0409  gnorm=0.026  lr=7.41e-05  phase1
+[step   7380/14400] loss=0.1260  ema=0.0400  mean=0.0420  gnorm=0.019  lr=7.40e-05  phase1
+[step   7390/14400] loss=0.0252  ema=0.0399  mean=0.0400  gnorm=0.013  lr=7.40e-05  phase1
+[step   7400/14400] loss=0.0086  ema=0.0385  mean=0.0371  gnorm=0.014  lr=7.39e-05  phase1
+[step   7410/14400] loss=0.0042  ema=0.0378  mean=0.0374  gnorm=0.015  lr=7.38e-05  phase1
+[step   7420/14400] loss=0.0135  ema=0.0365  mean=0.0357  gnorm=0.021  lr=7.38e-05  phase1
+[step   7430/14400] loss=0.0078  ema=0.0355  mean=0.0341  gnorm=0.022  lr=7.37e-05  phase1
+[step   7440/14400] loss=0.0522  ema=0.0361  mean=0.0358  gnorm=0.024  lr=7.37e-05  phase1
+[step   7450/14400] loss=0.0435  ema=0.0359  mean=0.0367  gnorm=0.021  lr=7.36e-05  phase1
+[step   7460/14400] loss=0.0329  ema=0.0361  mean=0.0380  gnorm=0.014  lr=7.36e-05  phase1
+[step   7470/14400] loss=0.0265  ema=0.0374  mean=0.0356  gnorm=0.023  lr=7.35e-05  phase1
+[step   7480/14400] loss=0.0276  ema=0.0401  mean=0.0375  gnorm=0.015  lr=7.35e-05  phase1
+[step   7490/14400] loss=0.0294  ema=0.0394  mean=0.0369  gnorm=0.022  lr=7.34e-05  phase1
+[step   7500/14400] loss=0.0591  ema=0.0393  mean=0.0382  gnorm=0.017  lr=7.34e-05  phase1
+[step   7510/14400] loss=0.0041  ema=0.0399  mean=0.0396  gnorm=0.013  lr=7.33e-05  phase1
+[step   7520/14400] loss=0.1275  ema=0.0398  mean=0.0410  gnorm=0.023  lr=7.33e-05  phase1
+[step   7530/14400] loss=0.0220  ema=0.0381  mean=0.0406  gnorm=0.012  lr=7.32e-05  phase1
+[step   7540/14400] loss=0.0299  ema=0.0387  mean=0.0409  gnorm=0.012  lr=7.31e-05  phase1
+[step   7550/14400] loss=0.0332  ema=0.0387  mean=0.0414  gnorm=0.015  lr=7.31e-05  phase1
+[step   7560/14400] loss=0.0107  ema=0.0395  mean=0.0423  gnorm=0.021  lr=7.30e-05  phase1
+[step   7570/14400] loss=0.0417  ema=0.0390  mean=0.0409  gnorm=0.016  lr=7.30e-05  phase1
+[step   7580/14400] loss=0.0075  ema=0.0392  mean=0.0384  gnorm=0.015  lr=7.29e-05  phase1
+[step   7590/14400] loss=0.0581  ema=0.0392  mean=0.0391  gnorm=0.014  lr=7.29e-05  phase1
+[step   7600/14400] loss=0.0114  ema=0.0372  mean=0.0371  gnorm=0.022  lr=7.28e-05  phase1
+[step   7610/14400] loss=0.0426  ema=0.0382  mean=0.0372  gnorm=0.015  lr=7.28e-05  phase1
+[step   7620/14400] loss=0.0488  ema=0.0380  mean=0.0371  gnorm=0.017  lr=7.27e-05  phase1
+[step   7630/14400] loss=0.0280  ema=0.0380  mean=0.0386  gnorm=0.014  lr=7.27e-05  phase1
+[step   7640/14400] loss=0.0637  ema=0.0381  mean=0.0381  gnorm=0.019  lr=7.26e-05  phase1
+[step   7650/14400] loss=0.0603  ema=0.0380  mean=0.0379  gnorm=0.019  lr=7.25e-05  phase1
+[step   7660/14400] loss=0.0099  ema=0.0382  mean=0.0371  gnorm=0.017  lr=7.25e-05  phase1
+[step   7670/14400] loss=0.0506  ema=0.0386  mean=0.0379  gnorm=0.014  lr=7.24e-05  phase1
+[step   7680/14400] loss=0.0189  ema=0.0378  mean=0.0369  gnorm=0.026  lr=7.24e-05  phase1
+[step   7690/14400] loss=0.0156  ema=0.0385  mean=0.0374  gnorm=0.015  lr=7.23e-05  phase1
+[step   7700/14400] loss=0.0332  ema=0.0377  mean=0.0386  gnorm=0.019  lr=7.23e-05  phase1
+[step   7710/14400] loss=0.0606  ema=0.0381  mean=0.0380  gnorm=0.016  lr=7.22e-05  phase1
+[step   7720/14400] loss=0.0299  ema=0.0370  mean=0.0370  gnorm=0.022  lr=7.22e-05  phase1
+[step   7730/14400] loss=0.0061  ema=0.0360  mean=0.0360  gnorm=0.013  lr=7.21e-05  phase1
+[step   7740/14400] loss=0.0696  ema=0.0356  mean=0.0352  gnorm=0.019  lr=7.21e-05  phase1
+[step   7750/14400] loss=0.0246  ema=0.0341  mean=0.0335  gnorm=0.014  lr=7.20e-05  phase1
+[step   7760/14400] loss=0.0479  ema=0.0344  mean=0.0332  gnorm=0.025  lr=7.19e-05  phase1
+[step   7770/14400] loss=0.0089  ema=0.0354  mean=0.0336  gnorm=0.018  lr=7.19e-05  phase1
+[step   7780/14400] loss=0.1521  ema=0.0374  mean=0.0360  gnorm=0.025  lr=7.18e-05  phase1
+[step   7790/14400] loss=0.0188  ema=0.0363  mean=0.0341  gnorm=0.018  lr=7.18e-05  phase1
+[step   7800/14400] loss=0.0341  ema=0.0352  mean=0.0336  gnorm=0.014  lr=7.17e-05  phase1
+[step   7810/14400] loss=0.0179  ema=0.0357  mean=0.0334  gnorm=0.013  lr=7.17e-05  phase1
+[step   7820/14400] loss=0.0175  ema=0.0350  mean=0.0337  gnorm=0.015  lr=7.16e-05  phase1
+[step   7830/14400] loss=0.0936  ema=0.0355  mean=0.0350  gnorm=0.023  lr=7.16e-05  phase1
+[step   7840/14400] loss=0.0941  ema=0.0369  mean=0.0368  gnorm=0.019  lr=7.15e-05  phase1
+[step   7850/14400] loss=0.0185  ema=0.0373  mean=0.0389  gnorm=0.017  lr=7.15e-05  phase1
+[step   7860/14400] loss=0.0465  ema=0.0369  mean=0.0386  gnorm=0.016  lr=7.14e-05  phase1
+[step   7870/14400] loss=0.0087  ema=0.0367  mean=0.0374  gnorm=0.013  lr=7.14e-05  phase1
+[step   7880/14400] loss=0.0109  ema=0.0377  mean=0.0366  gnorm=0.010  lr=7.13e-05  phase1
+[step   7890/14400] loss=0.0083  ema=0.0385  mean=0.0387  gnorm=0.019  lr=7.12e-05  phase1
+[step   7900/14400] loss=0.0326  ema=0.0413  mean=0.0429  gnorm=0.017  lr=7.12e-05  phase1
+[step   7910/14400] loss=0.0690  ema=0.0413  mean=0.0430  gnorm=0.022  lr=7.11e-05  phase1
+[step   7920/14400] loss=0.0274  ema=0.0398  mean=0.0427  gnorm=0.010  lr=7.11e-05  phase1
+[step   7930/14400] loss=0.0084  ema=0.0393  mean=0.0421  gnorm=0.015  lr=7.10e-05  phase1
+[step   7940/14400] loss=0.0087  ema=0.0386  mean=0.0403  gnorm=0.014  lr=7.10e-05  phase1
+[step   7950/14400] loss=0.0840  ema=0.0410  mean=0.0426  gnorm=0.021  lr=7.09e-05  phase1
+[step   7960/14400] loss=0.0432  ema=0.0396  mean=0.0419  gnorm=0.017  lr=7.09e-05  phase1
+[step   7970/14400] loss=0.0177  ema=0.0391  mean=0.0419  gnorm=0.014  lr=7.08e-05  phase1
+[step   7980/14400] loss=0.0588  ema=0.0394  mean=0.0414  gnorm=0.014  lr=7.08e-05  phase1
+[step   7990/14400] loss=0.0611  ema=0.0389  mean=0.0401  gnorm=0.021  lr=7.07e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_8000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_8000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_8000.pt
+[step   8000/14400] loss=0.0105  ema=0.0386  mean=0.0370  gnorm=0.021  lr=7.07e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_8000.pt
+[step   8010/14400] loss=0.0175  ema=0.0391  mean=0.0372  gnorm=0.023  lr=7.06e-05  phase1
+[step   8020/14400] loss=0.0212  ema=0.0384  mean=0.0378  gnorm=0.025  lr=7.05e-05  phase1
+[step   8030/14400] loss=0.2112  ema=0.0409  mean=0.0407  gnorm=0.027  lr=7.05e-05  phase1
+[step   8040/14400] loss=0.0686  ema=0.0410  mean=0.0418  gnorm=0.018  lr=7.04e-05  phase1
+[step   8050/14400] loss=0.0165  ema=0.0410  mean=0.0394  gnorm=0.012  lr=7.04e-05  phase1
+[step   8060/14400] loss=0.0093  ema=0.0404  mean=0.0402  gnorm=0.012  lr=7.03e-05  phase1
+[step   8070/14400] loss=0.0823  ema=0.0412  mean=0.0418  gnorm=0.013  lr=7.03e-05  phase1
+[step   8080/14400] loss=0.1064  ema=0.0425  mean=0.0429  gnorm=0.028  lr=7.02e-05  phase1
+[step   8090/14400] loss=0.0480  ema=0.0434  mean=0.0448  gnorm=0.018  lr=7.02e-05  phase1
+[step   8100/14400] loss=0.0229  ema=0.0441  mean=0.0463  gnorm=0.016  lr=7.01e-05  phase1
+[step   8110/14400] loss=0.0554  ema=0.0438  mean=0.0460  gnorm=0.018  lr=7.01e-05  phase1
+[step   8120/14400] loss=0.0098  ema=0.0423  mean=0.0457  gnorm=0.012  lr=7.00e-05  phase1
+[step   8130/14400] loss=0.1844  ema=0.0429  mean=0.0441  gnorm=0.024  lr=7.00e-05  phase1
+[step   8140/14400] loss=0.1084  ema=0.0427  mean=0.0439  gnorm=0.024  lr=6.99e-05  phase1
+[step   8150/14400] loss=0.0884  ema=0.0428  mean=0.0441  gnorm=0.017  lr=6.99e-05  phase1
+[step   8160/14400] loss=0.0132  ema=0.0421  mean=0.0442  gnorm=0.018  lr=6.98e-05  phase1
+[step   8170/14400] loss=0.0217  ema=0.0419  mean=0.0433  gnorm=0.010  lr=6.97e-05  phase1
+[step   8180/14400] loss=0.1187  ema=0.0422  mean=0.0423  gnorm=0.017  lr=6.97e-05  phase1
+[step   8190/14400] loss=0.0123  ema=0.0416  mean=0.0408  gnorm=0.018  lr=6.96e-05  phase1
+[step   8200/14400] loss=0.0420  ema=0.0415  mean=0.0397  gnorm=0.012  lr=6.96e-05  phase1
+[step   8210/14400] loss=0.0118  ema=0.0411  mean=0.0394  gnorm=0.017  lr=6.95e-05  phase1
+[step   8220/14400] loss=0.0574  ema=0.0404  mean=0.0399  gnorm=0.014  lr=6.95e-05  phase1
+[step   8230/14400] loss=0.0335  ema=0.0396  mean=0.0385  gnorm=0.017  lr=6.94e-05  phase1
+[step   8240/14400] loss=0.0477  ema=0.0404  mean=0.0392  gnorm=0.018  lr=6.94e-05  phase1
+[step   8250/14400] loss=0.0195  ema=0.0386  mean=0.0371  gnorm=0.011  lr=6.93e-05  phase1
+[step   8260/14400] loss=0.0546  ema=0.0377  mean=0.0364  gnorm=0.017  lr=6.93e-05  phase1
+[step   8270/14400] loss=0.0651  ema=0.0402  mean=0.0387  gnorm=0.020  lr=6.92e-05  phase1
+[step   8280/14400] loss=0.0077  ema=0.0394  mean=0.0375  gnorm=0.013  lr=6.92e-05  phase1
+[step   8290/14400] loss=0.0427  ema=0.0393  mean=0.0376  gnorm=0.023  lr=6.91e-05  phase1
+[step   8300/14400] loss=0.0141  ema=0.0382  mean=0.0365  gnorm=0.011  lr=6.91e-05  phase1
+[step   8310/14400] loss=0.0315  ema=0.0376  mean=0.0359  gnorm=0.028  lr=6.90e-05  phase1
+[step   8320/14400] loss=0.0899  ema=0.0403  mean=0.0391  gnorm=0.019  lr=6.89e-05  phase1
+[step   8330/14400] loss=0.0043  ema=0.0403  mean=0.0399  gnorm=0.013  lr=6.89e-05  phase1
+[step   8340/14400] loss=0.0166  ema=0.0392  mean=0.0379  gnorm=0.027  lr=6.88e-05  phase1
+[step   8350/14400] loss=0.0211  ema=0.0391  mean=0.0396  gnorm=0.017  lr=6.88e-05  phase1
+[step   8360/14400] loss=0.0335  ema=0.0389  mean=0.0405  gnorm=0.020  lr=6.87e-05  phase1
+[step   8370/14400] loss=0.0067  ema=0.0405  mean=0.0396  gnorm=0.015  lr=6.87e-05  phase1
+[step   8380/14400] loss=0.1552  ema=0.0416  mean=0.0416  gnorm=0.031  lr=6.86e-05  phase1
+[step   8390/14400] loss=0.0279  ema=0.0409  mean=0.0412  gnorm=0.017  lr=6.86e-05  phase1
+[step   8400/14400] loss=0.0533  ema=0.0418  mean=0.0435  gnorm=0.026  lr=6.85e-05  phase1
+[step   8410/14400] loss=0.0284  ema=0.0436  mean=0.0463  gnorm=0.018  lr=6.85e-05  phase1
+[step   8420/14400] loss=0.0813  ema=0.0431  mean=0.0436  gnorm=0.018  lr=6.84e-05  phase1
+[step   8430/14400] loss=0.0100  ema=0.0416  mean=0.0422  gnorm=0.020  lr=6.84e-05  phase1
+[step   8440/14400] loss=0.0209  ema=0.0424  mean=0.0444  gnorm=0.020  lr=6.83e-05  phase1
+[step   8450/14400] loss=0.0460  ema=0.0439  mean=0.0463  gnorm=0.016  lr=6.83e-05  phase1
+[step   8460/14400] loss=0.0559  ema=0.0440  mean=0.0470  gnorm=0.019  lr=6.82e-05  phase1
+[step   8470/14400] loss=0.0263  ema=0.0433  mean=0.0452  gnorm=0.022  lr=6.82e-05  phase1
+[step   8480/14400] loss=0.0091  ema=0.0446  mean=0.0458  gnorm=0.019  lr=6.81e-05  phase1
+[step   8490/14400] loss=0.0122  ema=0.0447  mean=0.0469  gnorm=0.010  lr=6.81e-05  phase1
+[step   8500/14400] loss=0.0453  ema=0.0443  mean=0.0459  gnorm=0.017  lr=6.80e-05  phase1
+[step   8510/14400] loss=0.0235  ema=0.0435  mean=0.0434  gnorm=0.012  lr=6.79e-05  phase1
+[step   8520/14400] loss=0.0160  ema=0.0426  mean=0.0430  gnorm=0.019  lr=6.79e-05  phase1
+[step   8530/14400] loss=0.0391  ema=0.0413  mean=0.0432  gnorm=0.014  lr=6.78e-05  phase1
+[step   8540/14400] loss=0.0535  ema=0.0410  mean=0.0421  gnorm=0.024  lr=6.78e-05  phase1
+[step   8550/14400] loss=0.0844  ema=0.0411  mean=0.0404  gnorm=0.016  lr=6.77e-05  phase1
+[step   8560/14400] loss=0.0396  ema=0.0419  mean=0.0408  gnorm=0.055  lr=6.77e-05  phase1
+[step   8570/14400] loss=0.0118  ema=0.0413  mean=0.0408  gnorm=0.016  lr=6.76e-05  phase1
+[step   8580/14400] loss=0.0168  ema=0.0415  mean=0.0394  gnorm=0.020  lr=6.76e-05  phase1
+[step   8590/14400] loss=0.0224  ema=0.0425  mean=0.0401  gnorm=0.021  lr=6.75e-05  phase1
+[step   8600/14400] loss=0.0370  ema=0.0425  mean=0.0402  gnorm=0.014  lr=6.75e-05  phase1
+[step   8610/14400] loss=0.0507  ema=0.0417  mean=0.0400  gnorm=0.054  lr=6.74e-05  phase1
+[step   8620/14400] loss=0.0453  ema=0.0403  mean=0.0394  gnorm=0.015  lr=6.74e-05  phase1
+[step   8630/14400] loss=0.0177  ema=0.0397  mean=0.0398  gnorm=0.021  lr=6.73e-05  phase1
+[step   8640/14400] loss=0.0236  ema=0.0401  mean=0.0403  gnorm=0.016  lr=6.73e-05  phase1
+[step   8650/14400] loss=0.0300  ema=0.0403  mean=0.0404  gnorm=0.018  lr=6.72e-05  phase1
+[step   8660/14400] loss=0.0464  ema=0.0395  mean=0.0386  gnorm=0.014  lr=6.72e-05  phase1
+[step   8670/14400] loss=0.0031  ema=0.0397  mean=0.0392  gnorm=0.016  lr=6.71e-05  phase1
+[step   8680/14400] loss=0.0127  ema=0.0384  mean=0.0374  gnorm=0.016  lr=6.71e-05  phase1
+[step   8690/14400] loss=0.0467  ema=0.0393  mean=0.0370  gnorm=0.019  lr=6.70e-05  phase1
+[step   8700/14400] loss=0.0086  ema=0.0382  mean=0.0356  gnorm=0.012  lr=6.70e-05  phase1
+[step   8710/14400] loss=0.0391  ema=0.0377  mean=0.0355  gnorm=0.015  lr=6.69e-05  phase1
+[step   8720/14400] loss=0.0083  ema=0.0373  mean=0.0362  gnorm=0.012  lr=6.69e-05  phase1
+[step   8730/14400] loss=0.0217  ema=0.0368  mean=0.0360  gnorm=0.018  lr=6.68e-05  phase1
+[step   8740/14400] loss=0.0220  ema=0.0364  mean=0.0349  gnorm=0.013  lr=6.68e-05  phase1
+[step   8750/14400] loss=0.0340  ema=0.0383  mean=0.0363  gnorm=0.011  lr=6.67e-05  phase1
+[step   8760/14400] loss=0.0481  ema=0.0379  mean=0.0366  gnorm=0.015  lr=6.66e-05  phase1
+[step   8770/14400] loss=0.0542  ema=0.0396  mean=0.0379  gnorm=0.016  lr=6.66e-05  phase1
+[step   8780/14400] loss=0.0064  ema=0.0382  mean=0.0378  gnorm=0.027  lr=6.65e-05  phase1
+[step   8790/14400] loss=0.0080  ema=0.0389  mean=0.0375  gnorm=0.012  lr=6.65e-05  phase1
+[step   8800/14400] loss=0.1518  ema=0.0399  mean=0.0396  gnorm=0.036  lr=6.64e-05  phase1
+[step   8810/14400] loss=0.0517  ema=0.0392  mean=0.0396  gnorm=0.019  lr=6.64e-05  phase1
+[step   8820/14400] loss=0.0299  ema=0.0391  mean=0.0401  gnorm=0.015  lr=6.63e-05  phase1
+[step   8830/14400] loss=0.0516  ema=0.0386  mean=0.0402  gnorm=0.013  lr=6.63e-05  phase1
+[step   8840/14400] loss=0.0289  ema=0.0381  mean=0.0403  gnorm=0.020  lr=6.62e-05  phase1
+[step   8850/14400] loss=0.0048  ema=0.0383  mean=0.0387  gnorm=0.013  lr=6.62e-05  phase1
+[step   8860/14400] loss=0.0100  ema=0.0383  mean=0.0391  gnorm=0.012  lr=6.61e-05  phase1
+[step   8870/14400] loss=0.0195  ema=0.0374  mean=0.0365  gnorm=0.011  lr=6.61e-05  phase1
+[step   8880/14400] loss=0.0395  ema=0.0373  mean=0.0376  gnorm=0.010  lr=6.60e-05  phase1
+[step   8890/14400] loss=0.0061  ema=0.0382  mean=0.0378  gnorm=0.008  lr=6.60e-05  phase1
+[step   8900/14400] loss=0.0249  ema=0.0365  mean=0.0349  gnorm=0.021  lr=6.59e-05  phase1
+[step   8910/14400] loss=0.0667  ema=0.0358  mean=0.0346  gnorm=0.016  lr=6.59e-05  phase1
+[step   8920/14400] loss=0.0354  ema=0.0378  mean=0.0364  gnorm=0.016  lr=6.58e-05  phase1
+[step   8930/14400] loss=0.0240  ema=0.0364  mean=0.0354  gnorm=0.011  lr=6.58e-05  phase1
+[step   8940/14400] loss=0.0319  ema=0.0352  mean=0.0344  gnorm=0.013  lr=6.57e-05  phase1
+[step   8950/14400] loss=0.0813  ema=0.0347  mean=0.0334  gnorm=0.015  lr=6.57e-05  phase1
+[step   8960/14400] loss=0.0443  ema=0.0355  mean=0.0337  gnorm=0.013  lr=6.56e-05  phase1
+[step   8970/14400] loss=0.0563  ema=0.0369  mean=0.0359  gnorm=0.039  lr=6.56e-05  phase1
+[step   8980/14400] loss=0.0078  ema=0.0355  mean=0.0345  gnorm=0.019  lr=6.55e-05  phase1
+[step   8990/14400] loss=0.0091  ema=0.0351  mean=0.0330  gnorm=0.023  lr=6.55e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_9000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_9000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_9000.pt
+[step   9000/14400] loss=0.0092  ema=0.0362  mean=0.0356  gnorm=0.013  lr=6.54e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_9000.pt
+[step   9010/14400] loss=0.0681  ema=0.0367  mean=0.0368  gnorm=0.019  lr=6.54e-05  phase1
+[step   9020/14400] loss=0.0141  ema=0.0386  mean=0.0367  gnorm=0.014  lr=6.53e-05  phase1
+[step   9030/14400] loss=0.0433  ema=0.0385  mean=0.0382  gnorm=0.019  lr=6.53e-05  phase1
+[step   9040/14400] loss=0.0373  ema=0.0380  mean=0.0392  gnorm=0.011  lr=6.52e-05  phase1
+[step   9050/14400] loss=0.0046  ema=0.0377  mean=0.0397  gnorm=0.011  lr=6.52e-05  phase1
+[step   9060/14400] loss=0.0270  ema=0.0369  mean=0.0385  gnorm=0.016  lr=6.51e-05  phase1
+[step   9070/14400] loss=0.0093  ema=0.0369  mean=0.0371  gnorm=0.013  lr=6.51e-05  phase1
+[step   9080/14400] loss=0.0251  ema=0.0368  mean=0.0385  gnorm=0.017  lr=6.50e-05  phase1
+[step   9090/14400] loss=0.0263  ema=0.0372  mean=0.0394  gnorm=0.024  lr=6.50e-05  phase1
+[step   9100/14400] loss=0.0554  ema=0.0384  mean=0.0397  gnorm=0.019  lr=6.49e-05  phase1
+[step   9110/14400] loss=0.0881  ema=0.0380  mean=0.0389  gnorm=0.041  lr=6.49e-05  phase1
+[step   9120/14400] loss=0.0064  ema=0.0387  mean=0.0379  gnorm=0.011  lr=6.48e-05  phase1
+[step   9130/14400] loss=0.0641  ema=0.0405  mean=0.0399  gnorm=0.023  lr=6.48e-05  phase1
+[step   9140/14400] loss=0.0067  ema=0.0402  mean=0.0403  gnorm=0.014  lr=6.47e-05  phase1
+[step   9150/14400] loss=0.0227  ema=0.0387  mean=0.0392  gnorm=0.020  lr=6.47e-05  phase1
+[step   9160/14400] loss=0.1658  ema=0.0402  mean=0.0416  gnorm=0.023  lr=6.46e-05  phase1
+[step   9170/14400] loss=0.0462  ema=0.0415  mean=0.0432  gnorm=0.015  lr=6.46e-05  phase1
+[step   9180/14400] loss=0.0051  ema=0.0409  mean=0.0431  gnorm=0.019  lr=6.45e-05  phase1
+[step   9190/14400] loss=0.0233  ema=0.0404  mean=0.0426  gnorm=0.015  lr=6.45e-05  phase1
+[step   9200/14400] loss=0.0072  ema=0.0404  mean=0.0418  gnorm=0.012  lr=6.44e-05  phase1
+[step   9210/14400] loss=0.0531  ema=0.0401  mean=0.0422  gnorm=0.018  lr=6.44e-05  phase1
+[step   9220/14400] loss=0.0193  ema=0.0382  mean=0.0395  gnorm=0.023  lr=6.43e-05  phase1
+[step   9230/14400] loss=0.0568  ema=0.0378  mean=0.0373  gnorm=0.017  lr=6.43e-05  phase1
+[step   9240/14400] loss=0.0338  ema=0.0374  mean=0.0368  gnorm=0.012  lr=6.42e-05  phase1
+[step   9250/14400] loss=0.0148  ema=0.0367  mean=0.0373  gnorm=0.018  lr=6.42e-05  phase1
+[step   9260/14400] loss=0.0976  ema=0.0378  mean=0.0368  gnorm=0.019  lr=6.41e-05  phase1
+[step   9270/14400] loss=0.0124  ema=0.0363  mean=0.0337  gnorm=0.016  lr=6.41e-05  phase1
+[step   9280/14400] loss=0.0400  ema=0.0350  mean=0.0324  gnorm=0.014  lr=6.40e-05  phase1
+[step   9290/14400] loss=0.0458  ema=0.0341  mean=0.0314  gnorm=0.013  lr=6.40e-05  phase1
+[step   9300/14400] loss=0.0287  ema=0.0339  mean=0.0305  gnorm=0.011  lr=6.39e-05  phase1
+[step   9310/14400] loss=0.0173  ema=0.0332  mean=0.0294  gnorm=0.010  lr=6.39e-05  phase1
+[step   9320/14400] loss=0.0060  ema=0.0330  mean=0.0306  gnorm=0.013  lr=6.38e-05  phase1
+[step   9330/14400] loss=0.0234  ema=0.0335  mean=0.0310  gnorm=0.017  lr=6.38e-05  phase1
+[step   9340/14400] loss=0.0841  ema=0.0340  mean=0.0316  gnorm=0.016  lr=6.37e-05  phase1
+[step   9350/14400] loss=0.0523  ema=0.0338  mean=0.0318  gnorm=0.017  lr=6.37e-05  phase1
+[step   9360/14400] loss=0.0473  ema=0.0349  mean=0.0315  gnorm=0.021  lr=6.36e-05  phase1
+[step   9370/14400] loss=0.0797  ema=0.0368  mean=0.0348  gnorm=0.014  lr=6.36e-05  phase1
+[step   9380/14400] loss=0.0448  ema=0.0371  mean=0.0364  gnorm=0.018  lr=6.35e-05  phase1
+[step   9390/14400] loss=0.0368  ema=0.0363  mean=0.0368  gnorm=0.016  lr=6.35e-05  phase1
+[step   9400/14400] loss=0.0561  ema=0.0357  mean=0.0366  gnorm=0.011  lr=6.35e-05  phase1
+[step   9410/14400] loss=0.0587  ema=0.0367  mean=0.0385  gnorm=0.017  lr=6.34e-05  phase1
+[step   9420/14400] loss=0.0126  ema=0.0358  mean=0.0381  gnorm=0.016  lr=6.34e-05  phase1
+[step   9430/14400] loss=0.0341  ema=0.0360  mean=0.0380  gnorm=0.014  lr=6.33e-05  phase1
+[step   9440/14400] loss=0.0425  ema=0.0354  mean=0.0372  gnorm=0.014  lr=6.33e-05  phase1
+[step   9450/14400] loss=0.0297  ema=0.0348  mean=0.0369  gnorm=0.017  lr=6.32e-05  phase1
+[step   9460/14400] loss=0.0174  ema=0.0350  mean=0.0361  gnorm=0.012  lr=6.32e-05  phase1
+[step   9470/14400] loss=0.0103  ema=0.0350  mean=0.0342  gnorm=0.011  lr=6.31e-05  phase1
+[step   9480/14400] loss=0.0853  ema=0.0354  mean=0.0341  gnorm=0.025  lr=6.31e-05  phase1
+[step   9490/14400] loss=0.0398  ema=0.0358  mean=0.0351  gnorm=0.021  lr=6.30e-05  phase1
+[step   9500/14400] loss=0.0126  ema=0.0367  mean=0.0367  gnorm=0.019  lr=6.30e-05  phase1
+[step   9510/14400] loss=0.0086  ema=0.0373  mean=0.0364  gnorm=0.009  lr=6.29e-05  phase1
+[step   9520/14400] loss=0.0198  ema=0.0362  mean=0.0363  gnorm=0.011  lr=6.29e-05  phase1
+[step   9530/14400] loss=0.0417  ema=0.0372  mean=0.0371  gnorm=0.015  lr=6.28e-05  phase1
+[step   9540/14400] loss=0.0404  ema=0.0368  mean=0.0374  gnorm=0.017  lr=6.28e-05  phase1
+[step   9550/14400] loss=0.0275  ema=0.0360  mean=0.0373  gnorm=0.018  lr=6.27e-05  phase1
+[step   9560/14400] loss=0.0223  ema=0.0371  mean=0.0384  gnorm=0.013  lr=6.27e-05  phase1
+[step   9570/14400] loss=0.0876  ema=0.0367  mean=0.0381  gnorm=0.022  lr=6.26e-05  phase1
+[step   9580/14400] loss=0.0888  ema=0.0373  mean=0.0386  gnorm=0.017  lr=6.26e-05  phase1
+[step   9590/14400] loss=0.0220  ema=0.0369  mean=0.0379  gnorm=0.016  lr=6.25e-05  phase1
+[step   9600/14400] loss=0.0401  ema=0.0360  mean=0.0360  gnorm=0.011  lr=6.25e-05  phase1
+[step   9610/14400] loss=0.0026  ema=0.0365  mean=0.0359  gnorm=0.017  lr=6.24e-05  phase1
+[step   9620/14400] loss=0.0531  ema=0.0370  mean=0.0374  gnorm=0.025  lr=6.24e-05  phase1
+[step   9630/14400] loss=0.0309  ema=0.0372  mean=0.0366  gnorm=0.018  lr=6.24e-05  phase1
+[step   9640/14400] loss=0.0071  ema=0.0387  mean=0.0386  gnorm=0.018  lr=6.23e-05  phase1
+[step   9650/14400] loss=0.0167  ema=0.0383  mean=0.0392  gnorm=0.026  lr=6.23e-05  phase1
+[step   9660/14400] loss=0.0093  ema=0.0367  mean=0.0367  gnorm=0.009  lr=6.22e-05  phase1
+[step   9670/14400] loss=0.0102  ema=0.0357  mean=0.0360  gnorm=0.020  lr=6.22e-05  phase1
+[step   9680/14400] loss=0.0473  ema=0.0347  mean=0.0342  gnorm=0.019  lr=6.21e-05  phase1
+[step   9690/14400] loss=0.0748  ema=0.0353  mean=0.0349  gnorm=0.028  lr=6.21e-05  phase1
+[step   9700/14400] loss=0.0571  ema=0.0353  mean=0.0358  gnorm=0.021  lr=6.20e-05  phase1
+[step   9710/14400] loss=0.0271  ema=0.0357  mean=0.0356  gnorm=0.012  lr=6.20e-05  phase1
+[step   9720/14400] loss=0.0766  ema=0.0360  mean=0.0352  gnorm=0.018  lr=6.19e-05  phase1
+[step   9730/14400] loss=0.0304  ema=0.0364  mean=0.0355  gnorm=0.010  lr=6.19e-05  phase1
+[step   9740/14400] loss=0.0411  ema=0.0367  mean=0.0340  gnorm=0.014  lr=6.18e-05  phase1
+[step   9750/14400] loss=0.1188  ema=0.0370  mean=0.0345  gnorm=0.032  lr=6.18e-05  phase1
+[step   9760/14400] loss=0.0122  ema=0.0367  mean=0.0358  gnorm=0.023  lr=6.17e-05  phase1
+[step   9770/14400] loss=0.0916  ema=0.0385  mean=0.0387  gnorm=0.029  lr=6.17e-05  phase1
+[step   9780/14400] loss=0.0736  ema=0.0394  mean=0.0411  gnorm=0.018  lr=6.17e-05  phase1
+[step   9790/14400] loss=0.0709  ema=0.0396  mean=0.0410  gnorm=0.012  lr=6.16e-05  phase1
+[step   9800/14400] loss=0.0255  ema=0.0390  mean=0.0409  gnorm=0.015  lr=6.16e-05  phase1
+[step   9810/14400] loss=0.0373  ema=0.0387  mean=0.0405  gnorm=0.010  lr=6.15e-05  phase1
+[step   9820/14400] loss=0.0664  ema=0.0401  mean=0.0421  gnorm=0.020  lr=6.15e-05  phase1
+[step   9830/14400] loss=0.0081  ema=0.0398  mean=0.0418  gnorm=0.016  lr=6.14e-05  phase1
+[step   9840/14400] loss=0.0073  ema=0.0384  mean=0.0404  gnorm=0.016  lr=6.14e-05  phase1
+[step   9850/14400] loss=0.1017  ema=0.0383  mean=0.0401  gnorm=0.018  lr=6.13e-05  phase1
+[step   9860/14400] loss=0.0343  ema=0.0395  mean=0.0417  gnorm=0.021  lr=6.13e-05  phase1
+[step   9870/14400] loss=0.0704  ema=0.0393  mean=0.0399  gnorm=0.022  lr=6.12e-05  phase1
+[step   9880/14400] loss=0.0385  ema=0.0387  mean=0.0384  gnorm=0.014  lr=6.12e-05  phase1
+[step   9890/14400] loss=0.0390  ema=0.0383  mean=0.0378  gnorm=0.014  lr=6.12e-05  phase1
+[step   9900/14400] loss=0.0206  ema=0.0377  mean=0.0376  gnorm=0.014  lr=6.11e-05  phase1
+[step   9910/14400] loss=0.0544  ema=0.0385  mean=0.0386  gnorm=0.017  lr=6.11e-05  phase1
+[step   9920/14400] loss=0.0030  ema=0.0379  mean=0.0365  gnorm=0.017  lr=6.10e-05  phase1
+[step   9930/14400] loss=0.0102  ema=0.0382  mean=0.0368  gnorm=0.011  lr=6.10e-05  phase1
+[step   9940/14400] loss=0.0512  ema=0.0375  mean=0.0374  gnorm=0.017  lr=6.09e-05  phase1
+[step   9950/14400] loss=0.0144  ema=0.0373  mean=0.0373  gnorm=0.016  lr=6.09e-05  phase1
+[step   9960/14400] loss=0.0326  ema=0.0366  mean=0.0352  gnorm=0.017  lr=6.08e-05  phase1
+[step   9970/14400] loss=0.0276  ema=0.0365  mean=0.0351  gnorm=0.017  lr=6.08e-05  phase1
+[step   9980/14400] loss=0.0077  ema=0.0368  mean=0.0358  gnorm=0.017  lr=6.07e-05  phase1
+[step   9990/14400] loss=0.0658  ema=0.0375  mean=0.0368  gnorm=0.025  lr=6.07e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_10000.pt
+[step  10000/14400] loss=0.0262  ema=0.0368  mean=0.0365  gnorm=0.013  lr=6.07e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_10000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_10000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_10000.pt
+[step  10010/14400] loss=0.0376  ema=0.0378  mean=0.0367  gnorm=0.013  lr=6.06e-05  phase1
+[step  10020/14400] loss=0.0266  ema=0.0366  mean=0.0359  gnorm=0.024  lr=6.06e-05  phase1
+[step  10030/14400] loss=0.0991  ema=0.0394  mean=0.0383  gnorm=0.022  lr=6.05e-05  phase1
+[step  10040/14400] loss=0.0473  ema=0.0381  mean=0.0379  gnorm=0.012  lr=6.05e-05  phase1
+[step  10050/14400] loss=0.0205  ema=0.0374  mean=0.0374  gnorm=0.013  lr=6.04e-05  phase1
+[step  10060/14400] loss=0.0344  ema=0.0375  mean=0.0383  gnorm=0.015  lr=6.04e-05  phase1
+[step  10070/14400] loss=0.0198  ema=0.0370  mean=0.0379  gnorm=0.018  lr=6.03e-05  phase1
+[step  10080/14400] loss=0.0384  ema=0.0372  mean=0.0379  gnorm=0.011  lr=6.03e-05  phase1
+[step  10090/14400] loss=0.0457  ema=0.0358  mean=0.0357  gnorm=0.018  lr=6.03e-05  phase1
+[step  10100/14400] loss=0.0465  ema=0.0353  mean=0.0358  gnorm=0.016  lr=6.02e-05  phase1
+[step  10110/14400] loss=0.0124  ema=0.0347  mean=0.0339  gnorm=0.011  lr=6.02e-05  phase1
+[step  10120/14400] loss=0.0476  ema=0.0347  mean=0.0349  gnorm=0.014  lr=6.01e-05  phase1
+[step  10130/14400] loss=0.0263  ema=0.0349  mean=0.0320  gnorm=0.017  lr=6.01e-05  phase1
+[step  10140/14400] loss=0.0601  ema=0.0376  mean=0.0358  gnorm=0.019  lr=6.00e-05  phase1
+[step  10150/14400] loss=0.0155  ema=0.0361  mean=0.0350  gnorm=0.012  lr=6.00e-05  phase1
+[step  10160/14400] loss=0.0233  ema=0.0358  mean=0.0344  gnorm=0.011  lr=6.00e-05  phase1
+[step  10170/14400] loss=0.0441  ema=0.0356  mean=0.0345  gnorm=0.026  lr=5.99e-05  phase1
+[step  10180/14400] loss=0.0252  ema=0.0364  mean=0.0350  gnorm=0.016  lr=5.99e-05  phase1
+[step  10190/14400] loss=0.0115  ema=0.0363  mean=0.0363  gnorm=0.013  lr=5.98e-05  phase1
+[step  10200/14400] loss=0.0047  ema=0.0358  mean=0.0364  gnorm=0.030  lr=5.98e-05  phase1
+[step  10210/14400] loss=0.0297  ema=0.0374  mean=0.0387  gnorm=0.015  lr=5.97e-05  phase1
+[step  10220/14400] loss=0.0181  ema=0.0385  mean=0.0401  gnorm=0.009  lr=5.97e-05  phase1
+[step  10230/14400] loss=0.0192  ema=0.0386  mean=0.0406  gnorm=0.022  lr=5.96e-05  phase1
+[step  10240/14400] loss=0.0166  ema=0.0379  mean=0.0372  gnorm=0.010  lr=5.96e-05  phase1
+[step  10250/14400] loss=0.0106  ema=0.0373  mean=0.0381  gnorm=0.012  lr=5.96e-05  phase1
+[step  10260/14400] loss=0.1675  ema=0.0400  mean=0.0414  gnorm=0.019  lr=5.95e-05  phase1
+[step  10270/14400] loss=0.1155  ema=0.0412  mean=0.0433  gnorm=0.017  lr=5.95e-05  phase1
+[step  10280/14400] loss=0.0175  ema=0.0430  mean=0.0449  gnorm=0.014  lr=5.94e-05  phase1
+[step  10290/14400] loss=0.0268  ema=0.0419  mean=0.0445  gnorm=0.021  lr=5.94e-05  phase1
+[step  10300/14400] loss=0.0690  ema=0.0415  mean=0.0451  gnorm=0.013  lr=5.93e-05  phase1
+[step  10310/14400] loss=0.0650  ema=0.0416  mean=0.0441  gnorm=0.023  lr=5.93e-05  phase1
+[step  10320/14400] loss=0.0300  ema=0.0414  mean=0.0432  gnorm=0.015  lr=5.93e-05  phase1
+[step  10330/14400] loss=0.0142  ema=0.0390  mean=0.0408  gnorm=0.020  lr=5.92e-05  phase1
+[step  10340/14400] loss=0.0784  ema=0.0391  mean=0.0417  gnorm=0.021  lr=5.92e-05  phase1
+[step  10350/14400] loss=0.0554  ema=0.0400  mean=0.0434  gnorm=0.022  lr=5.91e-05  phase1
+[step  10360/14400] loss=0.0143  ema=0.0402  mean=0.0410  gnorm=0.009  lr=5.91e-05  phase1
+[step  10370/14400] loss=0.0374  ema=0.0420  mean=0.0417  gnorm=0.012  lr=5.91e-05  phase1
+[step  10380/14400] loss=0.0187  ema=0.0408  mean=0.0387  gnorm=0.020  lr=5.90e-05  phase1
+[step  10390/14400] loss=0.0213  ema=0.0397  mean=0.0384  gnorm=0.012  lr=5.90e-05  phase1
+[step  10400/14400] loss=0.0144  ema=0.0396  mean=0.0386  gnorm=0.012  lr=5.89e-05  phase1
+[step  10410/14400] loss=0.0121  ema=0.0377  mean=0.0363  gnorm=0.010  lr=5.89e-05  phase1
+[step  10420/14400] loss=0.0775  ema=0.0374  mean=0.0357  gnorm=0.017  lr=5.88e-05  phase1
+[step  10430/14400] loss=0.0322  ema=0.0372  mean=0.0376  gnorm=0.012  lr=5.88e-05  phase1
+[step  10440/14400] loss=0.0598  ema=0.0370  mean=0.0372  gnorm=0.016  lr=5.88e-05  phase1
+[step  10450/14400] loss=0.0382  ema=0.0364  mean=0.0354  gnorm=0.014  lr=5.87e-05  phase1
+[step  10460/14400] loss=0.0143  ema=0.0363  mean=0.0348  gnorm=0.011  lr=5.87e-05  phase1
+[step  10470/14400] loss=0.0071  ema=0.0360  mean=0.0323  gnorm=0.011  lr=5.86e-05  phase1
+[step  10480/14400] loss=0.0130  ema=0.0361  mean=0.0329  gnorm=0.010  lr=5.86e-05  phase1
+[step  10490/14400] loss=0.0359  ema=0.0352  mean=0.0327  gnorm=0.010  lr=5.86e-05  phase1
+[step  10500/14400] loss=0.0665  ema=0.0367  mean=0.0339  gnorm=0.022  lr=5.85e-05  phase1
+[step  10510/14400] loss=0.0163  ema=0.0362  mean=0.0351  gnorm=0.016  lr=5.85e-05  phase1
+[step  10520/14400] loss=0.1006  ema=0.0360  mean=0.0351  gnorm=0.023  lr=5.84e-05  phase1
+[step  10530/14400] loss=0.0315  ema=0.0360  mean=0.0350  gnorm=0.012  lr=5.84e-05  phase1
+[step  10540/14400] loss=0.0382  ema=0.0393  mean=0.0386  gnorm=0.021  lr=5.83e-05  phase1
+[step  10550/14400] loss=0.0065  ema=0.0370  mean=0.0372  gnorm=0.020  lr=5.83e-05  phase1
+[step  10560/14400] loss=0.0345  ema=0.0385  mean=0.0389  gnorm=0.015  lr=5.83e-05  phase1
+[step  10570/14400] loss=0.0088  ema=0.0382  mean=0.0390  gnorm=0.016  lr=5.82e-05  phase1
+[step  10580/14400] loss=0.0234  ema=0.0389  mean=0.0399  gnorm=0.017  lr=5.82e-05  phase1
+[step  10590/14400] loss=0.0155  ema=0.0385  mean=0.0407  gnorm=0.015  lr=5.81e-05  phase1
+[step  10600/14400] loss=0.0107  ema=0.0370  mean=0.0379  gnorm=0.012  lr=5.81e-05  phase1
+[step  10610/14400] loss=0.0128  ema=0.0368  mean=0.0383  gnorm=0.014  lr=5.81e-05  phase1
+[step  10620/14400] loss=0.0248  ema=0.0369  mean=0.0386  gnorm=0.017  lr=5.80e-05  phase1
+[step  10630/14400] loss=0.0071  ema=0.0368  mean=0.0387  gnorm=0.010  lr=5.80e-05  phase1
+[step  10640/14400] loss=0.0326  ema=0.0364  mean=0.0348  gnorm=0.011  lr=5.79e-05  phase1
+[step  10650/14400] loss=0.0158  ema=0.0360  mean=0.0364  gnorm=0.014  lr=5.79e-05  phase1
+[step  10660/14400] loss=0.0558  ema=0.0359  mean=0.0347  gnorm=0.023  lr=5.79e-05  phase1
+[step  10670/14400] loss=0.0086  ema=0.0351  mean=0.0339  gnorm=0.017  lr=5.78e-05  phase1
+[step  10680/14400] loss=0.2629  ema=0.0383  mean=0.0361  gnorm=0.034  lr=5.78e-05  phase1
+[step  10690/14400] loss=0.0106  ema=0.0384  mean=0.0366  gnorm=0.013  lr=5.77e-05  phase1
+[step  10700/14400] loss=0.0755  ema=0.0384  mean=0.0381  gnorm=0.015  lr=5.77e-05  phase1
+[step  10710/14400] loss=0.1182  ema=0.0404  mean=0.0404  gnorm=0.025  lr=5.77e-05  phase1
+[step  10720/14400] loss=0.0078  ema=0.0403  mean=0.0407  gnorm=0.015  lr=5.76e-05  phase1
+[step  10730/14400] loss=0.0020  ema=0.0396  mean=0.0404  gnorm=0.014  lr=5.76e-05  phase1
+[step  10740/14400] loss=0.0097  ema=0.0387  mean=0.0401  gnorm=0.021  lr=5.76e-05  phase1
+[step  10750/14400] loss=0.0404  ema=0.0387  mean=0.0408  gnorm=0.012  lr=5.75e-05  phase1
+[step  10760/14400] loss=0.1256  ema=0.0394  mean=0.0419  gnorm=0.027  lr=5.75e-05  phase1
+[step  10770/14400] loss=0.0092  ema=0.0395  mean=0.0432  gnorm=0.012  lr=5.74e-05  phase1
+[step  10780/14400] loss=0.0853  ema=0.0400  mean=0.0409  gnorm=0.022  lr=5.74e-05  phase1
+[step  10790/14400] loss=0.0359  ema=0.0389  mean=0.0398  gnorm=0.014  lr=5.74e-05  phase1
+[step  10800/14400] loss=0.0628  ema=0.0402  mean=0.0411  gnorm=0.016  lr=5.73e-05  phase1
+[step  10810/14400] loss=0.0526  ema=0.0401  mean=0.0392  gnorm=0.022  lr=5.73e-05  phase1
+[step  10820/14400] loss=0.0407  ema=0.0391  mean=0.0382  gnorm=0.010  lr=5.72e-05  phase1
+[step  10830/14400] loss=0.1378  ema=0.0406  mean=0.0403  gnorm=0.030  lr=5.72e-05  phase1
+[step  10840/14400] loss=0.0467  ema=0.0394  mean=0.0401  gnorm=0.017  lr=5.72e-05  phase1
+[step  10850/14400] loss=0.0121  ema=0.0402  mean=0.0410  gnorm=0.015  lr=5.71e-05  phase1
+[step  10860/14400] loss=0.0364  ema=0.0425  mean=0.0428  gnorm=0.020  lr=5.71e-05  phase1
+[step  10870/14400] loss=0.0057  ema=0.0404  mean=0.0409  gnorm=0.013  lr=5.71e-05  phase1
+[step  10880/14400] loss=0.0084  ema=0.0400  mean=0.0400  gnorm=0.010  lr=5.70e-05  phase1
+[step  10890/14400] loss=0.0421  ema=0.0406  mean=0.0418  gnorm=0.029  lr=5.70e-05  phase1
+[step  10900/14400] loss=0.0303  ema=0.0386  mean=0.0386  gnorm=0.017  lr=5.69e-05  phase1
+[step  10910/14400] loss=0.0300  ema=0.0378  mean=0.0377  gnorm=0.024  lr=5.69e-05  phase1
+[step  10920/14400] loss=0.0327  ema=0.0387  mean=0.0395  gnorm=0.018  lr=5.69e-05  phase1
+[step  10930/14400] loss=0.0322  ema=0.0377  mean=0.0369  gnorm=0.017  lr=5.68e-05  phase1
+[step  10940/14400] loss=0.0400  ema=0.0371  mean=0.0373  gnorm=0.014  lr=5.68e-05  phase1
+[step  10950/14400] loss=0.0463  ema=0.0378  mean=0.0370  gnorm=0.017  lr=5.67e-05  phase1
+[step  10960/14400] loss=0.0061  ema=0.0382  mean=0.0348  gnorm=0.012  lr=5.67e-05  phase1
+[step  10970/14400] loss=0.0418  ema=0.0384  mean=0.0367  gnorm=0.019  lr=5.67e-05  phase1
+[step  10980/14400] loss=0.0398  ema=0.0400  mean=0.0386  gnorm=0.013  lr=5.66e-05  phase1
+[step  10990/14400] loss=0.0027  ema=0.0402  mean=0.0381  gnorm=0.010  lr=5.66e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_11000.pt
+[step  11000/14400] loss=0.0123  ema=0.0400  mean=0.0400  gnorm=0.012  lr=5.66e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_11000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_11000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_11000.pt
+[step  11010/14400] loss=0.0280  ema=0.0402  mean=0.0411  gnorm=0.015  lr=5.65e-05  phase1
+[step  11020/14400] loss=0.0091  ema=0.0399  mean=0.0401  gnorm=0.012  lr=5.65e-05  phase1
+[step  11030/14400] loss=0.0276  ema=0.0381  mean=0.0394  gnorm=0.016  lr=5.65e-05  phase1
+[step  11040/14400] loss=0.0145  ema=0.0357  mean=0.0376  gnorm=0.015  lr=5.64e-05  phase1
+[step  11050/14400] loss=0.0088  ema=0.0362  mean=0.0372  gnorm=0.013  lr=5.64e-05  phase1
+[step  11060/14400] loss=0.0972  ema=0.0371  mean=0.0376  gnorm=0.021  lr=5.63e-05  phase1
+[step  11070/14400] loss=0.0071  ema=0.0357  mean=0.0358  gnorm=0.012  lr=5.63e-05  phase1
+[step  11080/14400] loss=0.0428  ema=0.0350  mean=0.0331  gnorm=0.013  lr=5.63e-05  phase1
+[step  11090/14400] loss=0.0278  ema=0.0354  mean=0.0329  gnorm=0.023  lr=5.62e-05  phase1
+[step  11100/14400] loss=0.0192  ema=0.0359  mean=0.0332  gnorm=0.020  lr=5.62e-05  phase1
+[step  11110/14400] loss=0.0595  ema=0.0349  mean=0.0315  gnorm=0.022  lr=5.62e-05  phase1
+[step  11120/14400] loss=0.0065  ema=0.0348  mean=0.0313  gnorm=0.015  lr=5.61e-05  phase1
+[step  11130/14400] loss=0.0390  ema=0.0351  mean=0.0329  gnorm=0.015  lr=5.61e-05  phase1
+[step  11140/14400] loss=0.0220  ema=0.0337  mean=0.0336  gnorm=0.020  lr=5.61e-05  phase1
+[step  11150/14400] loss=0.0593  ema=0.0344  mean=0.0336  gnorm=0.019  lr=5.60e-05  phase1
+[step  11160/14400] loss=0.0258  ema=0.0341  mean=0.0322  gnorm=0.018  lr=5.60e-05  phase1
+[step  11170/14400] loss=0.0185  ema=0.0342  mean=0.0334  gnorm=0.011  lr=5.60e-05  phase1
+[step  11180/14400] loss=0.0352  ema=0.0360  mean=0.0358  gnorm=0.015  lr=5.59e-05  phase1
+[step  11190/14400] loss=0.0078  ema=0.0357  mean=0.0352  gnorm=0.014  lr=5.59e-05  phase1
+[step  11200/14400] loss=0.0713  ema=0.0348  mean=0.0336  gnorm=0.017  lr=5.58e-05  phase1
+[step  11210/14400] loss=0.0230  ema=0.0357  mean=0.0355  gnorm=0.016  lr=5.58e-05  phase1
+[step  11220/14400] loss=0.0096  ema=0.0360  mean=0.0361  gnorm=0.014  lr=5.58e-05  phase1
+[step  11230/14400] loss=0.0229  ema=0.0360  mean=0.0359  gnorm=0.028  lr=5.57e-05  phase1
+[step  11240/14400] loss=0.0586  ema=0.0380  mean=0.0395  gnorm=0.014  lr=5.57e-05  phase1
+[step  11250/14400] loss=0.0242  ema=0.0384  mean=0.0396  gnorm=0.013  lr=5.57e-05  phase1
+[step  11260/14400] loss=0.0068  ema=0.0381  mean=0.0400  gnorm=0.010  lr=5.56e-05  phase1
+[step  11270/14400] loss=0.0109  ema=0.0391  mean=0.0414  gnorm=0.009  lr=5.56e-05  phase1
+[step  11280/14400] loss=0.0251  ema=0.0388  mean=0.0398  gnorm=0.015  lr=5.56e-05  phase1
+[step  11290/14400] loss=0.0277  ema=0.0379  mean=0.0395  gnorm=0.010  lr=5.55e-05  phase1
+[step  11300/14400] loss=0.0052  ema=0.0369  mean=0.0396  gnorm=0.013  lr=5.55e-05  phase1
+[step  11310/14400] loss=0.0986  ema=0.0381  mean=0.0400  gnorm=0.015  lr=5.55e-05  phase1
+[step  11320/14400] loss=0.0266  ema=0.0362  mean=0.0379  gnorm=0.009  lr=5.54e-05  phase1
+[step  11330/14400] loss=0.0419  ema=0.0356  mean=0.0373  gnorm=0.015  lr=5.54e-05  phase1
+[step  11340/14400] loss=0.0209  ema=0.0348  mean=0.0344  gnorm=0.011  lr=5.54e-05  phase1
+[step  11350/14400] loss=0.0711  ema=0.0345  mean=0.0334  gnorm=0.014  lr=5.53e-05  phase1
+[step  11360/14400] loss=0.0692  ema=0.0336  mean=0.0323  gnorm=0.017  lr=5.53e-05  phase1
+[step  11370/14400] loss=0.0093  ema=0.0343  mean=0.0315  gnorm=0.013  lr=5.53e-05  phase1
+[step  11380/14400] loss=0.0069  ema=0.0350  mean=0.0321  gnorm=0.013  lr=5.52e-05  phase1
+[step  11390/14400] loss=0.0543  ema=0.0345  mean=0.0320  gnorm=0.013  lr=5.52e-05  phase1
+[step  11400/14400] loss=0.0734  ema=0.0349  mean=0.0332  gnorm=0.020  lr=5.52e-05  phase1
+[step  11410/14400] loss=0.0083  ema=0.0347  mean=0.0316  gnorm=0.013  lr=5.51e-05  phase1
+[step  11420/14400] loss=0.0163  ema=0.0354  mean=0.0340  gnorm=0.016  lr=5.51e-05  phase1
+[step  11430/14400] loss=0.0137  ema=0.0343  mean=0.0333  gnorm=0.008  lr=5.51e-05  phase1
+[step  11440/14400] loss=0.0080  ema=0.0350  mean=0.0348  gnorm=0.015  lr=5.50e-05  phase1
+[step  11450/14400] loss=0.0362  ema=0.0343  mean=0.0344  gnorm=0.013  lr=5.50e-05  phase1
+[step  11460/14400] loss=0.0222  ema=0.0356  mean=0.0367  gnorm=0.014  lr=5.50e-05  phase1
+[step  11470/14400] loss=0.0171  ema=0.0371  mean=0.0378  gnorm=0.018  lr=5.49e-05  phase1
+[step  11480/14400] loss=0.0298  ema=0.0367  mean=0.0369  gnorm=0.015  lr=5.49e-05  phase1
+[step  11490/14400] loss=0.0539  ema=0.0371  mean=0.0381  gnorm=0.013  lr=5.49e-05  phase1
+[step  11500/14400] loss=0.1861  ema=0.0377  mean=0.0385  gnorm=0.034  lr=5.48e-05  phase1
+[step  11510/14400] loss=0.0092  ema=0.0376  mean=0.0388  gnorm=0.009  lr=5.48e-05  phase1
+[step  11520/14400] loss=0.0121  ema=0.0373  mean=0.0380  gnorm=0.025  lr=5.48e-05  phase1
+[step  11530/14400] loss=0.0573  ema=0.0380  mean=0.0402  gnorm=0.017  lr=5.47e-05  phase1
+[step  11540/14400] loss=0.0108  ema=0.0361  mean=0.0377  gnorm=0.013  lr=5.47e-05  phase1
+[step  11550/14400] loss=0.0550  ema=0.0366  mean=0.0392  gnorm=0.017  lr=5.47e-05  phase1
+[step  11560/14400] loss=0.0391  ema=0.0360  mean=0.0374  gnorm=0.017  lr=5.46e-05  phase1
+[step  11570/14400] loss=0.0133  ema=0.0354  mean=0.0353  gnorm=0.013  lr=5.46e-05  phase1
+[step  11580/14400] loss=0.0168  ema=0.0360  mean=0.0361  gnorm=0.013  lr=5.46e-05  phase1
+[step  11590/14400] loss=0.0667  ema=0.0365  mean=0.0362  gnorm=0.016  lr=5.45e-05  phase1
+[step  11600/14400] loss=0.0110  ema=0.0374  mean=0.0366  gnorm=0.020  lr=5.45e-05  phase1
+[step  11610/14400] loss=0.0122  ema=0.0363  mean=0.0355  gnorm=0.013  lr=5.45e-05  phase1
+[step  11620/14400] loss=0.0202  ema=0.0369  mean=0.0365  gnorm=0.021  lr=5.45e-05  phase1
+[step  11630/14400] loss=0.0049  ema=0.0373  mean=0.0360  gnorm=0.013  lr=5.44e-05  phase1
+[step  11640/14400] loss=0.0685  ema=0.0374  mean=0.0380  gnorm=0.013  lr=5.44e-05  phase1
+[step  11650/14400] loss=0.0257  ema=0.0380  mean=0.0382  gnorm=0.017  lr=5.44e-05  phase1
+[step  11660/14400] loss=0.0482  ema=0.0379  mean=0.0389  gnorm=0.014  lr=5.43e-05  phase1
+[step  11670/14400] loss=0.0299  ema=0.0380  mean=0.0399  gnorm=0.013  lr=5.43e-05  phase1
+[step  11680/14400] loss=0.0635  ema=0.0374  mean=0.0388  gnorm=0.023  lr=5.43e-05  phase1
+[step  11690/14400] loss=0.0148  ema=0.0388  mean=0.0399  gnorm=0.021  lr=5.42e-05  phase1
+[step  11700/14400] loss=0.0757  ema=0.0386  mean=0.0389  gnorm=0.012  lr=5.42e-05  phase1
+[step  11710/14400] loss=0.0684  ema=0.0384  mean=0.0399  gnorm=0.017  lr=5.42e-05  phase1
+[step  11720/14400] loss=0.0045  ema=0.0410  mean=0.0421  gnorm=0.011  lr=5.41e-05  phase1
+[step  11730/14400] loss=0.0052  ema=0.0402  mean=0.0414  gnorm=0.011  lr=5.41e-05  phase1
+[step  11740/14400] loss=0.0272  ema=0.0390  mean=0.0403  gnorm=0.022  lr=5.41e-05  phase1
+[step  11750/14400] loss=0.0164  ema=0.0385  mean=0.0393  gnorm=0.016  lr=5.41e-05  phase1
+[step  11760/14400] loss=0.0956  ema=0.0387  mean=0.0396  gnorm=0.020  lr=5.40e-05  phase1
+[step  11770/14400] loss=0.0096  ema=0.0386  mean=0.0394  gnorm=0.014  lr=5.40e-05  phase1
+[step  11780/14400] loss=0.0273  ema=0.0391  mean=0.0406  gnorm=0.019  lr=5.40e-05  phase1
+[step  11790/14400] loss=0.0248  ema=0.0388  mean=0.0391  gnorm=0.019  lr=5.39e-05  phase1
+[step  11800/14400] loss=0.0453  ema=0.0374  mean=0.0378  gnorm=0.018  lr=5.39e-05  phase1
+[step  11810/14400] loss=0.0071  ema=0.0365  mean=0.0370  gnorm=0.010  lr=5.39e-05  phase1
+[step  11820/14400] loss=0.0569  ema=0.0384  mean=0.0361  gnorm=0.014  lr=5.39e-05  phase1
+[step  11830/14400] loss=0.0273  ema=0.0367  mean=0.0349  gnorm=0.014  lr=5.38e-05  phase1
+[step  11840/14400] loss=0.0711  ema=0.0375  mean=0.0367  gnorm=0.016  lr=5.38e-05  phase1
+[step  11850/14400] loss=0.0692  ema=0.0365  mean=0.0360  gnorm=0.014  lr=5.38e-05  phase1
+[step  11860/14400] loss=0.0054  ema=0.0358  mean=0.0349  gnorm=0.012  lr=5.37e-05  phase1
+[step  11870/14400] loss=0.0355  ema=0.0345  mean=0.0334  gnorm=0.013  lr=5.37e-05  phase1
+[step  11880/14400] loss=0.0193  ema=0.0335  mean=0.0314  gnorm=0.013  lr=5.37e-05  phase1
+[step  11890/14400] loss=0.0093  ema=0.0334  mean=0.0309  gnorm=0.011  lr=5.37e-05  phase1
+[step  11900/14400] loss=0.0269  ema=0.0355  mean=0.0340  gnorm=0.021  lr=5.36e-05  phase1
+[step  11910/14400] loss=0.0652  ema=0.0358  mean=0.0352  gnorm=0.015  lr=5.36e-05  phase1
+[step  11920/14400] loss=0.0420  ema=0.0370  mean=0.0343  gnorm=0.012  lr=5.36e-05  phase1
+[step  11930/14400] loss=0.0210  ema=0.0370  mean=0.0360  gnorm=0.014  lr=5.35e-05  phase1
+[step  11940/14400] loss=0.0400  ema=0.0360  mean=0.0341  gnorm=0.017  lr=5.35e-05  phase1
+[step  11950/14400] loss=0.0134  ema=0.0360  mean=0.0350  gnorm=0.014  lr=5.35e-05  phase1
+[step  11960/14400] loss=0.0205  ema=0.0358  mean=0.0354  gnorm=0.023  lr=5.35e-05  phase1
+[step  11970/14400] loss=0.0077  ema=0.0354  mean=0.0364  gnorm=0.014  lr=5.34e-05  phase1
+[step  11980/14400] loss=0.0174  ema=0.0350  mean=0.0371  gnorm=0.014  lr=5.34e-05  phase1
+[step  11990/14400] loss=0.0045  ema=0.0353  mean=0.0378  gnorm=0.028  lr=5.34e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_12000.pt
+[step  12000/14400] loss=0.0364  ema=0.0343  mean=0.0347  gnorm=0.012  lr=5.33e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_12000.pt
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_12000.pt
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_12000.pt
+
+
+[step  12010/14400] loss=0.0040  ema=0.0343  mean=0.0342  gnorm=0.009  lr=5.33e-05  phase1
+[step  12020/14400] loss=0.0308  ema=0.0342  mean=0.0327  gnorm=0.017  lr=5.33e-05  phase1
+[step  12030/14400] loss=0.0307  ema=0.0365  mean=0.0348  gnorm=0.033  lr=5.33e-05  phase1
+[step  12040/14400] loss=0.0663  ema=0.0373  mean=0.0367  gnorm=0.011  lr=5.32e-05  phase1
+[step  12050/14400] loss=0.0117  ema=0.0361  mean=0.0355  gnorm=0.009  lr=5.32e-05  phase1
+[step  12060/14400] loss=0.0537  ema=0.0356  mean=0.0353  gnorm=0.014  lr=5.32e-05  phase1
+[step  12070/14400] loss=0.0278  ema=0.0356  mean=0.0356  gnorm=0.018  lr=5.32e-05  phase1
+[step  12080/14400] loss=0.0329  ema=0.0362  mean=0.0367  gnorm=0.010  lr=5.31e-05  phase1
+[step  12090/14400] loss=0.0405  ema=0.0361  mean=0.0364  gnorm=0.014  lr=5.31e-05  phase1
+[step  12100/14400] loss=0.0384  ema=0.0364  mean=0.0378  gnorm=0.016  lr=5.31e-05  phase1
+[step  12110/14400] loss=0.0733  ema=0.0363  mean=0.0379  gnorm=0.016  lr=5.31e-05  phase1
+[step  12120/14400] loss=0.0542  ema=0.0367  mean=0.0385  gnorm=0.020  lr=5.30e-05  phase1
+[step  12130/14400] loss=0.0592  ema=0.0362  mean=0.0359  gnorm=0.014  lr=5.30e-05  phase1
+[step  12140/14400] loss=0.0163  ema=0.0375  mean=0.0363  gnorm=0.014  lr=5.30e-05  phase1
+[step  12150/14400] loss=0.0252  ema=0.0373  mean=0.0375  gnorm=0.009  lr=5.29e-05  phase1
+[step  12160/14400] loss=0.0353  ema=0.0376  mean=0.0384  gnorm=0.011  lr=5.29e-05  phase1
+[step  12170/14400] loss=0.0276  ema=0.0380  mean=0.0390  gnorm=0.019  lr=5.29e-05  phase1
+[step  12180/14400] loss=0.0791  ema=0.0378  mean=0.0384  gnorm=0.021  lr=5.29e-05  phase1
+[step  12190/14400] loss=0.0092  ema=0.0376  mean=0.0384  gnorm=0.011  lr=5.28e-05  phase1
+[step  12200/14400] loss=0.0100  ema=0.0372  mean=0.0378  gnorm=0.021  lr=5.28e-05  phase1
+[step  12210/14400] loss=0.1038  ema=0.0395  mean=0.0404  gnorm=0.022  lr=5.28e-05  phase1
+[step  12220/14400] loss=0.0036  ema=0.0404  mean=0.0412  gnorm=0.015  lr=5.28e-05  phase1
+[step  12230/14400] loss=0.0470  ema=0.0402  mean=0.0420  gnorm=0.012  lr=5.27e-05  phase1
+[step  12240/14400] loss=0.0321  ema=0.0412  mean=0.0420  gnorm=0.015  lr=5.27e-05  phase1
+[step  12250/14400] loss=0.1362  ema=0.0430  mean=0.0444  gnorm=0.024  lr=5.27e-05  phase1
+[step  12260/14400] loss=0.0495  ema=0.0440  mean=0.0457  gnorm=0.013  lr=5.27e-05  phase1
+[step  12270/14400] loss=0.0114  ema=0.0416  mean=0.0435  gnorm=0.012  lr=5.26e-05  phase1
+[step  12280/14400] loss=0.0119  ema=0.0413  mean=0.0438  gnorm=0.018  lr=5.26e-05  phase1
+[step  12290/14400] loss=0.0121  ema=0.0398  mean=0.0429  gnorm=0.012  lr=5.26e-05  phase1
+[step  12300/14400] loss=0.0112  ema=0.0376  mean=0.0412  gnorm=0.015  lr=5.26e-05  phase1
+[step  12310/14400] loss=0.0176  ema=0.0364  mean=0.0375  gnorm=0.013  lr=5.26e-05  phase1
+[step  12320/14400] loss=0.0499  ema=0.0368  mean=0.0368  gnorm=0.015  lr=5.25e-05  phase1
+[step  12330/14400] loss=0.0971  ema=0.0383  mean=0.0382  gnorm=0.016  lr=5.25e-05  phase1
+[step  12340/14400] loss=0.0924  ema=0.0383  mean=0.0369  gnorm=0.031  lr=5.25e-05  phase1
+[step  12350/14400] loss=0.0168  ema=0.0376  mean=0.0341  gnorm=0.025  lr=5.25e-05  phase1
+[step  12360/14400] loss=0.0095  ema=0.0365  mean=0.0313  gnorm=0.014  lr=5.24e-05  phase1
+[step  12370/14400] loss=0.0628  ema=0.0359  mean=0.0324  gnorm=0.014  lr=5.24e-05  phase1
+[step  12380/14400] loss=0.0152  ema=0.0354  mean=0.0317  gnorm=0.017  lr=5.24e-05  phase1
+[step  12390/14400] loss=0.0282  ema=0.0342  mean=0.0315  gnorm=0.023  lr=5.24e-05  phase1
+[step  12400/14400] loss=0.0138  ema=0.0333  mean=0.0322  gnorm=0.026  lr=5.23e-05  phase1
+[step  12410/14400] loss=0.1733  ema=0.0364  mean=0.0363  gnorm=0.029  lr=5.23e-05  phase1
+[step  12420/14400] loss=0.0551  ema=0.0361  mean=0.0356  gnorm=0.020  lr=5.23e-05  phase1
+[step  12430/14400] loss=0.0857  ema=0.0368  mean=0.0346  gnorm=0.015  lr=5.23e-05  phase1
+[step  12440/14400] loss=0.0570  ema=0.0369  mean=0.0346  gnorm=0.010  lr=5.22e-05  phase1
+[step  12450/14400] loss=0.0303  ema=0.0371  mean=0.0353  gnorm=0.012  lr=5.22e-05  phase1
+[step  12460/14400] loss=0.0307  ema=0.0364  mean=0.0357  gnorm=0.012  lr=5.22e-05  phase1
+[step  12470/14400] loss=0.0609  ema=0.0361  mean=0.0360  gnorm=0.018  lr=5.22e-05  phase1
+[step  12480/14400] loss=0.0279  ema=0.0363  mean=0.0368  gnorm=0.014  lr=5.22e-05  phase1
+[step  12490/14400] loss=0.0070  ema=0.0370  mean=0.0388  gnorm=0.010  lr=5.21e-05  phase1
+[step  12500/14400] loss=0.0149  ema=0.0365  mean=0.0396  gnorm=0.021  lr=5.21e-05  phase1
+[step  12510/14400] loss=0.0340  ema=0.0365  mean=0.0366  gnorm=0.016  lr=5.21e-05  phase1
+[step  12520/14400] loss=0.0648  ema=0.0358  mean=0.0362  gnorm=0.019  lr=5.21e-05  phase1
+[step  12530/14400] loss=0.0829  ema=0.0376  mean=0.0374  gnorm=0.023  lr=5.20e-05  phase1
+[step  12540/14400] loss=0.0135  ema=0.0365  mean=0.0363  gnorm=0.013  lr=5.20e-05  phase1
+[step  12550/14400] loss=0.0183  ema=0.0371  mean=0.0367  gnorm=0.016  lr=5.20e-05  phase1
+[step  12560/14400] loss=0.0796  ema=0.0369  mean=0.0371  gnorm=0.020  lr=5.20e-05  phase1
+[step  12570/14400] loss=0.0132  ema=0.0373  mean=0.0380  gnorm=0.011  lr=5.20e-05  phase1
+[step  12580/14400] loss=0.1100  ema=0.0372  mean=0.0377  gnorm=0.017  lr=5.19e-05  phase1
+[step  12590/14400] loss=0.0148  ema=0.0388  mean=0.0388  gnorm=0.011  lr=5.19e-05  phase1
+[step  12600/14400] loss=0.0338  ema=0.0384  mean=0.0391  gnorm=0.019  lr=5.19e-05  phase1
+[step  12610/14400] loss=0.1097  ema=0.0394  mean=0.0403  gnorm=0.017  lr=5.19e-05  phase1
+[step  12620/14400] loss=0.1041  ema=0.0392  mean=0.0410  gnorm=0.015  lr=5.19e-05  phase1
+[step  12630/14400] loss=0.0458  ema=0.0399  mean=0.0402  gnorm=0.018  lr=5.18e-05  phase1
+[step  12640/14400] loss=0.0466  ema=0.0398  mean=0.0415  gnorm=0.019  lr=5.18e-05  phase1
+[step  12650/14400] loss=0.0259  ema=0.0398  mean=0.0411  gnorm=0.012  lr=5.18e-05  phase1
+[step  12660/14400] loss=0.0279  ema=0.0390  mean=0.0408  gnorm=0.010  lr=5.18e-05  phase1
+[step  12670/14400] loss=0.1232  ema=0.0410  mean=0.0426  gnorm=0.037  lr=5.18e-05  phase1
+[step  12680/14400] loss=0.0029  ema=0.0390  mean=0.0411  gnorm=0.014  lr=5.17e-05  phase1
+[step  12690/14400] loss=0.0263  ema=0.0395  mean=0.0401  gnorm=0.010  lr=5.17e-05  phase1
+[step  12700/14400] loss=0.0398  ema=0.0389  mean=0.0399  gnorm=0.016  lr=5.17e-05  phase1
+[step  12710/14400] loss=0.0268  ema=0.0396  mean=0.0397  gnorm=0.013  lr=5.17e-05  phase1
+[step  12720/14400] loss=0.0345  ema=0.0383  mean=0.0387  gnorm=0.011  lr=5.17e-05  phase1
+[step  12730/14400] loss=0.0157  ema=0.0384  mean=0.0379  gnorm=0.010  lr=5.16e-05  phase1
+[step  12740/14400] loss=0.0116  ema=0.0372  mean=0.0366  gnorm=0.011  lr=5.16e-05  phase1
+[step  12750/14400] loss=0.0233  ema=0.0367  mean=0.0360  gnorm=0.013  lr=5.16e-05  phase1
+[step  12760/14400] loss=0.0124  ema=0.0369  mean=0.0366  gnorm=0.017  lr=5.16e-05  phase1
+[step  12770/14400] loss=0.0633  ema=0.0377  mean=0.0351  gnorm=0.010  lr=5.16e-05  phase1
+[step  12780/14400] loss=0.0144  ema=0.0371  mean=0.0362  gnorm=0.010  lr=5.15e-05  phase1
+[step  12790/14400] loss=0.0131  ema=0.0385  mean=0.0370  gnorm=0.021  lr=5.15e-05  phase1
+[step  12800/14400] loss=0.0477  ema=0.0375  mean=0.0364  gnorm=0.012  lr=5.15e-05  phase1
+[step  12810/14400] loss=0.0350  ema=0.0376  mean=0.0357  gnorm=0.012  lr=5.15e-05  phase1
+[step  12820/14400] loss=0.0213  ema=0.0369  mean=0.0361  gnorm=0.013  lr=5.15e-05  phase1
+[step  12830/14400] loss=0.0367  ema=0.0363  mean=0.0353  gnorm=0.011  lr=5.15e-05  phase1
+[step  12840/14400] loss=0.0622  ema=0.0362  mean=0.0363  gnorm=0.021  lr=5.14e-05  phase1
+[step  12850/14400] loss=0.0466  ema=0.0362  mean=0.0366  gnorm=0.020  lr=5.14e-05  phase1
+[step  12860/14400] loss=0.1028  ema=0.0356  mean=0.0357  gnorm=0.024  lr=5.14e-05  phase1
+[step  12870/14400] loss=0.0157  ema=0.0360  mean=0.0352  gnorm=0.017  lr=5.14e-05  phase1
+[step  12880/14400] loss=0.0234  ema=0.0351  mean=0.0347  gnorm=0.011  lr=5.14e-05  phase1
+[step  12890/14400] loss=0.0336  ema=0.0359  mean=0.0338  gnorm=0.014  lr=5.13e-05  phase1
+[step  12900/14400] loss=0.0486  ema=0.0349  mean=0.0336  gnorm=0.020  lr=5.13e-05  phase1
+[step  12910/14400] loss=0.0178  ema=0.0342  mean=0.0325  gnorm=0.011  lr=5.13e-05  phase1
+[step  12920/14400] loss=0.0262  ema=0.0348  mean=0.0335  gnorm=0.014  lr=5.13e-05  phase1
+[step  12930/14400] loss=0.0880  ema=0.0372  mean=0.0364  gnorm=0.014  lr=5.13e-05  phase1
+[step  12940/14400] loss=0.0381  ema=0.0376  mean=0.0371  gnorm=0.013  lr=5.13e-05  phase1
+[step  12950/14400] loss=0.0709  ema=0.0381  mean=0.0377  gnorm=0.014  lr=5.12e-05  phase1
+[step  12960/14400] loss=0.0237  ema=0.0395  mean=0.0400  gnorm=0.012  lr=5.12e-05  phase1
+[step  12970/14400] loss=0.0183  ema=0.0382  mean=0.0386  gnorm=0.010  lr=5.12e-05  phase1
+[step  12980/14400] loss=0.0304  ema=0.0381  mean=0.0398  gnorm=0.012  lr=5.12e-05  phase1
+[step  12990/14400] loss=0.0326  ema=0.0375  mean=0.0386  gnorm=0.015  lr=5.12e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_13000.pt
+[step  13000/14400] loss=0.0118  ema=0.0382  mean=0.0405  gnorm=0.013  lr=5.12e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_13000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_13000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_13000.pt
+[step  13010/14400] loss=0.0267  ema=0.0388  mean=0.0422  gnorm=0.010  lr=5.11e-05  phase1
+[step  13020/14400] loss=0.0215  ema=0.0402  mean=0.0434  gnorm=0.016  lr=5.11e-05  phase1
+[step  13030/14400] loss=0.0705  ema=0.0395  mean=0.0408  gnorm=0.016  lr=5.11e-05  phase1
+[step  13040/14400] loss=0.0359  ema=0.0385  mean=0.0395  gnorm=0.017  lr=5.11e-05  phase1
+[step  13050/14400] loss=0.0205  ema=0.0394  mean=0.0401  gnorm=0.013  lr=5.11e-05  phase1
+[step  13060/14400] loss=0.0854  ema=0.0408  mean=0.0402  gnorm=0.016  lr=5.11e-05  phase1
+[step  13070/14400] loss=0.0670  ema=0.0422  mean=0.0431  gnorm=0.015  lr=5.10e-05  phase1
+[step  13080/14400] loss=0.0311  ema=0.0422  mean=0.0436  gnorm=0.014  lr=5.10e-05  phase1
+[step  13090/14400] loss=0.1131  ema=0.0419  mean=0.0443  gnorm=0.019  lr=5.10e-05  phase1
+[step  13100/14400] loss=0.0737  ema=0.0418  mean=0.0439  gnorm=0.013  lr=5.10e-05  phase1
+[step  13110/14400] loss=0.0123  ema=0.0402  mean=0.0419  gnorm=0.011  lr=5.10e-05  phase1
+[step  13120/14400] loss=0.0287  ema=0.0400  mean=0.0404  gnorm=0.013  lr=5.10e-05  phase1
+[step  13130/14400] loss=0.0173  ema=0.0408  mean=0.0420  gnorm=0.020  lr=5.10e-05  phase1
+[step  13140/14400] loss=0.0261  ema=0.0402  mean=0.0425  gnorm=0.012  lr=5.09e-05  phase1
+[step  13150/14400] loss=0.0072  ema=0.0397  mean=0.0412  gnorm=0.010  lr=5.09e-05  phase1
+[step  13160/14400] loss=0.0491  ema=0.0408  mean=0.0410  gnorm=0.015  lr=5.09e-05  phase1
+[step  13170/14400] loss=0.0397  ema=0.0401  mean=0.0387  gnorm=0.016  lr=5.09e-05  phase1
+[step  13180/14400] loss=0.0096  ema=0.0393  mean=0.0377  gnorm=0.014  lr=5.09e-05  phase1
+[step  13190/14400] loss=0.0013  ema=0.0408  mean=0.0392  gnorm=0.019  lr=5.09e-05  phase1
+[step  13200/14400] loss=0.0925  ema=0.0413  mean=0.0398  gnorm=0.019  lr=5.09e-05  phase1
+[step  13210/14400] loss=0.0078  ema=0.0404  mean=0.0404  gnorm=0.014  lr=5.08e-05  phase1
+[step  13220/14400] loss=0.0245  ema=0.0411  mean=0.0415  gnorm=0.015  lr=5.08e-05  phase1
+[step  13230/14400] loss=0.0464  ema=0.0398  mean=0.0393  gnorm=0.024  lr=5.08e-05  phase1
+[step  13240/14400] loss=0.0055  ema=0.0381  mean=0.0381  gnorm=0.014  lr=5.08e-05  phase1
+[step  13250/14400] loss=0.0423  ema=0.0376  mean=0.0379  gnorm=0.015  lr=5.08e-05  phase1
+[step  13260/14400] loss=0.0079  ema=0.0383  mean=0.0373  gnorm=0.021  lr=5.08e-05  phase1
+[step  13270/14400] loss=0.0084  ema=0.0379  mean=0.0374  gnorm=0.009  lr=5.08e-05  phase1
+[step  13280/14400] loss=0.0181  ema=0.0369  mean=0.0369  gnorm=0.016  lr=5.07e-05  phase1
+[step  13290/14400] loss=0.0205  ema=0.0367  mean=0.0350  gnorm=0.010  lr=5.07e-05  phase1
+[step  13300/14400] loss=0.0329  ema=0.0377  mean=0.0351  gnorm=0.036  lr=5.07e-05  phase1
+[step  13310/14400] loss=0.0404  ema=0.0377  mean=0.0358  gnorm=0.014  lr=5.07e-05  phase1
+[step  13320/14400] loss=0.0274  ema=0.0391  mean=0.0362  gnorm=0.019  lr=5.07e-05  phase1
+[step  13330/14400] loss=0.0111  ema=0.0396  mean=0.0379  gnorm=0.009  lr=5.07e-05  phase1
+[step  13340/14400] loss=0.0582  ema=0.0381  mean=0.0381  gnorm=0.014  lr=5.07e-05  phase1
+[step  13350/14400] loss=0.0353  ema=0.0397  mean=0.0403  gnorm=0.021  lr=5.07e-05  phase1
+[step  13360/14400] loss=0.1265  ema=0.0392  mean=0.0391  gnorm=0.030  lr=5.06e-05  phase1
+[step  13370/14400] loss=0.0427  ema=0.0381  mean=0.0385  gnorm=0.013  lr=5.06e-05  phase1
+[step  13380/14400] loss=0.0428  ema=0.0373  mean=0.0387  gnorm=0.012  lr=5.06e-05  phase1
+[step  13390/14400] loss=0.0455  ema=0.0377  mean=0.0393  gnorm=0.014  lr=5.06e-05  phase1
+[step  13400/14400] loss=0.0129  ema=0.0390  mean=0.0398  gnorm=0.007  lr=5.06e-05  phase1
+[step  13410/14400] loss=0.0072  ema=0.0384  mean=0.0393  gnorm=0.012  lr=5.06e-05  phase1
+[step  13420/14400] loss=0.0385  ema=0.0378  mean=0.0372  gnorm=0.013  lr=5.06e-05  phase1
+[step  13430/14400] loss=0.0611  ema=0.0381  mean=0.0371  gnorm=0.020  lr=5.06e-05  phase1
+[step  13440/14400] loss=0.0089  ema=0.0382  mean=0.0384  gnorm=0.010  lr=5.05e-05  phase1
+[step  13450/14400] loss=0.0286  ema=0.0371  mean=0.0357  gnorm=0.011  lr=5.05e-05  phase1
+[step  13460/14400] loss=0.0384  ema=0.0364  mean=0.0352  gnorm=0.018  lr=5.05e-05  phase1
+[step  13470/14400] loss=0.0055  ema=0.0368  mean=0.0366  gnorm=0.021  lr=5.05e-05  phase1
+[step  13480/14400] loss=0.0210  ema=0.0355  mean=0.0359  gnorm=0.012  lr=5.05e-05  phase1
+[step  13490/14400] loss=0.0085  ema=0.0343  mean=0.0341  gnorm=0.013  lr=5.05e-05  phase1
+[step  13500/14400] loss=0.0276  ema=0.0352  mean=0.0333  gnorm=0.011  lr=5.05e-05  phase1
+[step  13510/14400] loss=0.0689  ema=0.0363  mean=0.0347  gnorm=0.016  lr=5.05e-05  phase1
+[step  13520/14400] loss=0.0441  ema=0.0363  mean=0.0351  gnorm=0.012  lr=5.05e-05  phase1
+[step  13530/14400] loss=0.0369  ema=0.0355  mean=0.0336  gnorm=0.011  lr=5.04e-05  phase1
+
+Epoch 1 complete. Avg Loss: 0.038888
+[step  13540/14400] loss=0.0203  ema=0.0343  mean=0.0321  gnorm=0.010  lr=5.04e-05  phase1
+[step  13550/14400] loss=0.0423  ema=0.0332  mean=0.0316  gnorm=0.011  lr=5.04e-05  phase1
+[step  13560/14400] loss=0.0763  ema=0.0345  mean=0.0334  gnorm=0.018  lr=5.04e-05  phase1
+[step  13570/14400] loss=0.0718  ema=0.0350  mean=0.0332  gnorm=0.015  lr=5.04e-05  phase1
+[step  13580/14400] loss=0.0294  ema=0.0351  mean=0.0345  gnorm=0.044  lr=5.04e-05  phase1
+[step  13590/14400] loss=0.0405  ema=0.0354  mean=0.0360  gnorm=0.019  lr=5.04e-05  phase1
+[step  13600/14400] loss=0.0227  ema=0.0351  mean=0.0349  gnorm=0.019  lr=5.04e-05  phase1
+[step  13610/14400] loss=0.0084  ema=0.0356  mean=0.0342  gnorm=0.026  lr=5.04e-05  phase1
+[step  13620/14400] loss=0.0137  ema=0.0360  mean=0.0345  gnorm=0.014  lr=5.04e-05  phase1
+[step  13630/14400] loss=0.0230  ema=0.0363  mean=0.0357  gnorm=0.013  lr=5.04e-05  phase1
+[step  13640/14400] loss=0.0235  ema=0.0353  mean=0.0360  gnorm=0.010  lr=5.03e-05  phase1
+[step  13650/14400] loss=0.0337  ema=0.0353  mean=0.0374  gnorm=0.018  lr=5.03e-05  phase1
+[step  13660/14400] loss=0.0512  ema=0.0343  mean=0.0351  gnorm=0.018  lr=5.03e-05  phase1
+[step  13670/14400] loss=0.0322  ema=0.0348  mean=0.0350  gnorm=0.015  lr=5.03e-05  phase1
+[step  13680/14400] loss=0.0052  ema=0.0337  mean=0.0339  gnorm=0.011  lr=5.03e-05  phase1
+[step  13690/14400] loss=0.0758  ema=0.0344  mean=0.0341  gnorm=0.015  lr=5.03e-05  phase1
+[step  13700/14400] loss=0.0221  ema=0.0346  mean=0.0346  gnorm=0.015  lr=5.03e-05  phase1
+[step  13710/14400] loss=0.0047  ema=0.0345  mean=0.0338  gnorm=0.012  lr=5.03e-05  phase1
+[step  13720/14400] loss=0.0285  ema=0.0351  mean=0.0339  gnorm=0.014  lr=5.03e-05  phase1
+[step  13730/14400] loss=0.0270  ema=0.0359  mean=0.0343  gnorm=0.015  lr=5.03e-05  phase1
+[step  13740/14400] loss=0.0189  ema=0.0361  mean=0.0356  gnorm=0.013  lr=5.03e-05  phase1
+[step  13750/14400] loss=0.0163  ema=0.0360  mean=0.0354  gnorm=0.011  lr=5.03e-05  phase1
+[step  13760/14400] loss=0.0255  ema=0.0352  mean=0.0357  gnorm=0.017  lr=5.02e-05  phase1
+[step  13770/14400] loss=0.0654  ema=0.0355  mean=0.0356  gnorm=0.018  lr=5.02e-05  phase1
+[step  13780/14400] loss=0.0356  ema=0.0366  mean=0.0380  gnorm=0.031  lr=5.02e-05  phase1
+[step  13790/14400] loss=0.0212  ema=0.0363  mean=0.0374  gnorm=0.010  lr=5.02e-05  phase1
+[step  13800/14400] loss=0.0315  ema=0.0363  mean=0.0373  gnorm=0.012  lr=5.02e-05  phase1
+[step  13810/14400] loss=0.0326  ema=0.0368  mean=0.0381  gnorm=0.016  lr=5.02e-05  phase1
+[step  13820/14400] loss=0.0381  ema=0.0362  mean=0.0372  gnorm=0.014  lr=5.02e-05  phase1
+[step  13830/14400] loss=0.0888  ema=0.0349  mean=0.0350  gnorm=0.022  lr=5.02e-05  phase1
+[step  13840/14400] loss=0.0128  ema=0.0346  mean=0.0345  gnorm=0.018  lr=5.02e-05  phase1
+[step  13850/14400] loss=0.0287  ema=0.0360  mean=0.0359  gnorm=0.010  lr=5.02e-05  phase1
+[step  13860/14400] loss=0.0328  ema=0.0357  mean=0.0365  gnorm=0.013  lr=5.02e-05  phase1
+[step  13870/14400] loss=0.0071  ema=0.0356  mean=0.0362  gnorm=0.014  lr=5.02e-05  phase1
+[step  13880/14400] loss=0.0485  ema=0.0354  mean=0.0348  gnorm=0.017  lr=5.02e-05  phase1
+[step  13890/14400] loss=0.0253  ema=0.0346  mean=0.0341  gnorm=0.024  lr=5.02e-05  phase1
+[step  13900/14400] loss=0.1122  ema=0.0361  mean=0.0354  gnorm=0.033  lr=5.01e-05  phase1
+[step  13910/14400] loss=0.0132  ema=0.0357  mean=0.0345  gnorm=0.017  lr=5.01e-05  phase1
+[step  13920/14400] loss=0.0341  ema=0.0349  mean=0.0342  gnorm=0.017  lr=5.01e-05  phase1
+[step  13930/14400] loss=0.0245  ema=0.0357  mean=0.0363  gnorm=0.014  lr=5.01e-05  phase1
+[step  13940/14400] loss=0.0950  ema=0.0362  mean=0.0371  gnorm=0.015  lr=5.01e-05  phase1
+[step  13950/14400] loss=0.0280  ema=0.0364  mean=0.0360  gnorm=0.016  lr=5.01e-05  phase1
+[step  13960/14400] loss=0.0235  ema=0.0365  mean=0.0364  gnorm=0.014  lr=5.01e-05  phase1
+[step  13970/14400] loss=0.0141  ema=0.0354  mean=0.0354  gnorm=0.023  lr=5.01e-05  phase1
+[step  13980/14400] loss=0.0106  ema=0.0355  mean=0.0356  gnorm=0.013  lr=5.01e-05  phase1
+[step  13990/14400] loss=0.0270  ema=0.0362  mean=0.0372  gnorm=0.010  lr=5.01e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_14000.pt
+[step  14000/14400] loss=0.0283  ema=0.0365  mean=0.0361  gnorm=0.023  lr=5.01e-05  phase1
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_14000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_14000.pt
+
+💾 Saved: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_step_14000.pt
+[step  14010/14400] loss=0.0166  ema=0.0375  mean=0.0377  gnorm=0.010  lr=5.01e-05  phase1
+[step  14020/14400] loss=0.0331  ema=0.0367  mean=0.0379  gnorm=0.014  lr=5.01e-05  phase1
+[step  14030/14400] loss=0.0503  ema=0.0368  mean=0.0374  gnorm=0.014  lr=5.01e-05  phase1
+[step  14040/14400] loss=0.0154  ema=0.0384  mean=0.0387  gnorm=0.012  lr=5.01e-05  phase1
+[step  14050/14400] loss=0.0179  ema=0.0391  mean=0.0394  gnorm=0.026  lr=5.01e-05  phase1
+[step  14060/14400] loss=0.0904  ema=0.0407  mean=0.0413  gnorm=0.019  lr=5.01e-05  phase1
+[step  14070/14400] loss=0.0625  ema=0.0406  mean=0.0427  gnorm=0.018  lr=5.01e-05  phase1
+[step  14080/14400] loss=0.0171  ema=0.0396  mean=0.0422  gnorm=0.009  lr=5.01e-05  phase1
+[step  14090/14400] loss=0.0977  ema=0.0389  mean=0.0411  gnorm=0.017  lr=5.01e-05  phase1
+[step  14100/14400] loss=0.0041  ema=0.0386  mean=0.0408  gnorm=0.017  lr=5.01e-05  phase1
+[step  14110/14400] loss=0.0377  ema=0.0376  mean=0.0387  gnorm=0.017  lr=5.00e-05  phase1
+[step  14120/14400] loss=0.0183  ema=0.0372  mean=0.0392  gnorm=0.023  lr=5.00e-05  phase1
+[step  14130/14400] loss=0.0303  ema=0.0368  mean=0.0387  gnorm=0.013  lr=5.00e-05  phase1
+[step  14140/14400] loss=0.0257  ema=0.0377  mean=0.0379  gnorm=0.013  lr=5.00e-05  phase1
+[step  14150/14400] loss=0.0087  ema=0.0362  mean=0.0356  gnorm=0.008  lr=5.00e-05  phase1
+[step  14160/14400] loss=0.0306  ema=0.0370  mean=0.0344  gnorm=0.017  lr=5.00e-05  phase1
+[step  14170/14400] loss=0.0127  ema=0.0363  mean=0.0335  gnorm=0.014  lr=5.00e-05  phase1
+[step  14180/14400] loss=0.0091  ema=0.0368  mean=0.0346  gnorm=0.016  lr=5.00e-05  phase1
+[step  14190/14400] loss=0.0334  ema=0.0360  mean=0.0343  gnorm=0.019  lr=5.00e-05  phase1
+[step  14200/14400] loss=0.1172  ema=0.0374  mean=0.0357  gnorm=0.018  lr=5.00e-05  phase1
+[step  14210/14400] loss=0.0114  ema=0.0367  mean=0.0360  gnorm=0.015  lr=5.00e-05  phase1
+[step  14220/14400] loss=0.0338  ema=0.0369  mean=0.0365  gnorm=0.013  lr=5.00e-05  phase1
+[step  14230/14400] loss=0.0107  ema=0.0374  mean=0.0374  gnorm=0.016  lr=5.00e-05  phase1
+[step  14240/14400] loss=0.0334  ema=0.0371  mean=0.0361  gnorm=0.010  lr=5.00e-05  phase1
+[step  14250/14400] loss=0.0223  ema=0.0357  mean=0.0361  gnorm=0.013  lr=5.00e-05  phase1
+[step  14260/14400] loss=0.0614  ema=0.0362  mean=0.0358  gnorm=0.018  lr=5.00e-05  phase1
+[step  14270/14400] loss=0.0237  ema=0.0362  mean=0.0364  gnorm=0.011  lr=5.00e-05  phase1
+[step  14280/14400] loss=0.0034  ema=0.0347  mean=0.0344  gnorm=0.017  lr=5.00e-05  phase1
+[step  14290/14400] loss=0.0516  ema=0.0366  mean=0.0369  gnorm=0.011  lr=5.00e-05  phase1
+[step  14300/14400] loss=0.0280  ema=0.0367  mean=0.0358  gnorm=0.015  lr=5.00e-05  phase1
+[step  14310/14400] loss=0.0193  ema=0.0381  mean=0.0378  gnorm=0.014  lr=5.00e-05  phase1
+[step  14320/14400] loss=0.0380  ema=0.0374  mean=0.0370  gnorm=0.014  lr=5.00e-05  phase1
+[step  14330/14400] loss=0.0220  ema=0.0380  mean=0.0373  gnorm=0.014  lr=5.00e-05  phase1
+[step  14340/14400] loss=0.0054  ema=0.0372  mean=0.0368  gnorm=0.012  lr=5.00e-05  phase1
+[step  14350/14400] loss=0.0102  ema=0.0366  mean=0.0376  gnorm=0.012  lr=5.00e-05  phase1
+[step  14360/14400] loss=0.0502  ema=0.0355  mean=0.0360  gnorm=0.012  lr=5.00e-05  phase1
+[step  14370/14400] loss=0.0597  ema=0.0375  mean=0.0381  gnorm=0.022  lr=5.00e-05  phase1
+[step  14380/14400] loss=0.0061  ema=0.0378  mean=0.0400  gnorm=0.010  lr=5.00e-05  phase1
+[step  14390/14400] loss=0.0947  ema=0.0388  mean=0.0395  gnorm=0.016  lr=5.00e-05  phase1
+
+[Train] max_steps=14400 reached at step 14400. Stopping.
+
+Epoch 2 complete. Avg Loss: 0.036560
+nid007203:183304:183596 [2] NCCL INFO [Service thread] Connection closed by localRank 2
+nid007203:183305:183592 [3] NCCL INFO [Service thread] Connection closed by localRank 3
+nid007203:183303:183598 [1] NCCL INFO [Service thread] Connection closed by localRank 1
+nid007203:183304:3909 [2] NCCL INFO comm 0xaaacae0aae00 rank 2 nranks 4 cudaDev 2 busId 2901000 - Abort COMPLETE
+nid007203:183305:3911 [3] NCCL INFO comm 0xaaab923f1d20 rank 3 nranks 4 cudaDev 3 busId 3901000 - Abort COMPLETE
+nid007203:183303:3912 [1] NCCL INFO comm 0xaaace8c2b7e0 rank 1 nranks 4 cudaDev 1 busId 1901000 - Abort COMPLETE
+
+============================================================
+✓ TRAINING COMPLETE! Total steps: 14400
+✓ Final checkpoint: /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_no_curriculum_catvton_14400steps_fullres/checkpoints/ckpt_final.pt
+============================================================
+nid007203:183302:183594 [0] NCCL INFO [Service thread] Connection closed by localRank 0
+nid007203:183302:3965 [0] NCCL INFO comm 0xaaab128aa620 rank 0 nranks 4 cudaDev 0 busId 901000 - Abort COMPLETE

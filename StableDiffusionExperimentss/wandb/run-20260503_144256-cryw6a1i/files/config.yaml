@@ -1,0 +1,205 @@
+_wandb:
+    value:
+        cli_version: 0.26.1
+        e:
+            zr1ihffpeb7f82171w9anrncxj9sko62:
+                args:
+                    - --curvton_data_path
+                    - /iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup/dataset_ultimate_stratified_category
+                    - --category
+                    - all
+                    - --batch_size
+                    - "4"
+                    - --image_size
+                    - "512"
+                    - --num_workers
+                    - "16"
+                    - --max_steps
+                    - "28000"
+                    - --wandb_project
+                    - Stable_diffusion
+                    - --save_interval
+                    - "1000"
+                    - --image_log_interval
+                    - "500"
+                    - --output_dir
+                    - /iopsstor/scratch/cscs/dbartaula/experiments_assets
+                    - --no_resume
+                    - --run_name
+                    - Stable_diffusion_train_ootdiffusion_mask
+                codePath: cross-architecture/OOTDiffusion/train_ootdiffusion_mask_local.py
+                codePathLocal: cross-architecture/OOTDiffusion/train_ootdiffusion_mask_local.py
+                cpu_count: 288
+                cpu_count_logical: 288
+                cudaVersion: "13.1"
+                disk:
+                    /:
+                        total: "255795462144"
+                        used: "5688066048"
+                email: 078bct.anandi@gmail.com
+                executable: /iopsstor/scratch/cscs/dbartaula/miniforge3/envs/torch28_env_new/bin/python3.11
+                git:
+                    commit: 49b07805e986240f9e8529f21ce222595df261fa
+                    remote: https://github.com/DipanBartaula/StableDiffusionExperimentss.git
+                gpu: NVIDIA GH200 120GB
+                gpu_count: 4
+                gpu_nvidia:
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "102625181696"
+                      name: NVIDIA GH200 120GB
+                      uuid: GPU-0f9f9164-68f1-a5d2-6c52-d894094d215a
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "102625181696"
+                      name: NVIDIA GH200 120GB
+                      uuid: GPU-371fc510-73f3-43d6-a4bf-a3f0e49c490d
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "102625181696"
+                      name: NVIDIA GH200 120GB
+                      uuid: GPU-83d70c83-1e3d-3d3e-e6e6-3dd0911a4e49
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "102625181696"
+                      name: NVIDIA GH200 120GB
+                      uuid: GPU-873a4c52-b701-6697-d623-681c799d4bde
+                host: nid005420
+                memory:
+                    total: "919612817408"
+                os: Linux-6.4.0-150600.23.47_15.0.10-cray_shasta_c_64k-aarch64-with-glibc2.38
+                program: /iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/cross-architecture/OOTDiffusion/train_ootdiffusion_mask_local.py
+                python: CPython 3.11.15
+                root: /iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss
+                slurm:
+                    cluster_name: clariden
+                    conf: /var/spool/slurmd/conf-cache/slurm.conf
+                    cpu_bind: quiet,mask_cpu:0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                    cpu_bind_list: 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                    cpu_bind_type: 'mask_cpu:'
+                    cpu_bind_verbose: quiet
+                    cpus_on_node: "288"
+                    distribution: cyclic
+                    gpus_on_node: "4"
+                    gtids: "0"
+                    job_account: a168
+                    job_cpus_per_node: 288(x2)
+                    job_end_time: "1777848108"
+                    job_gid: "1008"
+                    job_gpus: 0,1,2,3
+                    job_id: "2019215"
+                    job_name: ootd_mask
+                    job_nodelist: nid[005420,006622]
+                    job_num_nodes: "2"
+                    job_partition: normal
+                    job_qos: normal
+                    job_start_time: "1777812108"
+                    job_uid: "1370"
+                    job_user: dbartaula
+                    jobid: "2019215"
+                    launch_node_ipaddr: 172.28.16.176
+                    localid: "0"
+                    mem_per_node: "460800"
+                    nnodes: "2"
+                    nodeid: "0"
+                    nodelist: nid[005420,006622]
+                    nprocs: "2"
+                    ntasks: "2"
+                    ntasks_per_node: "1"
+                    prio_process: "0"
+                    procid: "0"
+                    script_context: prolog_task
+                    srun_comm_host: 172.28.16.176
+                    srun_comm_port: "37767"
+                    step_gpus: 0,1,2,3
+                    step_id: "0"
+                    step_launcher_port: "37767"
+                    step_nodelist: nid[005420,006622]
+                    step_num_nodes: "2"
+                    step_num_tasks: "2"
+                    step_resv_ports: 23343-23344
+                    step_tasks_per_node: 1(x2)
+                    stepid: "0"
+                    submit_dir: /iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss/train_runs
+                    submit_host: clariden-ln003
+                    task_pid: "131803"
+                    tasks_per_node: 1(x2)
+                    time_format: relative
+                    topology_addr: global.group17.nid005420
+                    topology_addr_pattern: switch.switch.node
+                    umask: "0022"
+                startedAt: "2026-05-03T12:42:56.529028Z"
+                writerId: zr1ihffpeb7f82171w9anrncxj9sko62
+        m: []
+        python_version: 3.11.15
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 53
+                - 71
+                - 83
+                - 98
+            "2":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 53
+                - 71
+                - 83
+                - 98
+            "3":
+                - 13
+                - 16
+            "4": 3.11.15
+            "5": 0.26.1
+            "6": 5.5.4
+            "12": 0.26.1
+            "13": linux-aarch64
+batch_size:
+    value: 4
+category:
+    value: all
+curvton_data_path:
+    value: /iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup/dataset_ultimate_stratified_category
+difficulty:
+    value: all
+disable_wandb:
+    value: false
+gender:
+    value: all
+image_log_interval:
+    value: 500
+image_size:
+    value: 0
+log_interval:
+    value: 10
+lr:
+    value: 1e-05
+max_steps:
+    value: 28000
+model_name:
+    value: runwayml/stable-diffusion-v1-5
+no_resume:
+    value: true
+num_inference_steps:
+    value: 30
+num_workers:
+    value: 16
+outfitting_dropout:
+    value: 0.1
+output_dir:
+    value: /iopsstor/scratch/cscs/dbartaula/experiments_assets
+resume:
+    value: null
+run_name:
+    value: Stable_diffusion_train_ootdiffusion_mask
+save_interval:
+    value: 1000
+wandb_project:
+    value: Stable_diffusion

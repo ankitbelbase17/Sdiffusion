@@ -1,0 +1,31 @@
+
+# Core Deep Learning
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+
+# Diffusion Models
+diffusers>=0.21.0
+transformers>=4.30.0
+accelerate>=0.20.0
+
+# Image Processing
+Pillow>=9.5.0
+
+# Training Utilities
+tqdm>=4.65.0
+
+# Pose Keypoint Error
+mediapipe>=0.10.0
+weave>=0.50.0
+
+# Evaluation Metrics
+lpips>=0.1.4
+torchmetrics[image]>=1.3.0
+
+# Environment Variables
+python-dotenv>=1.0.0
+
+# AWS S3 (optional, for DressCode S3 support)
+boto3>=1.26.0
+

@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+
+bash Stable_diffusion/evaluatetest/run_catvton_evaltest.sh
+bash Stable_diffusion/evaluatetest/run_ootdiffusion_evaltest.sh
+bash Stable_diffusion/evaluatetest/run_idmvton_evaltest.sh
+bash Stable_diffusion/evaluatetest/run_stablevton_evaltest.sh
+bash Stable_diffusion/evaluatetest/run_cpvton_evaltest.sh
+bash Stable_diffusion/evaluatetest/run_custom_dit_evaltest.sh
