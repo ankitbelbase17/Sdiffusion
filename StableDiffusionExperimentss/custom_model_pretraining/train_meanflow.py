@@ -1,5 +1,4 @@
 import argparse
-import glob
 import datetime
 import os
 import random
@@ -134,6 +133,10 @@ def train(args: argparse.Namespace) -> None:
 
     image_height = args.image_size
     image_width = args.image_width if args.image_width > 0 else image_height * 2
+    if image_height % args.patch_size != 0 or image_width % args.patch_size != 0:
+        raise ValueError(
+            f"Resolution/patch mismatch: image_height={image_height}, image_width={image_width}, patch_size={args.patch_size}"
+        )
     cfg = MeanFlowDiTConfig(
         image_size=args.image_size,
         image_height=image_height,
@@ -216,28 +219,9 @@ def train(args: argparse.Namespace) -> None:
     ensure_dir(ckpt_dir)
     ensure_dir(sample_dir)
 
-    ckpt_to_load = args.resume
-    if ckpt_to_load is None and not args.no_resume:
-        candidates = glob.glob(os.path.join(ckpt_dir, "ckpt_step_*.pt")) + glob.glob(
-            os.path.join(ckpt_dir, "ckpt_final.pt")
-        )
-        if candidates:
-            def _step_num(path: str):
-                base = os.path.basename(path)
-                if base == "ckpt_final.pt":
-                    return float("inf")
-                try:
-                    return int(base.split("ckpt_step_")[1].split(".pt")[0])
-                except Exception:
-                    return -1
-
-            ckpt_to_load = max(candidates, key=_step_num)
-
     global_step = 0
-    if ckpt_to_load:
-        ckpt = torch.load(ckpt_to_load, map_location=device)
-        raw_model.load_state_dict(ckpt["model"], strict=False)
-        global_step = int(ckpt.get("step", 0))
+    if is_main:
+        print("[resume] disabled: custom DiT MeanFlow training always starts from step 0")
 
     pbar = tqdm(total=args.max_steps, disable=not is_main, desc="meanflow-training")
     pbar.update(global_step)
