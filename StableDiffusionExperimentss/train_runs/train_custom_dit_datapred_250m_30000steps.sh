@@ -40,7 +40,6 @@ srun torchrun \
   --standalone \
   --master_port=$MASTER_PORT \
   custom_model_pretraining/train.py \
-    --model_size 250m \
     --data_path ${DATA_DIR} \
     --phase2_data_path ${PHASE2_DIR} \
     --phase2_start_step 10000 \
