@@ -167,12 +167,14 @@ def train(args):
     unet_vton.train()
 
     if dist.world_size > 1:
-        unet_garm = torch.nn.parallel.DistributedDataParallel(
-            unet_garm, device_ids=[dist.local_rank], output_device=dist.local_rank
-        )
-        unet_vton = torch.nn.parallel.DistributedDataParallel(
-            unet_vton, device_ids=[dist.local_rank], output_device=dist.local_rank
-        )
+        if any(p.requires_grad for p in unet_garm.parameters()):
+            unet_garm = torch.nn.parallel.DistributedDataParallel(
+                unet_garm, device_ids=[dist.local_rank], output_device=dist.local_rank
+            )
+        if any(p.requires_grad for p in unet_vton.parameters()):
+            unet_vton = torch.nn.parallel.DistributedDataParallel(
+                unet_vton, device_ids=[dist.local_rank], output_device=dist.local_rank
+            )
 
     optimizer = AdamW(list(unet_garm.parameters()) + list(unet_vton.parameters()), lr=args.lr)
     run_dir = os.path.join(args.output_dir, args.run_name or "train_ootdiffusion_mask")

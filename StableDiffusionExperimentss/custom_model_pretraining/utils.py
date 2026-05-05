@@ -82,15 +82,35 @@ def sample_ddim_like(
     device: torch.device,
     cond: torch.Tensor | None = None,
 ) -> torch.Tensor:
+    """
+    Deterministic x0-pred sampling (DDIM eta=0 form):
+      eps_t = (x_t - sqrt(ab_t) * x0_pred) / sqrt(1 - ab_t)
+      x_{t_prev} = sqrt(ab_{t_prev}) * x0_pred + sqrt(1 - ab_{t_prev}) * eps_t
+    """
     x = torch.randn(shape, device=device)
-    for step in reversed(range(timesteps)):
+    total_train_steps = int(sqrt_ab.shape[0])
+    if timesteps <= 0:
+        raise ValueError("timesteps must be > 0")
+    if timesteps > total_train_steps:
+        timesteps = total_train_steps
+
+    # Exact deterministic respacing over the training timeline, descending.
+    # Uses integer indices and removes duplicates for stable updates.
+    idx = torch.linspace(0, total_train_steps - 1, timesteps, device=device).round().long()
+    schedule = torch.unique(idx, sorted=True).flip(0)
+    if schedule[-1].item() != 0:
+        schedule = torch.cat([schedule, torch.zeros(1, device=device, dtype=torch.long)], dim=0)
+
+    for i, step_t in enumerate(schedule):
+        step = int(step_t.item())
         t = torch.full((shape[0],), step, device=device, dtype=torch.long)
-        x0_pred = model(x, t, cond).clamp(-1, 1)
-        if step == 0:
+        x0_pred = model(x, t, cond)
+        if i == len(schedule) - 1:
             x = x0_pred
             break
         eps = x0_to_eps(x, x0_pred, t, sqrt_ab, sqrt_1mab)
-        ab_prev = sqrt_ab[step - 1] ** 2
-        x = math.sqrt(ab_prev) * x0_pred + math.sqrt(max(1.0 - ab_prev.item(), 0.0)) * eps
+        prev_step = int(schedule[i + 1].item())
+        ab_prev = float((sqrt_ab[prev_step] ** 2).item())
+        x = math.sqrt(ab_prev) * x0_pred + math.sqrt(max(1.0 - ab_prev, 0.0)) * eps
     return x
 

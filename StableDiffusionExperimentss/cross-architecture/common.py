@@ -114,7 +114,9 @@ def batch_images(batch, device, dtype=torch.float32):
 
 def wrap_ddp(module, dist_info, find_unused=False):
     module = module.to(dist_info.device)
-    if dist_info.world_size > 1:
+    # DDP requires at least one trainable parameter; skip wrapping frozen modules.
+    has_trainable = any(p.requires_grad for p in module.parameters())
+    if dist_info.world_size > 1 and has_trainable:
         return DDP(
             module,
             device_ids=[dist_info.local_rank],

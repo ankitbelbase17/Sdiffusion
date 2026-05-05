@@ -1,5 +1,6 @@
 import argparse
 import datetime
+import glob
 import os
 import random
 from typing import Dict, Iterator
@@ -19,7 +20,6 @@ from utils import (
     curriculum_weights,
     ensure_dir,
     make_beta_schedule,
-    make_cosine_timestep_weights,
     q_sample,
     sample_ddim_like,
     save_batch_preview,
@@ -87,6 +87,25 @@ def _to_wandb_image(batch: torch.Tensor, caption: str):
     return wandb.Image(grid, caption=caption)
 
 
+def _load_checkpoint_shape_safe(raw_model: torch.nn.Module, ckpt_path: str, device: torch.device) -> int:
+    ckpt = torch.load(ckpt_path, map_location=device)
+    state = ckpt.get("model", ckpt)
+    model_state = raw_model.state_dict()
+    compatible = {}
+    skipped = []
+    for k, v in state.items():
+        if k in model_state and model_state[k].shape == v.shape:
+            compatible[k] = v
+        else:
+            skipped.append(k)
+    missing, unexpected = raw_model.load_state_dict(compatible, strict=False)
+    print(
+        f"[resume] loaded {len(compatible)} tensors from {ckpt_path}; "
+        f"skipped {len(skipped)}; missing={len(missing)} unexpected={len(unexpected)}"
+    )
+    return int(ckpt.get("step", 0))
+
+
 def _catvton_wide_tensors(batch: dict, device: torch.device):
     gt = batch["ground_truth"].to(device, non_blocking=True)
     cloth = batch["cloth"].to(device, non_blocking=True)
@@ -148,7 +167,6 @@ def train(args: argparse.Namespace) -> None:
     alpha_bar = torch.cumprod(alphas, dim=0)
     sqrt_ab = torch.sqrt(alpha_bar)
     sqrt_1mab = torch.sqrt(1 - alpha_bar)
-    timestep_weights = make_cosine_timestep_weights(schedule_cfg["steps"], device)
 
     diff_files = build_curvton_difficulty_files(args.data_path, gender=args.gender)
     for k in diff_files:
@@ -205,9 +223,31 @@ def train(args: argparse.Namespace) -> None:
     ensure_dir(ckpt_dir)
     ensure_dir(sample_dir)
 
+    ckpt_to_load = None
+    if not args.no_resume:
+        ckpt_to_load = args.resume
+        if ckpt_to_load is None:
+            candidates = glob.glob(os.path.join(ckpt_dir, "ckpt_step_*.pt")) + glob.glob(
+                os.path.join(ckpt_dir, "ckpt_final.pt")
+            )
+            if candidates:
+                def _step_num(p):
+                    base = os.path.basename(p)
+                    if base == "ckpt_final.pt":
+                        return float("inf")
+                    try:
+                        return int(base.split("ckpt_step_")[1].split(".pt")[0])
+                    except Exception:
+                        return -1
+                ckpt_to_load = max(candidates, key=_step_num)
+
     global_step = 0
-    if is_main:
-        print("[resume] disabled: custom DiT training always starts from step 0")
+    if ckpt_to_load:
+        global_step = _load_checkpoint_shape_safe(raw_model, ckpt_to_load, device)
+        if is_main:
+            print(f"[resume] using checkpoint {ckpt_to_load}, step={global_step}")
+    elif is_main:
+        print("[resume] no checkpoint found; starting from step 0")
 
     pbar = tqdm(total=args.max_steps, disable=not is_main, desc="training")
     pbar.update(global_step)
@@ -235,7 +275,8 @@ def train(args: argparse.Namespace) -> None:
             batch = _next_from(iters, diff_loaders, diff)
             cond_vis, x0 = _catvton_wide_tensors(batch, device)
 
-        t = torch.multinomial(timestep_weights, x0.shape[0], replacement=True)
+        # Paper-aligned x0-pred training: sample timesteps uniformly.
+        t = torch.randint(0, schedule_cfg["steps"], (x0.shape[0],), device=device, dtype=torch.long)
         x_t, _ = q_sample(x0, t, sqrt_ab, sqrt_1mab)
         with autocast(enabled=(device.type == "cuda")):
             x0_pred = model(x_t, t, cond_vis)

@@ -1,5 +1,6 @@
 import argparse
 import datetime
+import glob
 import os
 import random
 from typing import Dict, Iterator, Tuple
@@ -81,6 +82,25 @@ def _to_wandb_image(batch: torch.Tensor, caption: str):
     vis = (batch.clamp(-1, 1) + 1) * 0.5
     grid = make_grid(vis, nrow=4)
     return wandb.Image(grid, caption=caption)
+
+
+def _load_checkpoint_shape_safe(raw_model: torch.nn.Module, ckpt_path: str, device: torch.device) -> int:
+    ckpt = torch.load(ckpt_path, map_location=device)
+    state = ckpt.get("model", ckpt)
+    model_state = raw_model.state_dict()
+    compatible = {}
+    skipped = []
+    for k, v in state.items():
+        if k in model_state and model_state[k].shape == v.shape:
+            compatible[k] = v
+        else:
+            skipped.append(k)
+    missing, unexpected = raw_model.load_state_dict(compatible, strict=False)
+    print(
+        f"[resume] loaded {len(compatible)} tensors from {ckpt_path}; "
+        f"skipped {len(skipped)}; missing={len(missing)} unexpected={len(unexpected)}"
+    )
+    return int(ckpt.get("step", 0))
 
 
 def _catvton_wide_tensors(batch: dict, device: torch.device):
@@ -219,9 +239,31 @@ def train(args: argparse.Namespace) -> None:
     ensure_dir(ckpt_dir)
     ensure_dir(sample_dir)
 
+    ckpt_to_load = None
+    if not args.no_resume:
+        ckpt_to_load = args.resume
+        if ckpt_to_load is None:
+            candidates = glob.glob(os.path.join(ckpt_dir, "ckpt_step_*.pt")) + glob.glob(
+                os.path.join(ckpt_dir, "ckpt_final.pt")
+            )
+            if candidates:
+                def _step_num(path: str):
+                    base = os.path.basename(path)
+                    if base == "ckpt_final.pt":
+                        return float("inf")
+                    try:
+                        return int(base.split("ckpt_step_")[1].split(".pt")[0])
+                    except Exception:
+                        return -1
+                ckpt_to_load = max(candidates, key=_step_num)
+
     global_step = 0
-    if is_main:
-        print("[resume] disabled: custom DiT MeanFlow training always starts from step 0")
+    if ckpt_to_load:
+        global_step = _load_checkpoint_shape_safe(raw_model, ckpt_to_load, device)
+        if is_main:
+            print(f"[resume] using checkpoint {ckpt_to_load}, step={global_step}")
+    elif is_main:
+        print("[resume] no checkpoint found; starting from step 0")
 
     pbar = tqdm(total=args.max_steps, disable=not is_main, desc="meanflow-training")
     pbar.update(global_step)

@@ -53,6 +53,5 @@ srun torchrun \
     --save_interval 1000 \
     --image_log_interval 250 \
     --gender all \
-    --no_resume \
     --run_name Stable_diffusion_train_custom_dit_meanflow_250m_30000steps \
     --wandb_project Stable_diffusion

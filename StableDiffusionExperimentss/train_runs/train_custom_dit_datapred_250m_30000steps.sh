@@ -54,6 +54,5 @@ srun torchrun \
     --image_log_interval 250 \
     --inference_steps 30 \
     --gender all \
-    --no_resume \
     --run_name Stable_diffusion_train_custom_dit_datapred_250m_30000steps \
     --wandb_project Stable_diffusion
