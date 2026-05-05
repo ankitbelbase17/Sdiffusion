@@ -44,14 +44,13 @@ srun torchrun \
     --data_path ${DATA_DIR} \
     --phase2_data_path ${PHASE2_DIR} \
     --phase2_start_step 10000 \
-    --curriculum soft \
+    --curriculum none \
     --stage_steps 4000 \
     --max_steps 30000 \
     --batch_size 16 \
     --num_workers 16 \
     --save_interval 1000 \
-    --image_log_interval 500 \
+    --image_log_interval 250 \
     --gender all \
     --run_name Stable_diffusion_train_custom_dit_meanflow_250m_30000steps \
     --wandb_project Stable_diffusion
-

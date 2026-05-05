@@ -7,7 +7,7 @@ import sys
 
 RUN_NAME = 'Stable_diffusion_train_custom_dit_meanflow_250m_30000steps'
 CKPT_DIR = Path('/iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_custom_dit_meanflow_250m_30000steps/checkpoints')
-COMMAND = ['python', 'custom_model_pretraining/evaluate_fid_kid.py', '--approach', 'meanflow', '--model_size', '250m', '--checkpoint', '__CKPT_PATH__', '--curvton_test_data_path', '/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate_test', '--image_size', '64', '--batch_size', '16', '--num_workers', '8', '--eval_frac_curvton', '0.80', '--eval_frac_curvton_overall', '0.25', '--output_json', '/iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_custom_dit_meanflow_250m_30000steps/eval_fid_kid.json']
+COMMAND = ['python', 'custom_model_pretraining/evaluate_fid_kid.py', '--approach', 'meanflow', '--model_size', '250m', '--checkpoint', '__CKPT_PATH__', '--curvton_test_data_path', '/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate_test', '--triplet_test_data_path', '/iopsstor/scratch/cscs/dbartaula/human_gen/triplet_dataset_backup_1', '--street_tryon_data_path', '/iopsstor/scratch/cscs/dbartaula/human_gen/benchmark_datasets/street_tryon', '--image_size', '64', '--batch_size', '16', '--num_workers', '8', '--eval_frac_curvton', '0.80', '--eval_frac_curvton_overall', '0.25', '--eval_frac_triplet', '0.25', '--eval_frac_street', '0.25', '--output_json', '/iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_custom_dit_meanflow_250m_30000steps/eval_fid_kid.json']
 def _latest_ckpt(ckpt_dir: Path) -> Path:
     final_ckpt = ckpt_dir / "ckpt_final.pt"
     if final_ckpt.exists():

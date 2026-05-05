@@ -61,14 +61,10 @@ def _load_cfg(ckpt_cfg: dict) -> DiTConfig:
     )
 
 
-def _resolve_diffusion_steps(args: argparse.Namespace, ckpt: dict | None) -> int:
-    if args.diffusion_steps > 0:
-        return int(args.diffusion_steps)
-    if ckpt is not None:
-        diff_cfg = ckpt.get("diffusion", {})
-        if isinstance(diff_cfg, dict) and int(diff_cfg.get("steps", 0)) > 0:
-            return int(diff_cfg["steps"])
-    raise ValueError("Could not resolve diffusion_steps. Set --diffusion_steps > 0 or use a checkpoint with diffusion.steps metadata.")
+def _resolve_inference_steps(args: argparse.Namespace) -> int:
+    if args.inference_steps <= 0:
+        raise ValueError("--inference_steps must be > 0")
+    return int(args.inference_steps)
 
 
 def build_predict_fn(model, diffusion_steps: int, sqrt_ab: torch.Tensor, sqrt_1mab: torch.Tensor):
@@ -120,7 +116,7 @@ def main(args):
         print("Using initial custom DiT weights (no checkpoint load).")
     print(f"Weights used: {weight_source}")
 
-    diffusion_steps = _resolve_diffusion_steps(args, ckpt)
+    diffusion_steps = _resolve_inference_steps(args)
     betas = make_beta_schedule(diffusion_steps).to(device)
     alphas = 1.0 - betas
     alpha_bar = torch.cumprod(alphas, dim=0)
@@ -165,8 +161,8 @@ if __name__ == "__main__":
     p.add_argument("--street_split", type=str, default="validation", choices=["train", "validation"])
     p.add_argument("--batch_size", type=int, default=8)
     p.add_argument("--num_workers", type=int, default=8)
-    p.add_argument("--diffusion_steps", type=int, default=-1,
-                   help=">0 overrides schedule steps. <=0 uses checkpoint diffusion.steps.")
+    p.add_argument("--inference_steps", type=int, default=30,
+                   help="DDIM-like sampling steps. Match train.py --inference_steps for consistency.")
     p.add_argument("--gender", type=str, default="all", choices=["female", "male", "all"])
     p.add_argument("--max_batches", type=int, default=0, help="0 = full dataset")
     p.add_argument("--eval_frac_curvton", type=float, default=0.02)

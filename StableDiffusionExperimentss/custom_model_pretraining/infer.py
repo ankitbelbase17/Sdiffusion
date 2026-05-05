@@ -35,13 +35,10 @@ def _load_rgb(path: str, h: int, w: int) -> torch.Tensor:
     return tf(Image.open(path).convert("RGB"))
 
 
-def _resolve_diffusion_steps(args: argparse.Namespace, ckpt: dict) -> int:
-    if args.diffusion_steps > 0:
-        return int(args.diffusion_steps)
-    diff_cfg = ckpt.get("diffusion", {})
-    if isinstance(diff_cfg, dict) and int(diff_cfg.get("steps", 0)) > 0:
-        return int(diff_cfg["steps"])
-    raise ValueError("Could not resolve diffusion_steps. Set --diffusion_steps > 0 or use a checkpoint with diffusion.steps metadata.")
+def _resolve_inference_steps(args: argparse.Namespace) -> int:
+    if args.inference_steps <= 0:
+        raise ValueError("--inference_steps must be > 0")
+    return int(args.inference_steps)
 
 
 @torch.no_grad()
@@ -55,7 +52,7 @@ def main(args: argparse.Namespace) -> None:
     model = DiT250M(cfg).to(device).eval()
     model.load_state_dict(ckpt["model"], strict=True)
 
-    diffusion_steps = _resolve_diffusion_steps(args, ckpt)
+    diffusion_steps = _resolve_inference_steps(args)
     betas = make_beta_schedule(diffusion_steps).to(device)
     alphas = 1.0 - betas
     alpha_bar = torch.cumprod(alphas, dim=0)
@@ -74,6 +71,8 @@ def main(args: argparse.Namespace) -> None:
         device=device,
         cond=cond,
     )
+    # Keep behavior consistent with train-log and eval: use left-half try-on region.
+    sample = sample[:, :, :, :cfg.image_size]
     sample = (sample.clamp(-1, 1) + 1) * 0.5
     os.makedirs(os.path.dirname(args.output), exist_ok=True)
     save_image(sample, args.output, nrow=min(args.batch_size, 4))
@@ -85,8 +84,8 @@ if __name__ == "__main__":
     p.add_argument("--checkpoint", type=str, required=True)
     p.add_argument("--output", type=str, default="results/custom_dit_samples.png")
     p.add_argument("--batch_size", type=int, default=4)
-    p.add_argument("--diffusion_steps", type=int, default=-1,
-                   help=">0 overrides schedule steps. <=0 uses checkpoint diffusion.steps.")
+    p.add_argument("--inference_steps", type=int, default=30,
+                   help="DDIM-like sampling steps. Match train.py --inference_steps for consistency.")
     p.add_argument("--person_path", type=str, default=None)
     p.add_argument("--cloth_path", type=str, default=None)
     main(p.parse_args())
