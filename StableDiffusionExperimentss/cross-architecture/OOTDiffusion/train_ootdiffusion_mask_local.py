@@ -9,6 +9,7 @@ from typing import List
 import torch
 import torch.nn.functional as F
 from PIL import Image
+from torch.cuda.amp import autocast, GradScaler
 from torch.optim import AdamW
 from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
@@ -214,6 +215,7 @@ def train(args):
             )
 
     optimizer = AdamW(list(unet_garm.parameters()) + list(unet_vton.parameters()), lr=args.lr)
+    scaler = GradScaler(enabled=(device.type == "cuda"))
     run_dir = os.path.join(args.output_dir, args.run_name or "train_ootdiffusion_mask")
     os.makedirs(run_dir, exist_ok=True)
     image_dir = os.path.join(run_dir, "images")
@@ -240,6 +242,8 @@ def train(args):
             raw_v.load_state_dict(ckpt["unet_vton_state_dict"], strict=False)
         if "optimizer_state_dict" in ckpt:
             optimizer.load_state_dict(ckpt["optimizer_state_dict"])
+        if "scaler_state_dict" in ckpt:
+            scaler.load_state_dict(ckpt["scaler_state_dict"])
         step = int(ckpt.get("step", 0))
         if dist.is_main:
             print(f"Resumed from checkpoint: {ckpt_to_load} (step={step})", flush=True)
@@ -275,25 +279,27 @@ def train(args):
             timesteps = torch.randint(0, scheduler.config.num_train_timesteps, (bs,), device=device, dtype=torch.long)
             noisy_latents = scheduler.add_noise(target_latents, noise, timesteps)
 
-            _, spatial_attn_outputs = unet_garm(
-                garm_latents,
-                0,
-                encoder_hidden_states=prompt_embeds,
-                return_dict=False,
-            )
-            noise_pred = unet_vton(
-                torch.cat([noisy_latents, vton_latents], dim=1),
-                spatial_attn_outputs.copy(),
-                timesteps,
-                encoder_hidden_states=prompt_embeds,
-                return_dict=False,
-            )[0]
+            with autocast(enabled=(device.type == "cuda")):
+                _, spatial_attn_outputs = unet_garm(
+                    garm_latents,
+                    0,
+                    encoder_hidden_states=prompt_embeds,
+                    return_dict=False,
+                )
+                noise_pred = unet_vton(
+                    torch.cat([noisy_latents, vton_latents], dim=1),
+                    spatial_attn_outputs.copy(),
+                    timesteps,
+                    encoder_hidden_states=prompt_embeds,
+                    return_dict=False,
+                )[0]
 
-            # Single training objective: noise MSE.
-            loss = F.mse_loss(noise_pred.float(), noise.float())
+                # Single training objective: noise MSE.
+                loss = F.mse_loss(noise_pred.float(), noise.float())
             optimizer.zero_grad(set_to_none=True)
-            loss.backward()
-            optimizer.step()
+            scaler.scale(loss).backward()
+            scaler.step(optimizer)
+            scaler.update()
             step += 1
 
             if dist.is_main and step % args.log_interval == 0:
@@ -354,6 +360,7 @@ def train(args):
                         "unet_garm_state_dict": raw_g.state_dict(),
                         "unet_vton_state_dict": raw_v.state_dict(),
                         "optimizer_state_dict": optimizer.state_dict(),
+                        "scaler_state_dict": scaler.state_dict(),
                         "args": vars(args),
                     },
                     os.path.join(run_dir, f"ckpt_step_{step}.pt"),
@@ -370,6 +377,7 @@ def train(args):
                 "unet_garm_state_dict": raw_g.state_dict(),
                 "unet_vton_state_dict": raw_v.state_dict(),
                 "optimizer_state_dict": optimizer.state_dict(),
+                "scaler_state_dict": scaler.state_dict(),
                 "args": vars(args),
             },
             os.path.join(run_dir, "ckpt_final.pt"),
