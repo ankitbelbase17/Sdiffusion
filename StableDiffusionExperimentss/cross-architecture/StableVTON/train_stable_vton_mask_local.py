@@ -98,6 +98,8 @@ def train(args):
             gt = batch["ground_truth"].to(dist_info.device, non_blocking=True)
 
             # Masked processing: Generate grey-filled agnostic image
+            if mask.shape[-2:] != person.shape[-2:]:
+                mask = F.interpolate(mask, size=person.shape[-2:], mode="nearest")
             grey_fill = torch.full_like(person, 0.5)
             agnostic = torch.where(mask > 0.5, grey_fill, person)
 

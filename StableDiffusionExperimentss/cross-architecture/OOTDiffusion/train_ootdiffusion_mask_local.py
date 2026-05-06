@@ -217,6 +217,8 @@ def train(args):
             bs = cloth.shape[0]
 
             # Masked requirement: masked person image for vton latent path.
+            if mask.shape[-2:] != person.shape[-2:]:
+                mask = F.interpolate(mask, size=person.shape[-2:], mode="nearest")
             gray = torch.zeros_like(person)
             person_masked = torch.where(mask > 0.5, gray, person)
 
