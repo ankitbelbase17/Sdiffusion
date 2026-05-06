@@ -23,7 +23,10 @@ from torchvision.transforms.functional import resize
 import torchvision.transforms as T
 import random
 import torch.nn.functional as F
-from diffusers.models.autoencoder_kl import AutoencoderKLOutput
+try:
+    from diffusers.models.autoencoder_kl import AutoencoderKLOutput
+except Exception:
+    from diffusers.models.modeling_outputs import AutoencoderKLOutput
 from diffusers.models.vae import DecoderOutput
 
 from ldm.util import log_txt_as_img, exists, default, ismap, isimage, mean_flat, count_params, instantiate_from_config
