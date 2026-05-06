@@ -20,6 +20,9 @@ RUN_NNODES=1
 WORK_DIR="/iopsstor/scratch/cscs/dbartaula/Sdiffusion/StableDiffusionExperimentss"
 DATA_DIR="${DATA_DIR:-/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup/dataset_ultimate_stratified_type}"
 OUT_DIR="${OUT_DIR:-/iopsstor/scratch/cscs/dbartaula/experiments_assets}"
+PRETRAINED_MODEL_PATH="${PRETRAINED_MODEL_PATH:-/iopsstor/scratch/cscs/dbartaula/models/ootd/checkpoints/ootd/checkpoints/ootd}"
+CLIP_MODEL_PATH="${CLIP_MODEL_PATH:-/iopsstor/scratch/cscs/dbartaula/Sdiffusion/OOTDiffusion/checkpoints/clip-vit-large-patch14}"
+UNET_CHECKPOINT_PATH="${UNET_CHECKPOINT_PATH:-/iopsstor/scratch/cscs/dbartaula/Sdiffusion/OOTDiffusion/checkpoints/ootd/ootd_hd/checkpoint-36000}"
 
 cd "${WORK_DIR}"
 
@@ -77,5 +80,5 @@ srun --nodes=1 --ntasks=1 --ntasks-per-node=1 bash -c '
     --rdzv_backend=c10d \
     --rdzv_endpoint='"${MASTER_ADDR}"':'"${MASTER_PORT}"' \
     --rdzv_id=${SLURM_JOB_ID} \
-    cross-architecture/OOTDiffusion/train_ootdiffusion_local.py --curvton_data_path '"${DATA_DIR}"' --batch_size 8 --image_size 512 --num_workers 16 --max_steps 20000 --wandb_project Stable_diffusion --save_interval 1000 --image_log_interval 500 --output_dir '"${OUT_DIR}"' --run_name Stable_diffusion_train_ootdiffusion
+    cross-architecture/OOTDiffusion/train_ootdiffusion_local.py --curvton_data_path '"${DATA_DIR}"' --batch_size 8 --image_size 512 --num_workers 16 --max_steps 20000 --wandb_project Stable_diffusion --save_interval 1000 --image_log_interval 500 --output_dir '"${OUT_DIR}"' --run_name Stable_diffusion_train_ootdiffusion --pretrained_model_path '"${PRETRAINED_MODEL_PATH}"' --clip_model_path '"${CLIP_MODEL_PATH}"' --unet_checkpoint_path '"${UNET_CHECKPOINT_PATH}"'
 '
