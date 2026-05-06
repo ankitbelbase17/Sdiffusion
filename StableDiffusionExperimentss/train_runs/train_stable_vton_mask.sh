@@ -23,7 +23,7 @@ unset PYTHONHOME || true
 unset PYTHONPATH || true
 
 CONDA_ROOT="/iopsstor/scratch/cscs/dbartaula/miniforge3"
-CONDA_ENV_NAME="${CONDA_ENV_NAME:-torch28_env_new}"
+CONDA_ENV_NAME="${CONDA_ENV_NAME:-stablevton_orig}"
 if [ -f "$CONDA_ROOT/etc/profile.d/conda.sh" ]; then
   source "$CONDA_ROOT/etc/profile.d/conda.sh"
 else
