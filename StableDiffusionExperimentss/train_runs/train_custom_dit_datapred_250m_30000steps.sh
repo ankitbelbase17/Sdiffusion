@@ -51,5 +51,6 @@ srun torchrun \
     --image_log_interval 250 \
     --inference_steps 30 \
     --gender all \
+    --resume /iopsstor/scratch/cscs/dbartaula/experiments_assets/Stable_diffusion_train_custom_dit_datapred_250m_30000steps/checkpoints/ckpt_step_59000.pt \
     --run_name Stable_diffusion_train_custom_dit_datapred_250m_30000steps \
     --wandb_project Stable_diffusion
