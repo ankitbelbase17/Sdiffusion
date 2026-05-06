@@ -27,7 +27,10 @@ try:
     from diffusers.models.autoencoder_kl import AutoencoderKLOutput
 except Exception:
     from diffusers.models.modeling_outputs import AutoencoderKLOutput
-from diffusers.models.vae import DecoderOutput
+try:
+    from diffusers.models.vae import DecoderOutput
+except Exception:
+    from diffusers.models.autoencoders.vae import DecoderOutput
 
 from ldm.util import log_txt_as_img, exists, default, ismap, isimage, mean_flat, count_params, instantiate_from_config
 from ldm.modules.ema import LitEma
