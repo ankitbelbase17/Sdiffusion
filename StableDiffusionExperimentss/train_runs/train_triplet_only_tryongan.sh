@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 #SBATCH --job-name=triplet_gan
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -11,7 +11,7 @@
 
 set -euo pipefail
 
-WORK_DIR="/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss"
+WORK_DIR="/iopsstor/scratch/cscs/dbartaula/Sdiffusion/StableDiffusionExperimentss"
 TRIPLET_TRAIN_DIR="/iopsstor/scratch/cscs/dbartaula/human_gen/triplet_dataset_backup_1_1"
 TRIPLET_TEST_DIR="/iopsstor/scratch/cscs/dbartaula/human_gen/triplet_dataset_backup_1"
 

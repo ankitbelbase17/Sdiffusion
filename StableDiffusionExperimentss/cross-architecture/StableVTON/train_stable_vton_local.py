@@ -11,7 +11,7 @@ from torch.optim import AdamW
 from torch.utils.data import DataLoader
 
 from common import add_common_args, cleanup_dist, latest_checkpoint, setup_dist, wrap_ddp
-from train_stable_vton_local import StableCategoryMaskPoseDataset, _collate, _maybe_init_wandb, _to_wandb_image
+from data_utils import StableCategoryMaskPoseDataset, _collate, _maybe_init_wandb, _to_wandb_image
 
 # Dynamically resolve StableVITON path for both SLURM and Local Windows
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -74,6 +74,8 @@ def train(args):
     optimizer = AdamW(trainable_params, lr=args.lr)
     scaler = GradScaler(enabled=(dist_info.device.type == "cuda"))
     wb_run = _maybe_init_wandb(args, dist_info.is_main)
+    ema_loss = None
+    ema_decay = 0.99  # ~window 100 smoothing
 
     run_dir = os.path.join(args.output_dir, args.run_name)
     os.makedirs(run_dir, exist_ok=True)
@@ -122,15 +124,25 @@ def train(args):
                 loss, loss_dict = model.module(x, c)
             
             scaler.scale(loss).backward()
+            scaler.unscale_(optimizer)
+            torch.nn.utils.clip_grad_norm_(trainable_params, 1.0)
             scaler.step(optimizer)
             scaler.update()
 
             step += 1
+            loss_val = float(loss.item())
+            ema_loss = loss_val if ema_loss is None else (ema_decay * ema_loss + (1.0 - ema_decay) * loss_val)
 
             if dist_info.is_main and step % args.log_interval == 0:
-                print(f"[step {step:>6}/{args.max_steps}] loss={loss.item():.6f}", flush=True)
+                print(
+                    f"[step {step:>6}/{args.max_steps}] loss={loss_val:.6f} loss_ema={ema_loss:.6f}",
+                    flush=True,
+                )
                 if wb_run is not None:
-                    wb_run.log({"train/loss": float(loss.item()), "train/step": step}, step=step)
+                    wb_run.log(
+                        {"train/loss": loss_val, "train/loss_ema": float(ema_loss), "train/step": step},
+                        step=step,
+                    )
 
             if dist_info.is_main and step % args.image_log_interval == 0 and wb_run is not None:
                 with torch.no_grad():

@@ -524,6 +524,7 @@ def evaluate_all_splits(
     eval_frac_triplet: float = 0.02,
     eval_frac_street: float = 0.02,
     eval_frac_curvton_extra: Optional[float] = None,
+    curvton_include_names: Optional[set[str]] = None,
     feature_cache_root: Optional[str] = None,
 ):
     curvton_results: Dict[str, dict] = OrderedDict()
@@ -561,6 +562,8 @@ def evaluate_all_splits(
         summarize_single(name, street_results[name])
 
     for name, loader in loaders.curvton.items():
+        if curvton_include_names is not None and name not in curvton_include_names:
+            continue
         frac = eval_frac_curvton
         # Use separate fraction for curvton_overall if provided.
         if eval_frac_curvton_overall is not None and name == "curvton_overall":

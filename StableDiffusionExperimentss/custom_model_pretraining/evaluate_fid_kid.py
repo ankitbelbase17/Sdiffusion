@@ -197,8 +197,15 @@ def main(args: argparse.Namespace) -> None:
         device=device,
         max_batches=args.max_batches,
         eval_frac_curvton=args.eval_frac_curvton,
+        eval_frac_curvton_overall=args.eval_frac_curvton_overall,
         eval_frac_triplet=args.eval_frac_triplet,
         eval_frac_street=args.eval_frac_street,
+        eval_frac_curvton_extra=args.eval_frac_curvton_extra,
+        curvton_include_names=(
+            set(s.strip() for s in args.curvton_include_names.split(",") if s.strip())
+            if args.curvton_include_names
+            else None
+        ),
     )
 
     merged = _build_merged_loader(loaders, args.batch_size, args.num_workers)
@@ -291,6 +298,10 @@ if __name__ == "__main__":
     p.add_argument("--time_embed_scale", type=float, default=1000.0)
     p.add_argument("--max_batches", type=int, default=0)
     p.add_argument("--eval_frac_curvton", type=float, default=0.02)
+    p.add_argument("--eval_frac_curvton_overall", type=float, default=None)
+    p.add_argument("--eval_frac_curvton_extra", type=float, default=None)
+    p.add_argument("--curvton_include_names", type=str, default=None,
+                   help="Comma-separated CurvTON split keys to evaluate (e.g., curvton_dresses,curvton_upper_body).")
     p.add_argument("--eval_frac_triplet", type=float, default=0.02)
     p.add_argument("--eval_frac_street", type=float, default=0.02)
     p.add_argument("--device", type=str, default=None)

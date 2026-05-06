@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 #SBATCH --job-name=medium_only_catvton
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -10,7 +10,7 @@
 
 set -euo pipefail
 
-WORK_DIR="/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss"
+WORK_DIR="/iopsstor/scratch/cscs/dbartaula/Sdiffusion/StableDiffusionExperimentss"
 DATA_DIR="/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate"
 
 cd "$WORK_DIR"

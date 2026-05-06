@@ -32,7 +32,7 @@ if (( RUN_NNODES > SLURM_NNODES )); then
 fi
 export RUN_NNODES
 
-WORK_DIR="/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss"
+WORK_DIR="/iopsstor/scratch/cscs/dbartaula/Sdiffusion/StableDiffusionExperimentss"
 DATA_DIR="/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate"
 
 cd "$WORK_DIR"

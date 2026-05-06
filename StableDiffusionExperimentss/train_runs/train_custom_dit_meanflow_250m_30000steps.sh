@@ -42,7 +42,7 @@ srun torchrun \
     --data_path ${DATA_DIR} \
     --curriculum none \
     --stage_steps 4000 \
-    --max_steps 30000 \
+    --max_steps 100000 \
     --batch_size 16 \
     --num_workers 16 \
     --image_size 512 \

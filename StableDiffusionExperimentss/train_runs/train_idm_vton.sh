@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 #SBATCH --job-name=idm_vton
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -15,7 +15,7 @@ set -euo pipefail
 # Architecture: SDXL inpainting-style UNet with garment conditioning.
 # Loss: diffusion denoising objective on predicted noise (epsilon), with scheduler weighting.
 
-WORK_DIR="/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss"
+WORK_DIR="/iopsstor/scratch/cscs/dbartaula/Sdiffusion/StableDiffusionExperimentss"
 DATA_DIR="${DATA_DIR:-/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate}"
 OUT_DIR="${OUT_DIR:-/iopsstor/scratch/cscs/dbartaula/experiments_assets}"
 

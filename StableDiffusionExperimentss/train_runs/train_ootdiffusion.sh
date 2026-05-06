@@ -17,7 +17,7 @@ RUN_NNODES=1
 # Architecture: latent diffusion with outfitting-fusion person/garment latents.
 # Loss: diffusion denoising objective on predicted noise.
 
-WORK_DIR="/iopsstor/scratch/cscs/dbartaula/StableDiffusionExperimentss"
+WORK_DIR="/iopsstor/scratch/cscs/dbartaula/Sdiffusion/StableDiffusionExperimentss"
 DATA_DIR="${DATA_DIR:-/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup/dataset_ultimate_stratified_type}"
 OUT_DIR="${OUT_DIR:-/iopsstor/scratch/cscs/dbartaula/experiments_assets}"
 
