@@ -18,6 +18,7 @@ RUN_NNODES=1
 # Loss: denoising objective + optional ATV loss in finetune stage.
 
 WORK_DIR="/iopsstor/scratch/cscs/dbartaula/Sdiffusion/StableDiffusionExperimentss"
+STABLEVITON_DIR="/iopsstor/scratch/cscs/dbartaula/Sdiffusion/StableVITON"
 DATA_DIR="${DATA_DIR:-/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate}"
 OUT_DIR="${OUT_DIR:-/iopsstor/scratch/cscs/dbartaula/experiments_assets}"
 
@@ -38,7 +39,7 @@ fi
 conda activate "$CONDA_ENV_NAME"
 
 export PYTHONNOUSERSITE=1
-export PYTHONPATH="${WORK_DIR}:${WORK_DIR}/cross-architecture:${PYTHONPATH:-}"
+export PYTHONPATH="${STABLEVITON_DIR}:${WORK_DIR}/cross-architecture:${WORK_DIR}:${PYTHONPATH:-}"
 export WANDB_PROJECT=Stable_diffusion
 
 export NCCL_SOCKET_IFNAME=hsn
