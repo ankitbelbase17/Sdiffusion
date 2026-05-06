@@ -126,14 +126,62 @@ def _to_wandb_image(batch: torch.Tensor, caption: str):
     return wandb.Image(grid, caption=caption)
 
 
+def _is_valid_diffusers_root(path: str) -> bool:
+    required = [
+        os.path.join(path, "vae", "config.json"),
+        os.path.join(path, "scheduler", "scheduler_config.json"),
+        os.path.join(path, "tokenizer"),
+        os.path.join(path, "text_encoder"),
+    ]
+    return all(os.path.exists(p) for p in required)
+
+
+def _find_diffusers_root(search_root: str) -> str | None:
+    if not os.path.isdir(search_root):
+        return None
+    # Fast checks for common direct locations first.
+    direct_candidates = [
+        search_root,
+        os.path.join(search_root, "ootd"),
+        os.path.join(search_root, "stable-diffusion-v1-5"),
+        os.path.join(search_root, "sd15"),
+    ]
+    for cand in direct_candidates:
+        if _is_valid_diffusers_root(cand):
+            return cand
+
+    for root, _, _ in os.walk(search_root):
+        if _is_valid_diffusers_root(root):
+            return root
+    return None
+
+
+def _resolve_diffusers_root(preferred: str, fallback_search_root: str) -> str:
+    if _is_valid_diffusers_root(preferred):
+        return preferred
+    found = _find_diffusers_root(fallback_search_root)
+    if found is not None:
+        return found
+    raise FileNotFoundError(
+        "Could not find a valid diffusers model root. "
+        f"Tried: {preferred} and searched under: {fallback_search_root}. "
+        "Expected subfolders/files: vae/config.json, scheduler/scheduler_config.json, tokenizer/, text_encoder/."
+    )
+
+
 def train(args):
     dist = setup_dist()
     device = dist.device
 
-    vit_path = os.path.join(OOT_ROOT, "checkpoints", "clip-vit-large-patch14")
-    vae_path = os.path.join(OOT_ROOT, "checkpoints", "ootd")
-    model_path = os.path.join(OOT_ROOT, "checkpoints", "ootd")
-    unet_path = os.path.join(OOT_ROOT, "checkpoints", "ootd", "ootd_hd", "checkpoint-36000")
+    default_ckpt_root = os.path.join(OOT_ROOT, "checkpoints")
+    model_path = _resolve_diffusers_root(args.pretrained_model_path, default_ckpt_root)
+    vae_path = model_path
+    vit_path = args.clip_model_path
+    unet_path = args.unet_checkpoint_path
+    if dist.is_main:
+        print(f"[paths] pretrained_model_path={model_path}", flush=True)
+        print(f"[paths] clip_model_path={vit_path}", flush=True)
+        print(f"[paths] unet_checkpoint_path={unet_path}", flush=True)
 
     dataset = OOTUnmaskedDataset(args.curvton_data_path, gender=args.gender, category=args.category)
     sampler = torch.utils.data.distributed.DistributedSampler(
@@ -338,6 +386,24 @@ if __name__ == "__main__":
     parser.add_argument("--category", type=str, default="all", choices=["all", "dresses", "upper_body", "lower_body", "uncertain"])
     parser.add_argument("--num_inference_steps", type=int, default=30)
     parser.add_argument("--resume", type=str, default=None, help="Optional explicit checkpoint path. If unset, latest checkpoint in run_dir is used.")
+    parser.add_argument(
+        "--pretrained_model_path",
+        type=str,
+        default=os.path.join(OOT_ROOT, "checkpoints", "ootd"),
+        help="Diffusers SD model root containing vae/scheduler/tokenizer/text_encoder.",
+    )
+    parser.add_argument(
+        "--clip_model_path",
+        type=str,
+        default=os.path.join(OOT_ROOT, "checkpoints", "clip-vit-large-patch14"),
+        help="Path or HF id for CLIP vision encoder.",
+    )
+    parser.add_argument(
+        "--unet_checkpoint_path",
+        type=str,
+        default=os.path.join(OOT_ROOT, "checkpoints", "ootd", "ootd_hd", "checkpoint-36000"),
+        help="Path to OOT UNet checkpoint root containing unet_garm/ and unet_vton/.",
+    )
     args = parser.parse_args()
     args.run_name = args.run_name or "train_ootdiffusion"
     train(args)
