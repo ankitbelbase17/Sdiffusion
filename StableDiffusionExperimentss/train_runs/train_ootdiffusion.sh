@@ -20,8 +20,8 @@ RUN_NNODES=1
 WORK_DIR="/iopsstor/scratch/cscs/dbartaula/Sdiffusion/StableDiffusionExperimentss"
 DATA_DIR="${DATA_DIR:-/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup/dataset_ultimate_stratified_type}"
 OUT_DIR="${OUT_DIR:-/iopsstor/scratch/cscs/dbartaula/experiments_assets}"
-PRETRAINED_MODEL_PATH="${PRETRAINED_MODEL_PATH:-/iopsstor/scratch/cscs/dbartaula/models/ootd/checkpoints/ootd/checkpoints/ootd}"
-CLIP_MODEL_PATH="${CLIP_MODEL_PATH:-/iopsstor/scratch/cscs/dbartaula/Sdiffusion/OOTDiffusion/checkpoints/clip-vit-large-patch14}"
+PRETRAINED_MODEL_PATH="${PRETRAINED_MODEL_PATH:-stable-diffusion-v1-5/stable-diffusion-v1-5}"
+CLIP_MODEL_PATH="${CLIP_MODEL_PATH:-openai/clip-vit-large-patch14}"
 UNET_CHECKPOINT_PATH="${UNET_CHECKPOINT_PATH:-/iopsstor/scratch/cscs/dbartaula/Sdiffusion/OOTDiffusion/checkpoints/ootd/ootd_hd/checkpoint-36000}"
 
 cd "${WORK_DIR}"

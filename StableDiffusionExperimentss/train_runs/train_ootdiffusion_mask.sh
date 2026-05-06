@@ -15,6 +15,9 @@ RUN_NNODES=1
 WORK_DIR="/iopsstor/scratch/cscs/dbartaula/Sdiffusion/StableDiffusionExperimentss"
 DATA_DIR="${DATA_DIR:-/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup/dataset_ultimate_stratified_category}"
 OUT_DIR="${OUT_DIR:-/iopsstor/scratch/cscs/dbartaula/experiments_assets}"
+PRETRAINED_MODEL_PATH="${PRETRAINED_MODEL_PATH:-stable-diffusion-v1-5/stable-diffusion-v1-5}"
+CLIP_MODEL_PATH="${CLIP_MODEL_PATH:-openai/clip-vit-large-patch14}"
+UNET_CHECKPOINT_PATH="${UNET_CHECKPOINT_PATH:-/iopsstor/scratch/cscs/dbartaula/Sdiffusion/OOTDiffusion/checkpoints/ootd/ootd_hd/checkpoint-36000}"
 
 cd "${WORK_DIR}"
 
@@ -72,5 +75,5 @@ srun --nodes=1 --ntasks=1 --ntasks-per-node=1 bash -c '
     --log-dir train_runs/logs/torchrun_${SLURM_JOB_ID} \
     --redirects 3 \
     --tee 3 \
-    cross-architecture/OOTDiffusion/train_ootdiffusion_mask_local.py --curvton_data_path '"${DATA_DIR}"' --difficulty all --gender all --batch_size 8 --image_size 512 --num_workers 16 --max_steps 20000 --wandb_project Stable_diffusion --save_interval 1000 --image_log_interval 250 --output_dir '"${OUT_DIR}"' --run_name Stable_diffusion_train_ootdiffusion_mask
+    cross-architecture/OOTDiffusion/train_ootdiffusion_mask_local.py --curvton_data_path '"${DATA_DIR}"' --difficulty all --gender all --batch_size 8 --image_size 512 --num_workers 16 --max_steps 20000 --wandb_project Stable_diffusion --save_interval 1000 --image_log_interval 250 --output_dir '"${OUT_DIR}"' --run_name Stable_diffusion_train_ootdiffusion_mask --pretrained_model_path '"${PRETRAINED_MODEL_PATH}"' --clip_model_path '"${CLIP_MODEL_PATH}"' --unet_checkpoint_path '"${UNET_CHECKPOINT_PATH}"'
 '
