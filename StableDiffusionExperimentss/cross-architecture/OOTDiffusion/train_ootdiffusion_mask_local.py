@@ -189,6 +189,9 @@ def _find_diffusers_root(search_root: str) -> str | None:
 
 
 def _resolve_diffusers_root(preferred: str, fallback_search_root: str) -> str:
+    # If this is not a local path, treat it as an HF repo id and let diffusers handle it.
+    if not os.path.isabs(preferred) and not os.path.exists(preferred):
+        return preferred
     if _is_valid_diffusers_root(preferred):
         return preferred
     found = _find_diffusers_root(fallback_search_root)

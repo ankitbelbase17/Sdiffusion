@@ -75,5 +75,5 @@ srun --nodes=1 --ntasks=1 --ntasks-per-node=1 bash -c '
     --log-dir train_runs/logs/torchrun_${SLURM_JOB_ID} \
     --redirects 3 \
     --tee 3 \
-    cross-architecture/OOTDiffusion/train_ootdiffusion_mask_local.py --curvton_data_path '"${DATA_DIR}"' --difficulty all --gender all --batch_size 8 --image_size 512 --num_workers 16 --max_steps 20000 --wandb_project Stable_diffusion --save_interval 1000 --image_log_interval 250 --output_dir '"${OUT_DIR}"' --run_name Stable_diffusion_train_ootdiffusion_mask --pretrained_model_path '"${PRETRAINED_MODEL_PATH}"' --clip_model_path '"${CLIP_MODEL_PATH}"' --unet_checkpoint_path '"${UNET_CHECKPOINT_PATH}"'
+    cross-architecture/OOTDiffusion/train_ootdiffusion_mask_local.py --curvton_data_path '"${DATA_DIR}"' --difficulty all --gender all --batch_size 8 --image_size 512 --num_workers 16 --max_steps 20000 --wandb_project Stable_diffusion --save_interval 100 --image_log_interval 100 --output_dir '"${OUT_DIR}"' --run_name Stable_diffusion_train_ootdiffusion_mask --pretrained_model_path '"${PRETRAINED_MODEL_PATH}"' --clip_model_path '"${CLIP_MODEL_PATH}"' --unet_checkpoint_path '"${UNET_CHECKPOINT_PATH}"'
 '
