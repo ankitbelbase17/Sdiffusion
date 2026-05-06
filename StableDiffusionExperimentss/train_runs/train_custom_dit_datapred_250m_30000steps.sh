@@ -12,7 +12,6 @@ set -euo pipefail
 
 WORK_DIR="/iopsstor/scratch/cscs/dbartaula/Sdiffusion/StableDiffusionExperimentss"
 DATA_DIR="/iopsstor/scratch/cscs/dbartaula/human_gen/dataset_v3_backup_1/dataset_ultimate"
-PHASE2_DIR="/iopsstor/scratch/cscs/dbartaula/human_gen/triplet_dataset_backup_1_1"
 
 cd "$WORK_DIR"
 unset PYTHONHOME || true
@@ -41,8 +40,6 @@ srun torchrun \
   --master_port=$MASTER_PORT \
   custom_model_pretraining/train.py \
     --data_path ${DATA_DIR} \
-    --phase2_data_path ${PHASE2_DIR} \
-    --phase2_start_step 10000 \
     --curriculum none \
     --stage_steps 4000 \
     --max_steps 30000 \

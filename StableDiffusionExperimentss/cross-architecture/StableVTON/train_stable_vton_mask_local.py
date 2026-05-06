@@ -10,6 +10,8 @@ from torch.cuda.amp import autocast, GradScaler
 from torch.optim import AdamW
 from torch.utils.data import DataLoader
 from torch.distributed.elastic.multiprocessing.errors import record
+from torchvision.transforms import InterpolationMode
+from torchvision.transforms import functional as TF
 
 from common import add_common_args, cleanup_dist, latest_checkpoint, setup_dist, wrap_ddp
 from train_stable_vton_mask_local import StableCategoryMaskPoseDataset, _collate, _maybe_init_wandb, _to_wandb_image
@@ -98,9 +100,19 @@ def train(args):
             mask = batch["mask"].to(dist_info.device, non_blocking=True)
             gt = batch["ground_truth"].to(dist_info.device, non_blocking=True)
 
+            # Enforce training resolution in image space.
+            out_size = [args.image_size, args.image_size]
+            person = TF.resize(person, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
+            cloth = TF.resize(cloth, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
+            pose = TF.resize(pose, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
+            gt = TF.resize(gt, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
+            mask = TF.resize(mask, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
+            mask = (mask > 0.5).float()
+
             # Masked processing: Generate grey-filled agnostic image
             if mask.shape[-2:] != person.shape[-2:]:
-                mask = F.interpolate(mask, size=person.shape[-2:], mode="nearest")
+                mask = F.interpolate(mask, size=person.shape[-2:], mode="bicubic", align_corners=False)
+                mask = (mask > 0.5).float()
             grey_fill = torch.full_like(person, 0.5)
             agnostic = torch.where(mask > 0.5, grey_fill, person)
 

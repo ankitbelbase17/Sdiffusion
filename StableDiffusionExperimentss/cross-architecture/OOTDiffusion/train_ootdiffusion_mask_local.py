@@ -12,6 +12,8 @@ from PIL import Image
 from torch.optim import AdamW
 from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
+from torchvision.transforms import InterpolationMode
+from torchvision.transforms import functional as TF
 from torchvision.utils import make_grid
 from torch.distributed.elastic.multiprocessing.errors import record
 from transformers import AutoProcessor, CLIPTextModel, CLIPTokenizer, CLIPVisionModelWithProjection
@@ -40,10 +42,11 @@ _FC_MC_RE = re.compile(r"_(?:fc|mc)_")
 class OOTMaskedDataset(Dataset):
     """root/category/gender/{cloth_image,initial_person_image,mask_image,tryon_image}."""
 
-    def __init__(self, root_dir: str, gender: str = "all", category: str = "all"):
+    def __init__(self, root_dir: str, gender: str = "all", category: str = "all", image_size: int = 512):
         self.root_dir = root_dir
         self.gender = gender
         self.category = category.lower()
+        self.image_size = int(image_size)
         self.samples = []
         self.img_tf = transforms.Compose(
             [
@@ -100,8 +103,16 @@ class OOTMaskedDataset(Dataset):
         cloth_p, person_p, mask_p, tryon_p, cat = self.samples[idx]
         cloth = self.img_tf(Image.open(cloth_p).convert("RGB"))
         person = self.img_tf(Image.open(person_p).convert("RGB"))
-        mask = (self.mask_tf(Image.open(mask_p).convert("L")) > 0.5).float()
+        mask = self.mask_tf(Image.open(mask_p).convert("L"))
         target = self.img_tf(Image.open(tryon_p).convert("RGB"))
+
+        # Enforce training resolution in image space.
+        out_size = [self.image_size, self.image_size]
+        cloth = TF.resize(cloth, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
+        person = TF.resize(person, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
+        target = TF.resize(target, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
+        mask = TF.resize(mask, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
+        mask = (mask > 0.5).float()
         return {"cloth": cloth, "person": person, "mask": mask, "target": target, "category": cat}
 
 
@@ -136,7 +147,12 @@ def train(args):
     model_path = os.path.join(OOT_ROOT, "checkpoints", "ootd")
     unet_path = os.path.join(OOT_ROOT, "checkpoints", "ootd", "ootd_hd", "checkpoint-36000")
 
-    dataset = OOTMaskedDataset(args.curvton_data_path, gender=args.gender, category=args.category)
+    dataset = OOTMaskedDataset(
+        args.curvton_data_path,
+        gender=args.gender,
+        category=args.category,
+        image_size=(args.image_size if args.image_size > 0 else 512),
+    )
     sampler = torch.utils.data.distributed.DistributedSampler(
         dataset, num_replicas=dist.world_size, rank=dist.rank, shuffle=True, drop_last=True
     ) if dist.world_size > 1 else None
@@ -189,8 +205,8 @@ def train(args):
         except Exception:
             wb = None
 
-    save_interval = 1000
-    image_log_interval = 250
+    save_interval = args.save_interval
+    image_log_interval = args.image_log_interval
 
     ckpt_to_load = args.resume if args.resume else latest_checkpoint(run_dir)
     step = 0
@@ -219,7 +235,8 @@ def train(args):
 
             # Masked requirement: masked person image for vton latent path.
             if mask.shape[-2:] != person.shape[-2:]:
-                mask = F.interpolate(mask, size=person.shape[-2:], mode="nearest")
+                mask = F.interpolate(mask, size=person.shape[-2:], mode="bicubic", align_corners=False)
+                mask = (mask > 0.5).float()
             gray = torch.zeros_like(person)
             person_masked = torch.where(mask > 0.5, gray, person)
 

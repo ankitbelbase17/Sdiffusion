@@ -72,5 +72,5 @@ srun --nodes=1 --ntasks=1 --ntasks-per-node=1 bash -c '
     --log-dir train_runs/logs/torchrun_${SLURM_JOB_ID} \
     --redirects 3 \
     --tee 3 \
-    cross-architecture/StableVTON/train_stable_vton_mask_local.py --curvton_data_path '"${DATA_DIR}"' --category all --batch_size 8 --image_size 512 --num_workers 16 --max_steps 20000 --wandb_project Stable_diffusion --save_interval 1000 --image_log_interval 500 --output_dir '"${OUT_DIR}"' --run_name Stable_diffusion_train_stable_vton_mask
+    cross-architecture/StableVTON/train_stable_vton_mask_local.py --curvton_data_path '"${DATA_DIR}"' --category all --batch_size 8 --image_size 512 --num_workers 16 --max_steps 20000 --wandb_project Stable_diffusion --save_interval 1000 --image_log_interval 250 --output_dir '"${OUT_DIR}"' --run_name Stable_diffusion_train_stable_vton_mask
 '

@@ -189,7 +189,7 @@ def add_common_args(parser: argparse.ArgumentParser):
     parser.add_argument("--max_steps", type=int, default=12000)
     parser.add_argument("--lr", type=float, default=1e-5)
     parser.add_argument("--save_interval", type=int, default=1000)
-    parser.add_argument("--image_log_interval", type=int, default=500)
+    parser.add_argument("--image_log_interval", type=int, default=250)
     parser.add_argument("--log_interval", type=int, default=10)
     parser.add_argument("--output_dir", type=str, default="/iopsstor/scratch/cscs/dbartaula/experiments_assets")
     parser.add_argument("--run_name", type=str, default=None)

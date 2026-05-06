@@ -254,14 +254,33 @@ def train(args: argparse.Namespace) -> None:
     while global_step < args.max_steps:
         in_phase2 = phase2_loader is not None and global_step >= args.phase2_start_step
         if in_phase2:
+            phase2_batch = None
             if phase2_iter is None:
                 phase2_iter = iter(phase2_loader)
             try:
                 phase2_batch = next(phase2_iter)
             except StopIteration:
                 phase2_iter = iter(phase2_loader)
-                phase2_batch = next(phase2_iter)
-            cond_vis, x0 = _catvton_wide_tensors(phase2_batch, device)
+                try:
+                    phase2_batch = next(phase2_iter)
+                except StopIteration:
+                    # Can happen when per-rank phase2 shard is empty (e.g., drop_last + small shard).
+                    # Fallback to main loader instead of crashing.
+                    phase2_batch = None
+            if phase2_batch is not None:
+                cond_vis, x0 = _catvton_wide_tensors(phase2_batch, device)
+            elif args.curriculum == "none":
+                try:
+                    batch = next(all_iter)
+                except StopIteration:
+                    all_iter = iter(all_loader)
+                    batch = next(all_iter)
+                cond_vis, x0 = _catvton_wide_tensors(batch, device)
+            else:
+                we, wm, wh = curriculum_weights(global_step, args.curriculum, args.stage_steps)
+                diff = random.choices(["easy", "medium", "hard"], weights=[we, wm, wh])[0]
+                batch = _next_from(iters, diff_loaders, diff)
+                cond_vis, x0 = _catvton_wide_tensors(batch, device)
         elif args.curriculum == "none":
             try:
                 batch = next(all_iter)
