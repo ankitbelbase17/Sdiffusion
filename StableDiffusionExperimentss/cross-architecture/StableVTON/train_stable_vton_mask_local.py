@@ -9,6 +9,7 @@ import torch.nn.functional as F
 from torch.cuda.amp import autocast, GradScaler
 from torch.optim import AdamW
 from torch.utils.data import DataLoader
+from torch.distributed.elastic.multiprocessing.errors import record
 
 from common import add_common_args, cleanup_dist, latest_checkpoint, setup_dist, wrap_ddp
 from train_stable_vton_mask_local import StableCategoryMaskPoseDataset, _collate, _maybe_init_wandb, _to_wandb_image
@@ -169,9 +170,14 @@ def train(args):
     cleanup_dist()
 
 
-if __name__ == "__main__":
+@record
+def _main():
     parser = argparse.ArgumentParser(description="Official StableVITON Trainer (Masked)")
     add_common_args(parser)
     parser.add_argument("--use_atv_loss", action="store_true")
     args = parser.parse_args()
     train(args)
+
+
+if __name__ == "__main__":
+    _main()

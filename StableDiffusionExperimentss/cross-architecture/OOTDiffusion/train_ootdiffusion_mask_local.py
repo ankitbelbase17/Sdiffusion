@@ -13,6 +13,7 @@ from torch.optim import AdamW
 from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
 from torchvision.utils import make_grid
+from torch.distributed.elastic.multiprocessing.errors import record
 from transformers import AutoProcessor, CLIPTextModel, CLIPTokenizer, CLIPVisionModelWithProjection
 
 from diffusers import AutoencoderKL, DDPMScheduler
@@ -341,7 +342,8 @@ def train(args):
     cleanup_dist()
 
 
-if __name__ == "__main__":
+@record
+def _main():
     parser = argparse.ArgumentParser(description="OOT masked trainer with inference-faithful forward")
     add_common_args(parser)
     parser.add_argument("--category", type=str, default="all", choices=["all", "dresses", "upper_body", "lower_body", "uncertain"])
@@ -350,3 +352,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     args.run_name = args.run_name or "train_ootdiffusion_mask"
     train(args)
+
+
+if __name__ == "__main__":
+    _main()
