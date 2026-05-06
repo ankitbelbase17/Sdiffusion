@@ -29,6 +29,37 @@ from omegaconf import OmegaConf
 from cldm.model import create_model
 
 
+def _pad_to_square_batch(x: torch.Tensor) -> torch.Tensor:
+    _, _, h, w = x.shape
+    if h == w:
+        return x
+    if h > w:
+        pad = h - w
+        left = pad // 2
+        right = pad - left
+        return TF.pad(x, [left, 0, right, 0], fill=0.0)
+    pad = w - h
+    top = pad // 2
+    bottom = pad - top
+    return TF.pad(x, [0, top, 0, bottom], fill=0.0)
+
+
+def _collate_and_preprocess(rows, target_size: int):
+    batch = _collate(rows)
+    out = [target_size, target_size]
+
+    # Image-space preprocessing in dataloader worker:
+    # pad mask to square first (e.g., 1024x768 -> 1024x1024), then resize all.
+    batch["person"] = TF.resize(batch["person"], size=out, interpolation=InterpolationMode.BICUBIC, antialias=True)
+    batch["cloth"] = TF.resize(batch["cloth"], size=out, interpolation=InterpolationMode.BICUBIC, antialias=True)
+    batch["pose"] = TF.resize(batch["pose"], size=out, interpolation=InterpolationMode.BICUBIC, antialias=True)
+    batch["ground_truth"] = TF.resize(batch["ground_truth"], size=out, interpolation=InterpolationMode.BICUBIC, antialias=True)
+    mask = _pad_to_square_batch(batch["mask"])
+    mask = TF.resize(mask, size=out, interpolation=InterpolationMode.BICUBIC, antialias=True)
+    batch["mask"] = (mask > 0.5).float()
+    return batch
+
+
 def train(args):
     dist_info = setup_dist()
     
@@ -64,7 +95,7 @@ def train(args):
         sampler=sampler,
         num_workers=args.num_workers,
         drop_last=True,
-        collate_fn=_collate,
+        collate_fn=lambda rows: _collate_and_preprocess(rows, args.image_size if args.image_size > 0 else 512),
         pin_memory=True,
         persistent_workers=(args.num_workers > 0),
     )
@@ -100,19 +131,7 @@ def train(args):
             mask = batch["mask"].to(dist_info.device, non_blocking=True)
             gt = batch["ground_truth"].to(dist_info.device, non_blocking=True)
 
-            # Enforce training resolution in image space.
-            out_size = [args.image_size, args.image_size]
-            person = TF.resize(person, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
-            cloth = TF.resize(cloth, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
-            pose = TF.resize(pose, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
-            gt = TF.resize(gt, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
-            mask = TF.resize(mask, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
-            mask = (mask > 0.5).float()
-
             # Masked processing: Generate grey-filled agnostic image
-            if mask.shape[-2:] != person.shape[-2:]:
-                mask = F.interpolate(mask, size=person.shape[-2:], mode="bicubic", align_corners=False)
-                mask = (mask > 0.5).float()
             grey_fill = torch.full_like(person, 0.5)
             agnostic = torch.where(mask > 0.5, grey_fill, person)
 
@@ -157,13 +176,17 @@ def train(args):
                     )
                 payload = {"train/step": step}
                 if "samples_cfg_scale_5.00" in log_dict:
-                    payload["images/pred_tryon"] = _to_wandb_image(log_dict["samples_cfg_scale_5.00"], f"Pred step {step}")
+                    payload["images/generated_tryon"] = _to_wandb_image(log_dict["samples_cfg_scale_5.00"], f"Generated step {step}")
                 if "input" in log_dict:
-                    payload["images/gt_tryon"] = _to_wandb_image(log_dict["input"], f"GT step {step}")
+                    payload["images/target_tryon"] = _to_wandb_image(log_dict["input"], f"Target step {step}")
                 if "agn" in official_batch:
-                    payload["images/person"] = _to_wandb_image(official_batch["agn"][:8].cpu(), f"Person step {step}")
+                    payload["images/masked_person"] = _to_wandb_image(official_batch["agn"][:8].cpu(), f"Masked person step {step}")
                 if "cloth" in official_batch:
                     payload["images/cloth"] = _to_wandb_image(official_batch["cloth"][:8].cpu(), f"Cloth step {step}")
+                if "agn_mask" in official_batch:
+                    payload["images/mask"] = _to_wandb_image((official_batch["agn_mask"][:8].repeat(1, 3, 1, 1).cpu() * 2 - 1), f"Mask step {step}")
+                if "image_densepose" in official_batch:
+                    payload["images/pose"] = _to_wandb_image(official_batch["image_densepose"][:8].cpu(), f"Pose step {step}")
                 wb_run.log(payload, step=step)
 
             if dist_info.is_main and step % args.save_interval == 0:

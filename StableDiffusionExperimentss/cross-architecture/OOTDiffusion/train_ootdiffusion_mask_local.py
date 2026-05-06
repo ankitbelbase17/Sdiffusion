@@ -63,6 +63,22 @@ class OOTMaskedDataset(Dataset):
         if not self.samples:
             raise RuntimeError(f"No samples found under {root_dir}")
 
+    @staticmethod
+    def _pad_to_square(t: torch.Tensor) -> torch.Tensor:
+        # Keep geometry: pad shorter side to make square, no stretching.
+        _, h, w = t.shape
+        if h == w:
+            return t
+        if h > w:
+            pad = h - w
+            left = pad // 2
+            right = pad - left
+            return TF.pad(t, [left, 0, right, 0], fill=0.0)
+        pad = w - h
+        top = pad // 2
+        bottom = pad - top
+        return TF.pad(t, [0, top, 0, bottom], fill=0.0)
+
     def _collect(self, category: str, gender: str):
         leaf = os.path.join(self.root_dir, category, gender)
         cloth_dir = os.path.join(leaf, "cloth_image")
@@ -106,12 +122,16 @@ class OOTMaskedDataset(Dataset):
         mask = self.mask_tf(Image.open(mask_p).convert("L"))
         target = self.img_tf(Image.open(tryon_p).convert("RGB"))
 
-        # Enforce training resolution in image space.
-        out_size = [self.image_size, self.image_size]
-        cloth = TF.resize(cloth, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
-        person = TF.resize(person, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
-        target = TF.resize(target, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
-        mask = TF.resize(mask, size=out_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
+        # Image-space preprocessing in dataloader:
+        # - person/cloth/target are already typically 1024x1024
+        # - mask can be 1024x768, so pad to square first (no stretching)
+        # - then resize all to training size (e.g., 512x512) with bicubic+antialias
+        target_size = [self.image_size, self.image_size]
+        cloth = TF.resize(cloth, size=target_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
+        person = TF.resize(person, size=target_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
+        target = TF.resize(target, size=target_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
+        mask = self._pad_to_square(mask)
+        mask = TF.resize(mask, size=target_size, interpolation=InterpolationMode.BICUBIC, antialias=True)
         mask = (mask > 0.5).float()
         return {"cloth": cloth, "person": person, "mask": mask, "target": target, "category": cat}
 
@@ -316,9 +336,9 @@ def train(args):
                     wb.log(
                         {
                             "train/step": step,
-                            "images/pred_tryon": _to_wandb_image(pred, f"pred {step}"),
-                            "images/gt_tryon": _to_wandb_image(target[:k], f"gt {step}"),
-                            "images/person": _to_wandb_image(person_masked[:k], f"person {step}"),
+                            "images/generated_tryon": _to_wandb_image(pred, f"generated {step}"),
+                            "images/target_tryon": _to_wandb_image(target[:k], f"target {step}"),
+                            "images/masked_person": _to_wandb_image(person_masked[:k], f"masked person {step}"),
                             "images/cloth": _to_wandb_image(cloth[:k], f"cloth {step}"),
                             "images/mask": _to_wandb_image(mask[:k].repeat(1, 3, 1, 1) * 2 - 1, f"mask {step}"),
                         },
