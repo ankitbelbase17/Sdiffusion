@@ -10,6 +10,7 @@ import glob
 import os
 import sys
 import datetime
+import importlib.util
 from dataclasses import dataclass
 
 import torch
@@ -29,7 +30,15 @@ try:
     from config import IMAGE_SIZE  # noqa: E402
 except Exception:
     IMAGE_SIZE = (512, 384)
-from utils import CombinedCurvtonDataset, CurvtonDataset, collate_fn  # noqa: E402
+
+_UTILS_PATH = os.path.join(ROOT, "utils.py")
+_utils_spec = importlib.util.spec_from_file_location("sdexp_utils", _UTILS_PATH)
+_utils_mod = importlib.util.module_from_spec(_utils_spec)
+assert _utils_spec is not None and _utils_spec.loader is not None
+_utils_spec.loader.exec_module(_utils_mod)
+CombinedCurvtonDataset = _utils_mod.CombinedCurvtonDataset
+CurvtonDataset = _utils_mod.CurvtonDataset
+collate_fn = _utils_mod.collate_fn
 
 
 @dataclass
